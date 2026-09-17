@@ -3,7 +3,7 @@ name: Update Subscriptions
 on:
   schedule:
     # 每天 UTC 0/6/12/18 点运行
-    - cron: '0 */6 * * *'
+    - cron: '0 */12 * * *'
   workflow_dispatch:
 
 jobs:

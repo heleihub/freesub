@@ -59,7 +59,7 @@ SOURCE_URLS = [
     "https://raw.githubusercontent.com/10ium/HiN-VPN/main/subscription/base64/mix",
     "https://github.com/Au1rxx/free-vpn-subscriptions/raw/main/output/v2ray-base64.txt",
     "https://raw.githubusercontent.com/freefq/free/master/v2",
-    "https://open.heleimail.workers.dev/",
+    "https://open.jierli.dpdns.org/",
     "https://www.ermao.net/sub/v2ray/ermao.net",
     "https://raw.githubusercontent.com/ishalumi/proxy-node-collector/main/output/nodes_base64.txt",
     "https://gist.githubusercontent.com/shuaidaoya/9e5cf2749c0ce79932dd9229d9b4162b/raw/base64.txt",

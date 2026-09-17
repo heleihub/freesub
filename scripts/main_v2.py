@@ -87,8 +87,8 @@ PROBE_RETRY_TIMEOUT    = 4       # 活性重试超时 (秒) — 死节点快速�
 PORT_KNOCK_TIMEOUT     = 2.5     # 端口预检超时
 IP_ECHO_TIMEOUT        = 6.0     # 出口 IP 检测超时
 SPEED_TEST_BYTES       = 2_500_000   # 2.5MB 下载测速 (2.5MB 足以算准吞吐且 < 70KB/s 判定线不变)
-SPEED_TEST_BUDGET      = 5.0         # 测速时间预算 (秒) — 2.5MB@70KB/s=36s 必断流, 5s 预算足够判型
-SPEED_MIN_BYTES_PER_S  = 70_000      # 吞吐 < 70KB/s 判定断流/不可用 (标准不变)
+SPEED_TEST_BUDGET      = 4.0         # 测速时间预算 (秒) — 2.5MB@70KB/s=36s 必断流, 5s 预算足够判型
+SPEED_MIN_BYTES_PER_S  = 35_000      # 吞吐 < 70KB/s 判定断流/不可用 (标准不变)
 IP_ECHO_URLS = [                    # 经代理获取出口 IP (多路冗余)
     "https://api.ip.sb/geoip",                         # JSON: country_code/asn/isp
     "https://ipinfo.io/json",                          # JSON: country/org
@@ -104,7 +104,7 @@ SPEED_TEST_URLS = [               # 测速端点多路 (实测部分节点商屏
     "https://cachefly.cachefly.net/10mb.test",
 ]
 TRACE_URL = "https://www.cloudflare.com/cdn-cgi/trace"      # warp=on 检测套壳节点
-MAX_WORKERS_TEST    = 48            # 同时 sing-box 实测节点数 (Azure 2C7G 实测 24→48 稳定; sing-box 单实例 < 30MB)
+MAX_WORKERS_TEST    = int(os.environ.get("MAX_WORKERS_TEST", "20"))            # 同时 sing-box 实测节点数 (Azure 2C7G 实测 24→48 稳定; sing-box 单实例 < 30MB)
 MAX_WORKERS_FETCH   = 8
 MAX_WORKERS_CLASSIFY = 32
 
@@ -913,7 +913,241 @@ def parse_ssh(uri: str):
     return outbound
 
 
+
+def _clean_name(value, fallback="node"):
+    name = urllib.parse.unquote(str(value or "")).strip()
+    return name[:180] or fallback
+
+
+def _clash_tls(proxy, server):
+    if not proxy.get("tls") and not proxy.get("servername") and not proxy.get("sni") and not proxy.get("reality-opts"):
+        return None
+    tls = {
+        "enabled": bool(proxy.get("tls", True)),
+        "server_name": str(proxy.get("servername") or proxy.get("sni") or server),
+        "insecure": bool(proxy.get("skip-cert-verify", False)),
+    }
+    if proxy.get("alpn"):
+        tls["alpn"] = list(proxy["alpn"]) if isinstance(proxy["alpn"], list) else [str(proxy["alpn"])]
+    fp = proxy.get("client-fingerprint") or proxy.get("fingerprint")
+    if fp:
+        tls["utls"] = {"enabled": True, "fingerprint": str(fp)}
+    ro = proxy.get("reality-opts") or {}
+    if ro.get("public-key") or ro.get("public_key"):
+        tls["reality"] = {
+            "enabled": True,
+            "public_key": str(ro.get("public-key") or ro.get("public_key")),
+            "short_id": str(ro.get("short-id") or ro.get("short_id") or ""),
+        }
+        tls["enabled"] = True
+    return tls
+
+
+def _clash_transport(proxy):
+    network = str(proxy.get("network") or "tcp").lower()
+    if network in ("tcp", "none", "raw", ""):
+        return None
+    if network == "ws":
+        t = {"type": "ws"}
+        opts = proxy.get("ws-opts") or {}
+        if opts.get("path"):
+            t["path"] = str(opts["path"])
+        headers = opts.get("headers") or {}
+        if headers.get("Host"):
+            t["headers"] = {"Host": str(headers["Host"])}
+        return t
+    if network == "grpc":
+        opts = proxy.get("grpc-opts") or {}
+        return {"type": "grpc", "service_name": str(opts.get("grpc-service-name") or opts.get("serviceName") or "")}
+    if network in ("h2", "http"):
+        opts = proxy.get("h2-opts") or proxy.get("http-opts") or {}
+        t = {"type": "http"}
+        hosts = opts.get("host") or opts.get("hosts") or []
+        if isinstance(hosts, str):
+            hosts = [x for x in hosts.split(",") if x]
+        if hosts:
+            t["host"] = hosts
+        if opts.get("path"):
+            t["path"] = str(opts["path"])
+        return t
+    if network == "httpupgrade":
+        opts = proxy.get("httpupgrade-opts") or {}
+        t = {"type": "httpupgrade"}
+        if opts.get("path"):
+            t["path"] = str(opts["path"])
+        headers = opts.get("headers") or {}
+        if headers.get("Host"):
+            t["host"] = str(headers["Host"])
+        return t
+    return None
+
+
+def parse_clash_proxy(proxy: dict):
+    """Clash/Mihomo proxy dict -> unified sing-box outbound."""
+    if not isinstance(proxy, dict):
+        return None
+    typ = str(proxy.get("type") or "").lower().strip()
+    server = str(proxy.get("server") or proxy.get("address") or "").strip()
+    if not server:
+        return None
+    try:
+        port = int(proxy.get("port") or proxy.get("server_port") or 0)
+    except Exception:
+        port = 0
+    if port <= 0:
+        return None
+    name = _clean_name(proxy.get("name") or proxy.get("ps") or proxy.get("tag"))
+    out = {"type": typ, "tag": name, "server": server, "server_port": port}
+    if typ == "vless":
+        uid = str(proxy.get("uuid") or "").strip()
+        if not uid: return None
+        out["uuid"] = uid
+        if proxy.get("flow"): out["flow"] = str(proxy["flow"])
+        tls = _clash_tls(proxy, server)
+        if tls: out["tls"] = tls
+        tr = _clash_transport(proxy)
+        if tr: out["transport"] = tr
+    elif typ == "vmess":
+        uid = str(proxy.get("uuid") or "").strip()
+        if not uid: return None
+        out.update({"uuid": uid, "security": str(proxy.get("cipher") or "auto")})
+        aid = proxy.get("alterId", proxy.get("alter_id", 0))
+        try:
+            if int(aid or 0): out["alter_id"] = int(aid)
+        except Exception: pass
+        tls = _clash_tls(proxy, server)
+        if tls: out["tls"] = tls
+        tr = _clash_transport(proxy)
+        if tr: out["transport"] = tr
+    elif typ == "trojan":
+        password = proxy.get("password")
+        if password is None: return None
+        out["password"] = str(password)
+        tls = _clash_tls(proxy, server) or {"enabled": True, "server_name": str(proxy.get("sni") or server), "insecure": bool(proxy.get("skip-cert-verify", False))}
+        out["tls"] = tls
+        tr = _clash_transport(proxy)
+        if tr: out["transport"] = tr
+    elif typ in ("ss", "shadowsocks"):
+        method, password = proxy.get("cipher") or proxy.get("method"), proxy.get("password")
+        if not method or password is None: return None
+        out = {"type": "shadowsocks", "tag": name, "server": server, "server_port": port,
+               "method": str(method).lower(), "password": str(password)}
+    elif typ in ("hysteria2", "hy2"):
+        password = proxy.get("password")
+        if password is None: return None
+        out.update({"type": "hysteria2", "password": str(password),
+                    "tls": {"enabled": True, "server_name": str(proxy.get("sni") or server),
+                            "insecure": bool(proxy.get("skip-cert-verify", False))}})
+        if proxy.get("alpn"):
+            out["tls"]["alpn"] = proxy["alpn"] if isinstance(proxy["alpn"], list) else [str(proxy["alpn"])]
+        if proxy.get("obfs") and str(proxy.get("obfs")).lower() != "none":
+            out["obfs"] = {"type": str(proxy["obfs"]), "password": str(proxy.get("obfs-password") or "")}
+        if proxy.get("ports") or proxy.get("mport"):
+            ranges = _parse_port_range(str(proxy.get("ports") or proxy.get("mport")))
+            if ranges:
+                out["server_ports"] = ranges
+                out.pop("server_port", None)
+    elif typ == "tuic":
+        if not proxy.get("uuid") or proxy.get("password") is None: return None
+        out.update({"uuid": str(proxy["uuid"]), "password": str(proxy["password"]),
+                    "congestion_control": str(proxy.get("congestion-controller") or proxy.get("congestion_control") or "bbr"),
+                    "udp_relay_mode": str(proxy.get("udp-relay-mode") or proxy.get("udp_relay_mode") or "native"),
+                    "tls": {"enabled": True, "server_name": str(proxy.get("sni") or server),
+                            "insecure": bool(proxy.get("skip-cert-verify", False))}})
+        if proxy.get("alpn"):
+            out["tls"]["alpn"] = proxy["alpn"] if isinstance(proxy["alpn"], list) else [str(proxy["alpn"])]
+    elif typ == "anytls":
+        if proxy.get("password") is None: return None
+        out.update({"password": str(proxy["password"]), "tls": {"enabled": True,
+                    "server_name": str(proxy.get("sni") or server), "insecure": bool(proxy.get("skip-cert-verify", False))}})
+    elif typ == "ssh":
+        if not proxy.get("username"): return None
+        out["user"] = str(proxy["username"])
+        if proxy.get("password") is not None: out["password"] = str(proxy["password"])
+    else:
+        return None
+    return out
+
+
+def parse_singbox_outbound(outbound: dict):
+    """Normalize an existing sing-box outbound; ignore selectors/direct/block."""
+    if not isinstance(outbound, dict): return None
+    typ = str(outbound.get("type") or "").lower()
+    if typ not in ("vless", "vmess", "trojan", "shadowsocks", "hysteria2", "tuic", "anytls", "ssh"):
+        return None
+    if not outbound.get("server"):
+        return None
+    if not outbound.get("server_port") and not outbound.get("server_ports"):
+        return None
+    out = json.loads(json.dumps(outbound))
+    out["tag"] = _clean_name(outbound.get("tag") or outbound.get("name"))
+    return out
+
+
+def extract_outbounds_from_structured(text: str):
+    """Detect JSON/JSON-base64 or YAML/Clash subscriptions and return normalized outbounds."""
+    candidates = []
+    seen = set()
+    raw = (text or "").strip()
+    if not raw: return candidates
+    docs = [raw]
+    # Some providers wrap the complete YAML/JSON in base64.
+    for _ in range(2):
+        dec = b64_decode(docs[-1])
+        if dec and dec.strip() and dec.strip() != docs[-1].strip():
+            if any(x in dec for x in ("proxies:", "outbounds:", '"outbounds"', '"proxies"', '"version"')):
+                docs.append(dec.strip())
+            else:
+                break
+        else:
+            break
+    for doc in docs:
+        parsed = None
+        try:
+            parsed = json.loads(doc)
+        except Exception:
+            try:
+                parsed = yaml.safe_load(doc)
+            except Exception:
+                parsed = None
+        if not isinstance(parsed, dict):
+            continue
+        items = parsed.get("proxies")
+        if isinstance(items, list):
+            for proxy in items:
+                ob = parse_clash_proxy(proxy)
+                if ob:
+                    key = json.dumps(ob, sort_keys=True, ensure_ascii=False)
+                    if key not in seen:
+                        seen.add(key); candidates.append(ob)
+        items = parsed.get("outbounds")
+        if isinstance(items, list):
+            for ob0 in items:
+                ob = parse_singbox_outbound(ob0)
+                if ob:
+                    key = json.dumps(ob, sort_keys=True, ensure_ascii=False)
+                    if key not in seen:
+                        seen.add(key); candidates.append(ob)
+    return candidates
+
+
+def outbound_to_internal_uri(outbound: dict) -> str:
+    """Lossless internal transport for structured subscriptions through the URI pipeline."""
+    blob = base64.urlsafe_b64encode(json.dumps(outbound, ensure_ascii=False, separators=(",", ":")).encode()).decode().rstrip("=")
+    return "sbnode://" + blob
+
+
+def parse_internal_node(uri: str):
+    try:
+        data = uri[len("sbnode://"):]
+        ob = json.loads(b64_decode(data))
+        ob = parse_singbox_outbound(ob)
+        return ob
+    except Exception:
+        return None
+
 PARSERS = {
+    "sbnode://": parse_internal_node,
     "vless://": parse_vless,
     "vmess://": parse_vmess,
     "trojan://": parse_trojan,
@@ -931,8 +1165,10 @@ BLACKLIST_NAME_HINTS = re.compile(r"(剩余流量|流量重置|expire|expired|�
 
 def parse_node_uri(uri: str):
     """解析节点 URI → (outbound, server, port, protocol) ; 失败返回 None"""
+    uri = (uri or "").strip()
+    low = uri.lower()
     for prefix, parser in PARSERS.items():
-        if uri.startswith(prefix):
+        if low.startswith(prefix):
             try:
                 out = parser(uri)
             except Exception:
@@ -952,24 +1188,27 @@ def parse_node_uri(uri: str):
 
 
 def extract_nodes_from_text(text: str) -> set:
+    """Extract URI nodes plus structured Clash/Mihomo/sing-box subscriptions.
+    Structured nodes are losslessly wrapped as sbnode:// URIs so the existing
+    dedupe/test/export pipeline remains unchanged.
+    """
     results = set()
     if not text:
         return results
+    for ob in extract_outbounds_from_structured(text):
+        results.add(outbound_to_internal_uri(ob))
     probe = text.strip()
-    # 最多三层 base64 解包 (订阅常见整体 base64)
     for _ in range(3):
-        if any(p in probe for p in ("vmess://", "vless://", "ss://", "trojan://",
-                                     "hy2://", "hysteria2://", "tuic://", "anytls://")):
+        if any(p in probe for p in ("vmess://", "vless://", "ss://", "trojan://", "hy2://",
+                                    "hysteria2://", "tuic://", "anytls://", "ssh://")):
             break
         decoded = b64_decode(probe)
         if not decoded or decoded == probe:
             break
         probe = decoded
-    # 直接文本也可能混杂 base64 行
-    lines_blob = probe
     pattern = (r'((?:vmess|vless|trojan|ss|hy2|hysteria2|tuic|anytls|ssh)://'
                r'[^\s"\'<>\\]+)')
-    for m in re.findall(pattern, lines_blob):
+    for m in re.findall(pattern, probe):
         clean = m.strip().rstrip(".,;'\"")
         if len(clean) > 12:
             results.add(clean)
@@ -1210,7 +1449,9 @@ def test_single_node(item, keep_alive_check=True):
         proxies = {"http": f"socks5h://127.0.0.1:{socks_port}",
                    "https": f"socks5h://127.0.0.1:{socks_port}"}
 
-        # --- 1) 活性探测: 分层超时重试 (首击宽 12s 容慢节点保准确率; 重试窄 4s 快速放弃死节点) ---
+        # --- 1) 活性探测: 多 URL 交叉确认 (提高准确率, 减少“闪活”误入库) ---
+        # 旧逻辑: 任一 URL 成功即 break → 偶发通也进列表
+        # 新逻辑: 扫完全部探测 URL, 至少成功 2 次才算活 (仅 1 个可用 URL 时退化为 1)
         alive_hits, latency_ms = 0, 99999
         t0 = time.time()
         for i, url in enumerate(LIVENESS_URLS):
@@ -1220,14 +1461,16 @@ def test_single_node(item, keep_alive_check=True):
                 if r.status_code in (204, 200):
                     alive_hits += 1
                     latency_ms = min(latency_ms, (time.time() - t0) * 1000)
-                    break  # 任一成功即可
             except Exception:
                 continue
-        if alive_hits == 0:
+        need_hits = 2 if len(LIVENESS_URLS) >= 2 else 1
+        if alive_hits < need_hits:
             return None
 
-        # --- 2) 真实出口 IP (多路冗余) ---
-        exit_ip, exit_country, exit_asn, exit_asn_org, exit_isp = None, None, None, None, None
+        # --- 2) 真实出口 IP + 多源共识 ---
+        # 不再“第一个 API 成功就 break”。先收集多个回显源，再用多数结果决定 country/ASN/org。
+        echo_records = []
+        exit_ip = None
         for url in IP_ECHO_URLS:
             try:
                 r = PROBE_SESSION.get(url, proxies=proxies, timeout=IP_ECHO_TIMEOUT)
@@ -1237,28 +1480,51 @@ def test_single_node(item, keep_alive_check=True):
                 ip = (j.get("ip") or j.get("query") or j.get("your_ip") or "").strip()
                 if not ip:
                     continue
-                exit_ip = ip
+                rec = {"ip": ip, "country": None, "asn": None, "org": "", "isp": ""}
                 if url.startswith("https://api.ip.sb"):
-                    exit_country = j.get("country_code")
-                    exit_asn = j.get("asn")
-                    exit_asn_org = (j.get("asn_organization") or j.get("organization") or "")
-                    exit_isp = (j.get("isp") or j.get("organization") or "")
+                    rec.update({"country": (j.get("country_code") or "").upper() or None,
+                                "asn": j.get("asn"),
+                                "org": j.get("asn_organization") or j.get("organization") or "",
+                                "isp": j.get("isp") or j.get("organization") or ""})
                 elif url.startswith("https://ipinfo.io"):
-                    exit_country = exit_country or (j.get("country") or "").upper()
+                    rec["country"] = (j.get("country") or "").upper() or None
                     org = j.get("org") or ""
-                    if org and not exit_asn:
-                        mm = re.match(r"^AS(\d+)\s+(.*)", org)
-                        if mm:
-                            exit_asn, exit_asn_org = int(mm.group(1)), mm.group(2)
-                    exit_isp = exit_isp or org
-                elif "ip-api.com" in url:
-                    exit_country = exit_country or (j.get("countryCode") or "").upper()
-                    exit_asn = exit_asn or j.get("as")
-                    exit_asn_org = exit_asn_org or j.get("asname") or j.get("org") or ""
-                    exit_isp = exit_isp or j.get("isp") or j.get("org") or ""
-                break
+                    mm = re.match(r"^AS(\d+)\s+(.*)", org)
+                    if mm:
+                        rec["asn"], rec["org"] = int(mm.group(1)), mm.group(2)
+                    rec["isp"] = org
+                else:
+                    rec.update({"country": (j.get("countryCode") or "").upper() or None,
+                                "asn": j.get("as"),
+                                "org": j.get("asname") or j.get("org") or "",
+                                "isp": j.get("isp") or j.get("org") or ""})
+                echo_records.append(rec)
+                exit_ip = exit_ip or ip
             except Exception:
                 continue
+
+        def _mode(values):
+            vals = [str(v).upper() for v in values if v not in (None, "", "UNKNOWN", "ZZ")]
+            if not vals:
+                return None
+            return max(set(vals), key=vals.count)
+
+        if echo_records:
+            ips = [x["ip"] for x in echo_records]
+            # 若不同回显源看到不同出口 IP，不强行拼接元数据；以多数 IP 为准。
+            exit_ip = _mode(ips) or exit_ip
+            chosen = [x for x in echo_records if x["ip"] == exit_ip]
+            exit_country = _mode([x.get("country") for x in chosen])
+            asns = [x.get("asn") for x in chosen if x.get("asn") not in (None, "")]
+            exit_asn = asns[0] if asns else None
+            exit_asn_org = next((x.get("org") for x in chosen if x.get("org")), "")
+            exit_isp = next((x.get("isp") for x in chosen if x.get("isp")), "")
+        else:
+            exit_country = exit_asn = exit_asn_org = exit_isp = None
+
+        # ★ 强制出口 IP: 拿不到真实出口 IP 的节点不入库 (半残/假活, 分类也不可靠)
+        if not exit_ip:
+            return None
 
         # --- 3) MITM 劫持检测 (轻量: 复用活性首击的 gstatic 请求已验证证书链) ---
         # 3a) 独立复检一次带 verify=True 的请求: SSLError = TLS 拦截
@@ -1310,17 +1576,28 @@ def test_single_node(item, keep_alive_check=True):
                                 break
                 elapsed = max(time.time() - t_speed, 0.001)
                 if downloaded > 0:
-                    speed_bps = int(downloaded / elapsed)
-                    break  # 首个成功端点的结果即有效
+                    sample_bps = int(downloaded / elapsed)
+                    speed_bps = max(speed_bps, sample_bps)
+                    # 不再因第一个测速站成功就 break；取多个端点中的最高有效吞吐，减少单站限速误杀
             except Exception:
                 continue
         # 全部端点都失败 (下载0字节) → 视为断流 (活性已过但无法承载数据流)
 
-        # 断流判定: 连 70KB/s 都达不到 → 断流/极慢, 真实不可用
+        # 断流判定: 吞吐 < 70KB/s 或完全下不动 → 真实不可用
         is_stalled = speed_bps < SPEED_MIN_BYTES_PER_S
+
+        # --- 5) 同进程二次确认: 测速后再打一次 204, 失败则淘汰 (挡闪活)
+        try:
+            r2 = PROBE_SESSION.get(LIVENESS_URLS[0], proxies=proxies,
+                                   timeout=PROBE_RETRY_TIMEOUT, allow_redirects=False)
+            if r2.status_code not in (204, 200):
+                return None
+        except Exception:
+            return None
 
         result = {
             "raw": raw,
+            "outbound": outbound,
             "server": server,
             "port": port,
             "proto": proto,
@@ -1335,6 +1612,8 @@ def test_single_node(item, keep_alive_check=True):
             "is_warp": is_warp,
             "speed_bps": speed_bps,
             "is_stalled": is_stalled,
+            "transport": "quic" if proto in ("hysteria2", "tuic") else "tcp",
+            "security": "reality" if (((outbound.get("tls") or {}).get("reality"))) else ("tls" if ((outbound.get("tls") or {}).get("enabled")) else "none"),
         }
         return result
     except Exception:
@@ -1460,6 +1739,7 @@ def chain_retest(test_results: list) -> list:
                 continue
             recheck = test_single_node(item)
             if recheck and recheck.get("alive") and not recheck.get("is_stalled"):
+                r["_chain_ok"] = True
                 chain_alive.append(r)
             else:
                 chain_dead.append(r)
@@ -1469,6 +1749,7 @@ def chain_retest(test_results: list) -> list:
     # 4) 双跳失败的 → 降级普通区 (不从订阅删除, 用户直连场景仍可能可用)
     for r in chain_dead:
         r["_chain_failed"] = True
+        r["_chain_ok"] = False
 
     print(f"[+] 链式复测完成: 双跳可用 {len(chain_alive)} | 双跳失败降级 {len(chain_dead)}")
     return test_results
@@ -1589,7 +1870,11 @@ def classify_network_type(ip: str, country: str, asn, org: str, ip_api_rec: dict
     # 实测 AS62610 Zenlayer (收购 speakeasy DSL legacy 段): hosting=false 但 proxy=true
     # 此类"机房收购家宽段"是假家宽主要形态, rDNS 带 dsl/pppoe 也不能信
     if proxy_flag:
-        return "datacenter", 88
+        # proxy=true 代表“被代理/风控服务识别”，不等于 IP 所属网络必然是 IDC。
+        # 若 ASN 同时属于已知民用运营商，保留为低置信家宽候选，后续再用 ipapi.is/风险分交叉核验。
+        if asn_int in RESIDENTIAL_ASNS:
+            return "residential", 58
+        return "datacenter", 78
     if mobile_flag:
         return "mobile", 85
 
@@ -1737,6 +2022,11 @@ def outbound_to_clash(node: dict, name: str) -> dict:
         tls = node.get("tls") or {}
         proxy["sni"] = tls.get("server_name") or server
         proxy["skip-cert-verify"] = bool(tls.get("insecure"))
+    elif t == "ssh":
+        proxy["type"] = "ssh"
+        proxy["username"] = node.get("user", "")
+        if node.get("password") is not None:
+            proxy["password"] = node.get("password")
     else:
         return None
     return proxy
@@ -1978,6 +2268,9 @@ def classify_and_export(test_results: list):
 
     nodes = []
     for r in test_results:
+        # 双保险: 无出口 IP / 断流 / 未标活 不进入分类池
+        if not r.get("exit_ip") or r.get("is_stalled") or not r.get("alive", True):
+            continue
         exit_ip = r["exit_ip"]
         online_country = r.get("exit_country_online")
         country = online_country
@@ -1995,15 +2288,7 @@ def classify_and_export(test_results: list):
             asn = asn or off_asn
             org = org or off_org
 
-        # ★ 出口 IP 查不到国家 (云内网/中转隧道) → 回退用入口服务器 IP 定位国家
-        #    (中转节点出口常是内网地址, mmdb 也查不到; 入口国 ≠ 出口国但至少给用户可用地区)
-        if (not country or country in ("OTHER", "ZZ")) and r.get("server"):
-            srv_ip = r["server"] if is_ip_literal(r["server"]) else resolve_host(r["server"])
-            if srv_ip and country_reader:
-                off_c, srv_asn, srv_org = offline_ip_lookup(srv_ip, country_reader, asn_reader)
-                if off_c and off_c not in ("OTHER", "ZZ"):
-                    country = off_c
-                    asn, org = asn or srv_asn, org or srv_org
+        # 出口国家只能来自出口 IP 情报；绝不使用入口服务器国家替代出口国家，避免把中转节点误标国家。
 
         rec = ip_api_info.get(exit_ip, {})
         net_type, confidence = classify_network_type(
@@ -2030,6 +2315,13 @@ def classify_and_export(test_results: list):
             "speed_bps": r["speed_bps"],
             "mitm_risk": r["mitm_risk"],
             "is_stalled": r["is_stalled"],
+            # 仅当真正做过链式复测且通过时为 True; 未测过的不算“链式可用”
+            "chain_compatible": bool(r.get("_chain_ok")),
+            "transport": "quic" if r["proto"] in ("hysteria2", "tuic") else "tcp",
+            "security": ((r.get("outbound") or {}).get("tls") or {}).get("reality") and "reality" or (((r.get("outbound") or {}).get("tls") or {}).get("enabled") and "tls" or "none"),
+            "mainland_direct_verified": False,
+            "mainland_candidate_score": 0,
+            "proxy_candidate_score": 0,
         })
 
     if country_reader:
@@ -2037,12 +2329,47 @@ def classify_and_export(test_results: list):
     if asn_reader:
         asn_reader.close()
 
+    # ── 视角评分：GitHub Actions 只能证明“海外视角可用”，不能证明大陆直连 ──
+    # 这些分数用于候选池排序，不冒充大陆实测结果。
+    for n in nodes:
+        score = 50
+        proto = n.get("proto")
+        port = int(n.get("port") or 0)
+        net = n.get("net_type")
+        if net in ("residential", "mobile"):
+            score += 18
+        elif net == "datacenter":
+            score += 5
+        elif net == "cdn":
+            score += 2
+        if proto in ("vless", "trojan", "vmess", "shadowsocks"):
+            score += 8
+        if proto in ("hysteria2", "tuic"):
+            score += 5
+        if port in (80, 443, 8080, 8443, 2053, 2083, 2087, 2096, 2097):
+            score += 8
+        if n.get("latency_ms", 99999) < 800:
+            score += 5
+        if n.get("speed_bps", 0) >= 300_000:
+            score += 5
+        if n.get("mitm_risk"):
+            score -= 50
+        if n.get("is_warp"):
+            score -= 12
+        n["mainland_candidate_score"] = max(0, min(100, score))
+        pscore = 50
+        if n.get("alive") is not False: pscore += 15
+        if n.get("proto") in ("vless", "vmess", "trojan", "shadowsocks", "hysteria2", "tuic", "anytls"): pscore += 10
+        if n.get("chain_compatible"): pscore += 15
+        if n.get("speed_bps", 0) >= 100_000: pscore += 5
+        n["proxy_candidate_score"] = max(0, min(100, pscore))
+
     # ── 风险过滤 ──
     # MITM 劫持节点: 高危, 直接丢弃 (204 能通但证书被劫持 = 中间人)
     safe_nodes = [n for n in nodes if not n["mitm_risk"]]
     mitm_dropped = len(nodes) - len(safe_nodes)
     # 断流节点已无 (在 liveness 阶段淘汰), 但 double-check
-    safe_nodes = [n for n in safe_nodes if not n["is_stalled"]]
+    safe_nodes = [n for n in safe_nodes if not n["is_stalled"] or n.get("speed_bps", 0) >= 15_000]
     print(f"[*] MITM 劫持高风险节点已剔除: {mitm_dropped}")
 
     # ── Scamalytics 风控评分 (免费 HTML, 逐个; 只查家宽候选 + 抽样普通节点) ──
@@ -2102,8 +2429,8 @@ def classify_and_export(test_results: list):
         sc = scam_scores.get(n["exit_ip"], -1)
         n["fraud_score"] = sc
         if n["net_type"] in ("residential", "mobile") and sc >= 75:
-            n["net_type"] = "datacenter"  # 高 fraud 分: 大概率代理池滥用 IP
-            n["confidence"] = 60
+            # fraud_score 是风险维度，不等于网络类型；不要把真实家宽改成机房。
+            n["confidence"] = max(40, n.get("confidence", 0) - 10)
             downgraded += 1
     if downgraded:
         print(f"[*] 高 fraud 分 (≥75) 家宽候选降级: {downgraded} 个")
@@ -2129,19 +2456,16 @@ def classify_and_export(test_results: list):
     res_seen_ip = set()
     for n in unique_nodes:
         if n["net_type"] in ("residential", "mobile") and n["confidence"] >= 60:
-            if n.get("raw") in chain_failed_raws:
-                n["net_type"] = "datacenter"
-                n["confidence"] = 70
-                continue
+            # 链式失败只表示“当前 relay 不兼容”，不否定出口 IP 的网络类型。
+            # 用户仍可能直连使用，因此保留家宽身份；chain_compatible 单独记录。
             if n["exit_ip"] and n["exit_ip"] not in res_seen_ip:
                 res_seen_ip.add(n["exit_ip"])
                 residential.append(n)
-    # fraud 分极高 (≥90) 的节点整体剔除 (任何区都不要)
-    before_total = len(unique_nodes)
-    unique_nodes = [n for n in unique_nodes if not (0 <= n.get("fraud_score", -1) >= 90)]
+    # 极高 fraud 只退出家宽优选池，不从总池删除；网络类型与风险分离，减少误杀。
+    before_res = len(residential)
     residential = [n for n in residential if not (0 <= n.get("fraud_score", -1) >= 90)]
-    if len(unique_nodes) < before_total:
-        print(f"[*] 极高危节点 (fraud≥90) 剔除: {before_total - len(unique_nodes)} 个")
+    if len(residential) < before_res:
+        print(f"[*] 极高 fraud 节点退出家宽优选池: {before_res - len(residential)} 个；总池保留")
 
     non_residential = [n for n in unique_nodes if n not in residential]
     print(f"[*] 家宽/移动网络节点: {len(residential)} | 普通(机房/CDN): {len(non_residential)}")
@@ -2243,7 +2567,23 @@ def export_all(unique_nodes, residential, non_residential):
         export_clash_yaml(p, os.path.join(RESIDENTIAL_COUNTRY_DIR, f"clash-{cc}.yaml"))
         export_singbox_json(s, os.path.join(RESIDENTIAL_COUNTRY_DIR, f"singbox-{cc}.json"))
 
-    print(f"[*] 导出完毕: 全量 {len(all_links)} | 家宽 {len(res_links)}")
+    # 5) 双视角候选池（不是大陆实测）：按评分保留，供大陆用户优先尝试。
+    def export_candidate_pool(filename_prefix, nodes_list):
+        l, p, sb = build_group(nodes_list)
+        with open(os.path.join(OUTPUT_DIR, filename_prefix + ".txt"), "w", encoding="utf-8") as f:
+            f.write(base64.b64encode("\n".join(l).encode()).decode())
+        export_clash_yaml(p, os.path.join(OUTPUT_DIR, filename_prefix + "-clash.yaml"))
+        export_singbox_json(sb, os.path.join(OUTPUT_DIR, filename_prefix + "-singbox.json"))
+
+    mainland_candidates = sorted(
+        [n for n in unique_nodes if n.get("mainland_candidate_score", 0) >= 65],
+        key=lambda x: (-x.get("mainland_candidate_score", 0), x.get("latency_ms", 99999)))
+    proxy_candidates = sorted(
+        [n for n in unique_nodes if n.get("proxy_candidate_score", 0) >= 65],
+        key=lambda x: (-x.get("proxy_candidate_score", 0), x.get("latency_ms", 99999)))
+    export_candidate_pool("mainland-candidate", mainland_candidates)
+    export_candidate_pool("proxy-candidate", proxy_candidates)
+    print(f"[*] 导出完毕: 全量 {len(all_links)} | 家宽 {len(res_links)} | 大陆候选 {len(mainland_candidates)} | 前置候选 {len(proxy_candidates)}")
     return len(all_links), len(res_links)
 
 
@@ -2432,7 +2772,7 @@ export default {{
 
 ## 🛠️ 项目使用说明
 1. **自动更新机制**：GitHub Actions 每 6 小时全自动运行并刷新上述全部订阅与数据。
-2. **测活标准**：节点必须通过 ① 端口预检 ② sing-box 实际隧道 3 个 generate_204 探测 ③ 真实出口 IP 穿透获取 ④ Cloudflare 5MB 限时下载 (吞吐 ≥ 70KB/s) ⑤ TLS 证书校验非 MITM, 方可入库。
+2. **测活标准**：节点必须通过 ① 端口预检 ② sing-box 实际隧道 3 个 generate_204 探测 ③ 真实出口 IP 穿透获取 ④ Cloudflare 5MB 限时下载 (吞吐达标（仅用于降权，不作为唯一淘汰条件）) ⑤ TLS 证书校验非 MITM, 方可入库。
 3. **多客户端兼容**：Clash / v2rayN / sing-box 全格式订阅。
 """
     with open(os.path.join(BASEDIR, "README.md"), "w", encoding="utf-8") as f:
@@ -2522,12 +2862,15 @@ def main():
 
     # 4. 真实测活 (只测去重后的代表节点)
     test_results = run_liveness_test(candidates)
+    for r in test_results:
+        ob = r.get("outbound") or {}
+        r["cred_fingerprint"] = cred_fingerprint(ob, r.get("proto", ""))
 
     # 4.5 ★ 重复节点结果回填: 同 凭据+目标 的重复 URI 继承测活结果 (凭据相同 → 服务端表现一致)
     if DEDUP_MAP:
         result_by_key = {}
         for r in test_results:
-            key = ((r["server"] or "").lower(), r["port"], r["proto"])
+            key = ((r["server"] or "").lower(), r["port"], r["proto"], r.get("cred_fingerprint", ""))
             result_by_key[key] = r
         expanded = list(test_results)
         backfilled = 0

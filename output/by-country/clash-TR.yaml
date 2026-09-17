@@ -5,32 +5,13 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇹🇷 土耳其 (Turkey) 01 - xiaohe
-  server: 185.193.29.30
-  port: 8880
+  server: 139.28.240.68
+  port: 1080
   udp: true
-  type: vless
-  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: vms.lifetime08.workers.dev
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: rSeYcig_XBy8q3k33NpK3A
 - name: 🇹🇷 土耳其 (Turkey) 02 - xiaohe
-  server: 104.17.169.13
-  port: 2053
-  udp: true
-  type: vless
-  uuid: a22bff60-a40a-4250-bde2-4c660e363b47
-  tls: true
-  servername: index.harmonica01.workers.dev
-  skip-cert-verify: false
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /axch1mttbxz2k55y01
-    headers:
-      Host: index.harmonica01.workers.dev
-- name: 🇹🇷 土耳其 (Turkey) 03 - xiaohe
   server: 156.67.63.231
   port: 443
   udp: true
@@ -43,14 +24,7 @@ proxies:
     short-id: 5606d4a25c99e7af
   servername: sync-bridge.org
   client-fingerprint: chrome
-- name: 🇹🇷 土耳其 (Turkey) 04 - xiaohe
-  server: 206.1.97.61
-  port: 13323
-  udp: true
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: XyodFtypR0xCFHyWW9gxqp15oU78njiX
-- name: 🇹🇷 土耳其 (Turkey) 05 - xiaohe
+- name: 🇹🇷 土耳其 (Turkey) 03 - xiaohe
   server: 151.241.226.201
   port: 2053
   udp: true
@@ -61,29 +35,14 @@ proxies:
     public-key: bYW_MmB_CUHrsyoCAUKviI2LZdHf63yY2yOPXbih104
     short-id: 9e419c0759b54d6f
   servername: www.apple.com
-  client-fingerprint: firefox
-- name: 🇹🇷 土耳其 (Turkey) 06 - xiaohe
-  server: 199.232.78.159
-  port: 443
-  udp: true
-  type: vless
-  uuid: d7282b41-1f2a-47bb-8593-f464fd6b6d78
-  tls: true
-  servername: global.fastly.com
-  skip-cert-verify: false
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: bechbad.global.ssl.fastly.net
-- name: 🇹🇷 土耳其 (Turkey) 07 - xiaohe
-  server: 139.28.240.68
-  port: 1080
+  client-fingerprint: ''
+- name: 🇹🇷 土耳其 (Turkey) 04 - xiaohe
+  server: 206.1.97.61
+  port: 13323
   udp: true
   type: ss
   cipher: chacha20-ietf-poly1305
-  password: rSeYcig_XBy8q3k33NpK3A
+  password: XyodFtypR0xCFHyWW9gxqp15oU78njiX
 proxy-groups:
 - name: PROXIES
   type: select
@@ -93,9 +52,6 @@ proxy-groups:
   - 🇹🇷 土耳其 (Turkey) 02 - xiaohe
   - 🇹🇷 土耳其 (Turkey) 03 - xiaohe
   - 🇹🇷 土耳其 (Turkey) 04 - xiaohe
-  - 🇹🇷 土耳其 (Turkey) 05 - xiaohe
-  - 🇹🇷 土耳其 (Turkey) 06 - xiaohe
-  - 🇹🇷 土耳其 (Turkey) 07 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -105,8 +61,5 @@ proxy-groups:
   - 🇹🇷 土耳其 (Turkey) 02 - xiaohe
   - 🇹🇷 土耳其 (Turkey) 03 - xiaohe
   - 🇹🇷 土耳其 (Turkey) 04 - xiaohe
-  - 🇹🇷 土耳其 (Turkey) 05 - xiaohe
-  - 🇹🇷 土耳其 (Turkey) 06 - xiaohe
-  - 🇹🇷 土耳其 (Turkey) 07 - xiaohe
 rules:
 - MATCH,PROXIES

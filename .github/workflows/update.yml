@@ -2,14 +2,15 @@ name: Update Subscriptions
 
 on:
   schedule:
-    # 每天在 UTC 时间 0:00, 6:00, 12:00, 18:00 自动触发更新
+    # 每天 UTC 0/6/12/18 点运行
     - cron: '0 */6 * * *'
-  workflow_dispatch: # 支持手动点击运行
+  workflow_dispatch:
 
 jobs:
   build:
+    # 这是海外 Azure/GitHub runner：可以验证“海外可达”，不能冒充大陆直连实测。
     runs-on: ubuntu-latest
-    timeout-minutes: 50
+    timeout-minutes: 55
     permissions:
       contents: write
 
@@ -25,23 +26,35 @@ jobs:
           cache-dependency-path: scripts/requirements.txt
 
       - name: Install Dependencies
-        run: |
-          pip install -r scripts/requirements.txt
+        run: python -m pip install -r scripts/requirements.txt
 
-      - name: Run Real-Prober and Classifier (sing-box v1.14 全协议)
+      - name: Regression Test Parsers
         run: |
-          python scripts/main_v2.py
+          cd scripts
+          python test_parsers.py
         env:
-          # 便于 ip-api 等识别限速; GitHub runner 出口为美国 Azure
           PYTHONUNBUFFERED: '1'
 
-      - name: Upload test artifacts (调试用, 7天保留)
+      - name: Run Real-Prober and Classifier (sing-box)
+        run: python scripts/main_v2.py
+        env:
+          PYTHONUNBUFFERED: '1'
+          # 2-core runner 默认 20 并发；可在 workflow_dispatch 环境中覆盖。
+          MAX_WORKERS_TEST: '20'
+
+      - name: Upload test artifacts
         uses: actions/upload-artifact@v4
         if: always()
         with:
           name: run-report
           path: |
             output/e2e_test_report.json
+            output/mainland-candidate.txt
+            output/mainland-candidate-clash.yaml
+            output/mainland-candidate-singbox.json
+            output/proxy-candidate.txt
+            output/proxy-candidate-clash.yaml
+            output/proxy-candidate-singbox.json
           retention-days: 7
           if-no-files-found: ignore
 
@@ -61,12 +74,15 @@ jobs:
         if: success()
         run: |
           REPO="${GITHUB_REPOSITORY}"
-          p() { curl -s -o /dev/null "https://purge.jsdelivr.net/gh/${REPO}@main/$1" || true; }
+          p() { curl -fsS -o /dev/null "https://purge.jsdelivr.net/gh/${REPO}@main/$1" || true; }
           p README.md
-          for f in v2ray.txt clash.yaml singbox.json residential.txt residential-clash.yaml residential-singbox.json; do
+          for f in v2ray.txt clash.yaml singbox.json residential.txt residential-clash.yaml residential-singbox.json \
+                   mainland-candidate.txt mainland-candidate-clash.yaml mainland-candidate-singbox.json \
+                   proxy-candidate.txt proxy-candidate-clash.yaml proxy-candidate-singbox.json; do
             p "output/$f"
           done
           find output/residential-by-country output/by-country -type f 2>/dev/null | while read -r f; do
-            p "$f"; sleep 0.2
+            p "$f"
+            sleep 0.15
           done
           echo "[+] jsDelivr CDN purge done (after push)"

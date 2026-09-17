@@ -2,13 +2,17 @@ name: Update Subscriptions
 
 on:
   schedule:
-    # 每天 UTC 0/6/12/18 点运行
-    - cron: '0 */12 * * *'
-  workflow_dispatch:
+    # 每 6 小时（UTC 0、6、12、18 点）
+    - cron: '0 */6 * * *'
+  workflow_dispatch:   # 手动点 Run workflow
+
+concurrency:
+  group: freesub-update
+  cancel-in-progress: false
 
 jobs:
   build:
-    # 这是海外 Azure/GitHub runner：可以验证“海外可达”，不能冒充大陆直连实测。
+    # 海外 Azure runner：验证海外可达，不能冒充大陆直连实测
     runs-on: ubuntu-latest
     timeout-minutes: 55
     permissions:
@@ -17,6 +21,9 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
+        with:
+          # 推送时需要完整历史，方便 rebase
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -39,7 +46,6 @@ jobs:
         run: python scripts/main_v2.py
         env:
           PYTHONUNBUFFERED: '1'
-          # 2-core runner 默认 20 并发；可在 workflow_dispatch 环境中覆盖。
           MAX_WORKERS_TEST: '20'
 
       - name: Upload test artifacts
@@ -67,7 +73,19 @@ jobs:
             echo "没有节点变动与内容更新。"
           else
             git commit -m "Auto Update: $(date -u '+%Y-%m-%d %H:%M:%S') UTC"
-            git push
+            # 远程若有新提交：先 rebase 再 push，失败最多重试 3 次
+            for i in 1 2 3; do
+              if git pull --rebase origin main && git push origin main; then
+                echo "Push succeeded."
+                break
+              fi
+              echo "Push failed, retrying ($i)..."
+              sleep 5
+              if [ "$i" -eq 3 ]; then
+                echo "Push failed after 3 retries."
+                exit 1
+              fi
+            done
           fi
 
       - name: Purge jsDelivr CDN (post-push)
@@ -85,4 +103,4 @@ jobs:
             p "$f"
             sleep 0.15
           done
-          echo "[+] jsDelivr CDN purge done (after push)"
+          echo "[+] jsDelivr CDN purge done (after push)

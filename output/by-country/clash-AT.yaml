@@ -25,6 +25,20 @@ proxies:
   servername: at.quattro-tech.ru
   client-fingerprint: qq
 - name: 🇦🇹 奥地利 (Austria) 03 - xiaohe
+  server: 132.243.203.207
+  port: 8443
+  udp: true
+  type: vless
+  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
+  tls: true
+  servername: cdn8848.776676.xyz
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /lives
+    headers:
+      Host: cdn8848.776676.xyz
+- name: 🇦🇹 奥地利 (Austria) 04 - xiaohe
   server: 132.243.203.218
   port: 8443
   udp: true
@@ -39,18 +53,6 @@ proxies:
     path: /v?ed=2560
     headers:
       Host: cdn8848.776676.xyz
-- name: 🇦🇹 奥地利 (Austria) 04 - xiaohe
-  server: g1.haxat.bestvbest.ir
-  port: 20610
-  udp: true
-  type: vless
-  uuid: d65a82af-a403-405e-8b7b-27a68b830511
-  tls: true
-  reality-opts:
-    public-key: lcXIrYi2o8yXrYHR321qQ--5lqVT8a6TKbaGpYTq4CI
-    short-id: 1d1a8f9fefeff5e6
-  servername: doctor-yab.ir
-  client-fingerprint: chrome
 proxy-groups:
 - name: PROXIES
   type: select

@@ -25,7 +25,7 @@
       "server": "36.224.185.173",
       "server_port": 50099,
       "method": "chacha20-ietf-poly1305",
-      "password": "7e731ec3-f8e1-43f6-92cf-3978d14705c4"
+      "password": "b1ae0fce-9340-4f2e-882d-fdb2218e2e2b"
     },
     {
       "type": "shadowsocks",
@@ -36,12 +36,25 @@
       "password": "7e731ec3-f8e1-43f6-92cf-3978d14705c4"
     },
     {
-      "type": "shadowsocks",
-      "tag": "🇰🇷 韩国 (South Korea) 04 (家宽) - xiaohe",
-      "server": "49.254.204.134",
-      "server_port": 1774,
-      "method": "aes-256-cfb",
-      "password": "1234!@#$"
+      "type": "vless",
+      "tag": "🇯🇵 日本 (Japan) 04 (家宽) - xiaohe",
+      "server": "36.151.187.225",
+      "server_port": 12887,
+      "uuid": "16b3793b-3335-4832-b1fd-877b2c5e15d6",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.spotify.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "edge"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "a3H5ffQkcW4xELeJEGQ8FsaXLG4sGomkB7_ms0d5xzc",
+          "short_id": "b48d22a492"
+        }
+      }
     },
     {
       "type": "anytls",
@@ -63,7 +76,7 @@
         "🇺🇸 美国 (United States) 01 (家宽) - xiaohe",
         "🇹🇼 中国台湾 (Taiwan) 02 (家宽) - xiaohe",
         "🇹🇼 中国台湾 (Taiwan) 03 (家宽) - xiaohe",
-        "🇰🇷 韩国 (South Korea) 04 (家宽) - xiaohe",
+        "🇯🇵 日本 (Japan) 04 (家宽) - xiaohe",
         "🇹🇼 中国台湾 (Taiwan) 05 (家宽) - xiaohe"
       ]
     },
@@ -74,7 +87,7 @@
         "🇺🇸 美国 (United States) 01 (家宽) - xiaohe",
         "🇹🇼 中国台湾 (Taiwan) 02 (家宽) - xiaohe",
         "🇹🇼 中国台湾 (Taiwan) 03 (家宽) - xiaohe",
-        "🇰🇷 韩国 (South Korea) 04 (家宽) - xiaohe",
+        "🇯🇵 日本 (Japan) 04 (家宽) - xiaohe",
         "🇹🇼 中国台湾 (Taiwan) 05 (家宽) - xiaohe"
       ],
       "url": "https://www.gstatic.com/generate_204"

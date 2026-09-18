@@ -20,7 +20,7 @@ proxies:
   udp: true
   type: ss
   cipher: chacha20-ietf-poly1305
-  password: 7e731ec3-f8e1-43f6-92cf-3978d14705c4
+  password: b1ae0fce-9340-4f2e-882d-fdb2218e2e2b
 - name: 🇹🇼 中国台湾 (Taiwan) 03 (家宽) - xiaohe
   server: 36.224.185.143
   port: 50099
@@ -28,13 +28,19 @@ proxies:
   type: ss
   cipher: chacha20-ietf-poly1305
   password: 7e731ec3-f8e1-43f6-92cf-3978d14705c4
-- name: 🇰🇷 韩国 (South Korea) 04 (家宽) - xiaohe
-  server: 49.254.204.134
-  port: 1774
+- name: 🇯🇵 日本 (Japan) 04 (家宽) - xiaohe
+  server: 36.151.187.225
+  port: 12887
   udp: true
-  type: ss
-  cipher: aes-256-cfb
-  password: 1234!@#$
+  type: vless
+  uuid: 16b3793b-3335-4832-b1fd-877b2c5e15d6
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: a3H5ffQkcW4xELeJEGQ8FsaXLG4sGomkB7_ms0d5xzc
+    short-id: b48d22a492
+  servername: www.spotify.com
+  client-fingerprint: edge
 - name: 🇹🇼 中国台湾 (Taiwan) 05 (家宽) - xiaohe
   server: 6ivh.pnuqcnp.cn
   port: 443
@@ -51,7 +57,7 @@ proxy-groups:
   - 🇺🇸 美国 (United States) 01 (家宽) - xiaohe
   - 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - xiaohe
   - 🇹🇼 中国台湾 (Taiwan) 03 (家宽) - xiaohe
-  - 🇰🇷 韩国 (South Korea) 04 (家宽) - xiaohe
+  - 🇯🇵 日本 (Japan) 04 (家宽) - xiaohe
   - 🇹🇼 中国台湾 (Taiwan) 05 (家宽) - xiaohe
 - name: AUTO
   type: url-test
@@ -61,7 +67,7 @@ proxy-groups:
   - 🇺🇸 美国 (United States) 01 (家宽) - xiaohe
   - 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - xiaohe
   - 🇹🇼 中国台湾 (Taiwan) 03 (家宽) - xiaohe
-  - 🇰🇷 韩国 (South Korea) 04 (家宽) - xiaohe
+  - 🇯🇵 日本 (Japan) 04 (家宽) - xiaohe
   - 🇹🇼 中国台湾 (Taiwan) 05 (家宽) - xiaohe
 rules:
 - MATCH,PROXIES

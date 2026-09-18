@@ -4,24 +4,27 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇰🇷 韩国 (South Korea) 01 (家宽) - xiaohe
-  server: 49.254.204.134
-  port: 1774
+- name: 🇲🇴 MO 01 - xiaohe
+  server: 164.92.180.221
+  port: 440
   udp: true
-  type: ss
-  cipher: aes-256-cfb
-  password: 1234!@#$
+  type: vless
+  uuid: 59906cb2-a61b-4cf3-b77b-5762ef61d2b0
+  network: h2
+  h2-opts:
+    host: []
+    path: /
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇰🇷 韩国 (South Korea) 01 (家宽) - xiaohe
+  - 🇲🇴 MO 01 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
-  - 🇰🇷 韩国 (South Korea) 01 (家宽) - xiaohe
+  - 🇲🇴 MO 01 - xiaohe
 rules:
 - MATCH,PROXIES

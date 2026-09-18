@@ -6,22 +6,14 @@
     {
       "type": "shadowsocks",
       "tag": "🇱🇹 立陶宛 (Lithuania) 01 - xiaohe",
-      "server": "195.238.126.84",
-      "server_port": 9039,
-      "method": "aes-256-cfb",
-      "password": "qYEN5HX4JKeVCdEC"
-    },
-    {
-      "type": "shadowsocks",
-      "tag": "🇱🇹 立陶宛 (Lithuania) 02 - xiaohe",
       "server": "195.238.126.20",
-      "server_port": 9012,
+      "server_port": 9002,
       "method": "aes-256-cfb",
-      "password": "xaupMUvhptwxdDUg"
+      "password": "b8KkNDjEd5QqFyRm"
     },
     {
       "type": "vless",
-      "tag": "🇱🇹 立陶宛 (Lithuania) 03 - xiaohe",
+      "tag": "🇱🇹 立陶宛 (Lithuania) 02 - xiaohe",
       "server": "84.32.215.117",
       "server_port": 443,
       "uuid": "c5694dc5-39fd-4a92-8430-3837baa522a3",
@@ -42,7 +34,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "🇱🇹 立陶宛 (Lithuania) 04 - xiaohe",
+      "tag": "🇱🇹 立陶宛 (Lithuania) 03 - xiaohe",
       "server": "ltu-01.node.lumixnet.com",
       "server_port": 443,
       "password": "7c5566a7-4b55-4659-975f-06507d32fd3f",
@@ -59,8 +51,7 @@
         "auto",
         "🇱🇹 立陶宛 (Lithuania) 01 - xiaohe",
         "🇱🇹 立陶宛 (Lithuania) 02 - xiaohe",
-        "🇱🇹 立陶宛 (Lithuania) 03 - xiaohe",
-        "🇱🇹 立陶宛 (Lithuania) 04 - xiaohe"
+        "🇱🇹 立陶宛 (Lithuania) 03 - xiaohe"
       ]
     },
     {
@@ -69,8 +60,7 @@
       "outbounds": [
         "🇱🇹 立陶宛 (Lithuania) 01 - xiaohe",
         "🇱🇹 立陶宛 (Lithuania) 02 - xiaohe",
-        "🇱🇹 立陶宛 (Lithuania) 03 - xiaohe",
-        "🇱🇹 立陶宛 (Lithuania) 04 - xiaohe"
+        "🇱🇹 立陶宛 (Lithuania) 03 - xiaohe"
       ],
       "url": "https://www.gstatic.com/generate_204"
     },

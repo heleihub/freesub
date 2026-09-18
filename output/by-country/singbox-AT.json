@@ -58,46 +58,20 @@
     {
       "type": "vless",
       "tag": "🇦🇹 奥地利 (Austria) 04 - xiaohe",
-      "server": "132.243.203.207",
-      "server_port": 8443,
-      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
+      "server": "g1.haxat.bestvbest.ir",
+      "server_port": 20610,
+      "uuid": "d65a82af-a403-405e-8b7b-27a68b830511",
       "tls": {
         "enabled": true,
-        "server_name": "cdn8848.776676.xyz",
-        "insecure": true,
+        "server_name": "doctor-yab.ir",
         "utls": {
           "enabled": true,
           "fingerprint": "chrome"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/lives?ed=2560",
-        "headers": {
-          "Host": "cdn8848.776676.xyz"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "🇦🇹 奥地利 (Austria) 05 - xiaohe",
-      "server": "91.186.218.227",
-      "server_port": 4443,
-      "uuid": "97423fab-93df-4061-be7a-e6ca8d7eb3d7",
-      "tls": {
-        "enabled": true,
-        "server_name": "5iv93opy8jus9z.bjo5si35c9i9ud4242fado49188obkoiermjuxj7zgxu.workers.dev",
-        "insecure": false,
-        "utls": {
+        },
+        "reality": {
           "enabled": true,
-          "fingerprint": "chrome"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/@Marisa_kristi",
-        "headers": {
-          "Host": "5iv93opy8jus9z.bjo5si35c9i9ud4242fado49188obkoiermjuxj7zgxu.workers.dev"
+          "public_key": "lcXIrYi2o8yXrYHR321qQ--5lqVT8a6TKbaGpYTq4CI",
+          "short_id": "1d1a8f9fefeff5e6"
         }
       }
     },
@@ -109,8 +83,7 @@
         "🇦🇹 奥地利 (Austria) 01 - xiaohe",
         "🇦🇹 奥地利 (Austria) 02 - xiaohe",
         "🇦🇹 奥地利 (Austria) 03 - xiaohe",
-        "🇦🇹 奥地利 (Austria) 04 - xiaohe",
-        "🇦🇹 奥地利 (Austria) 05 - xiaohe"
+        "🇦🇹 奥地利 (Austria) 04 - xiaohe"
       ]
     },
     {
@@ -120,8 +93,7 @@
         "🇦🇹 奥地利 (Austria) 01 - xiaohe",
         "🇦🇹 奥地利 (Austria) 02 - xiaohe",
         "🇦🇹 奥地利 (Austria) 03 - xiaohe",
-        "🇦🇹 奥地利 (Austria) 04 - xiaohe",
-        "🇦🇹 奥地利 (Austria) 05 - xiaohe"
+        "🇦🇹 奥地利 (Austria) 04 - xiaohe"
       ],
       "url": "https://www.gstatic.com/generate_204"
     },

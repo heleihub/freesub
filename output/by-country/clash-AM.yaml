@@ -5,17 +5,17 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇦🇲 亚美尼亚 (Armenia) 01 - xiaohe
-  server: 77.91.68.70
-  port: 55983
+  server: aotocon.ggisopi.su
+  port: 443
   udp: true
   type: vless
-  uuid: f667a096-5231-4cfb-8759-92bb32473139
+  uuid: d0f0a880-0df1-48c9-bdf1-5669fb9483ce
+  flow: xtls-rprx-vision
   tls: true
   reality-opts:
-    public-key: nWQ7b9l9X6N3PrXLgIzOvMM8iSYrqjVHEb9ikWxqYSg
-    short-id: 0e
-  servername: yahoo.com
-  client-fingerprint: chrome
+    public-key: SB1uC0OEveYjSiS_Nuw9Ld-uVVXWqi794OGnldthY3I
+  servername: aotocon.ggisopi.su
+  client-fingerprint: firefox
 proxy-groups:
 - name: PROXIES
   type: select

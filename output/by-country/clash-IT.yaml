@@ -5,13 +5,34 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇮🇹 意大利 (Italy) 01 - xiaohe
+  server: 185.164.175.81
+  port: 19999
+  udp: true
+  type: ss
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: 🇮🇹 意大利 (Italy) 02 - xiaohe
   server: 57.131.48.45
   port: 8388
   udp: true
   type: ss
   cipher: aes-256-gcm
   password: itzvpn@321
-- name: 🇮🇹 意大利 (Italy) 02 - xiaohe
+- name: 🇮🇹 意大利 (Italy) 03 - xiaohe
+  server: 31.77.154.14
+  port: 8443
+  udp: true
+  type: vless
+  uuid: 75079a7f-75b5-418b-8a65-f7b2f438cd4a
+  tls: true
+  reality-opts:
+    public-key: 3O__mdy-whzI07V-QEyR6GQnag1FNwtHijDxt2_jkDQ
+  servername: swscan.apple.com
+  client-fingerprint: firefox
+  network: grpc
+  grpc-opts:
+    grpc-service-name: grpc-tunnel
+- name: 🇮🇹 意大利 (Italy) 04 - xiaohe
   server: 57.131.38.163
   port: 2053
   udp: true
@@ -23,7 +44,7 @@ proxies:
     short-id: 5b8a942318178e7b
   servername: www.apple.com
   client-fingerprint: ''
-- name: 🇮🇹 意大利 (Italy) 03 - xiaohe
+- name: 🇮🇹 意大利 (Italy) 05 - xiaohe
   server: 82.118.16.187
   port: 443
   udp: true
@@ -36,6 +57,81 @@ proxies:
     short-id: cd6065902eea7a02
   servername: www.cloudflare.com
   client-fingerprint: chrome
+- name: 🇮🇹 意大利 (Italy) 06 - xiaohe
+  server: 116.204.164.17
+  port: 7443
+  udp: true
+  type: vless
+  uuid: 4e2efa26-2969-486b-ae60-390ba54af31b
+  tls: true
+  servername: o-85ley6knn8ut.6nvkygqh144t7xtdyvh0y3o4gzo3ujhnk8n.workers.dev
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: o-85ley6knn8ut.6nvkygqh144t7xtdyvh0y3o4gzo3ujhnk8n.workers.dev
+- name: 🇮🇹 意大利 (Italy) 07 - xiaohe
+  server: 116.204.164.60
+  port: 7443
+  udp: true
+  type: vless
+  uuid: 48942ced-a272-41c1-98ac-75745d83bf93
+  tls: true
+  servername: bapj1qapjk4.0sds0li1bwcz0i76it0gjxv1.workers.dev
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: bapj1qapjk4.0sds0li1bwcz0i76it0gjxv1.workers.dev
+- name: 🇮🇹 意大利 (Italy) 08 - xiaohe
+  server: 116.204.164.5
+  port: 7443
+  udp: true
+  type: vless
+  uuid: 6eb831ea-8829-457b-a5d1-52f640a97486
+  tls: true
+  servername: jln31qtswdkut5.60kohcognywybguuq3ouc818oofnxfvn35daott.workers.dev
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: jln31qtswdkut5.60kohcognywybguuq3ouc818oofnxfvn35daott.workers.dev
+- name: 🇮🇹 意大利 (Italy) 09 - xiaohe
+  server: 116.204.164.30
+  port: 7443
+  udp: true
+  type: vless
+  uuid: dcd08975-739e-44c7-9022-7c7fcb87e74b
+  tls: true
+  servername: 8n9qi6t-owl.gevc9s4n60cc3wzcmwhjyezydpmbchocxp.workers.dev
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: 8n9qi6t-owl.gevc9s4n60cc3wzcmwhjyezydpmbchocxp.workers.dev
+- name: 🇮🇹 意大利 (Italy) 10 - xiaohe
+  server: 95.181.162.170
+  port: 444
+  udp: true
+  type: vless
+  uuid: 7094cade-110a-4be0-b657-15d606dcea6d
+  tls: true
+  servername: bapj1qapjk4.0sds0li1bwcz0i76it0gjxv1.workers.dev
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: bapj1qapjk4.0sds0li1bwcz0i76it0gjxv1.workers.dev
 proxy-groups:
 - name: PROXIES
   type: select
@@ -44,6 +140,13 @@ proxy-groups:
   - 🇮🇹 意大利 (Italy) 01 - xiaohe
   - 🇮🇹 意大利 (Italy) 02 - xiaohe
   - 🇮🇹 意大利 (Italy) 03 - xiaohe
+  - 🇮🇹 意大利 (Italy) 04 - xiaohe
+  - 🇮🇹 意大利 (Italy) 05 - xiaohe
+  - 🇮🇹 意大利 (Italy) 06 - xiaohe
+  - 🇮🇹 意大利 (Italy) 07 - xiaohe
+  - 🇮🇹 意大利 (Italy) 08 - xiaohe
+  - 🇮🇹 意大利 (Italy) 09 - xiaohe
+  - 🇮🇹 意大利 (Italy) 10 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -52,5 +155,12 @@ proxy-groups:
   - 🇮🇹 意大利 (Italy) 01 - xiaohe
   - 🇮🇹 意大利 (Italy) 02 - xiaohe
   - 🇮🇹 意大利 (Italy) 03 - xiaohe
+  - 🇮🇹 意大利 (Italy) 04 - xiaohe
+  - 🇮🇹 意大利 (Italy) 05 - xiaohe
+  - 🇮🇹 意大利 (Italy) 06 - xiaohe
+  - 🇮🇹 意大利 (Italy) 07 - xiaohe
+  - 🇮🇹 意大利 (Italy) 08 - xiaohe
+  - 🇮🇹 意大利 (Italy) 09 - xiaohe
+  - 🇮🇹 意大利 (Italy) 10 - xiaohe
 rules:
 - MATCH,PROXIES

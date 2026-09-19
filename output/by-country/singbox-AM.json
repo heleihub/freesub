@@ -6,32 +6,7 @@
     {
       "type": "vless",
       "tag": "🇦🇲 亚美尼亚 (Armenia) 01 - xiaohe",
-      "server": "103.31.77.108",
-      "server_port": 2053,
-      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
-      "tls": {
-        "enabled": true,
-        "server_name": "cdn8848.776676.xyz",
-        "insecure": false,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/channels/act",
-        "headers": {
-          "Host": "cdn8848.776676.xyz"
-        },
-        "max_early_data": 2560,
-        "early_data_header_name": "Sec-WebSocket-Protocol"
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "🇦🇲 亚美尼亚 (Armenia) 02 - xiaohe",
-      "server": "aotocon.ggisopi.su",
+      "server": "87.121.47.179",
       "server_port": 443,
       "uuid": "d0f0a880-0df1-48c9-bdf1-5669fb9483ce",
       "flow": "xtls-rprx-vision",
@@ -46,6 +21,26 @@
           "enabled": true,
           "public_key": "SB1uC0OEveYjSiS_Nuw9Ld-uVVXWqi794OGnldthY3I",
           "short_id": ""
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🇦🇲 亚美尼亚 (Armenia) 02 - xiaohe",
+      "server": "77.91.68.70",
+      "server_port": 55983,
+      "uuid": "f667a096-5231-4cfb-8759-92bb32473139",
+      "tls": {
+        "enabled": true,
+        "server_name": "yahoo.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "nWQ7b9l9X6N3PrXLgIzOvMM8iSYrqjVHEb9ikWxqYSg",
+          "short_id": "0e"
         }
       }
     },

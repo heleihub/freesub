@@ -5,22 +5,7 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇦🇲 亚美尼亚 (Armenia) 01 - xiaohe
-  server: 103.31.77.108
-  port: 2053
-  udp: true
-  type: vless
-  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
-  tls: true
-  servername: cdn8848.776676.xyz
-  skip-cert-verify: false
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /channels/act
-    headers:
-      Host: cdn8848.776676.xyz
-- name: 🇦🇲 亚美尼亚 (Armenia) 02 - xiaohe
-  server: aotocon.ggisopi.su
+  server: 87.121.47.179
   port: 443
   udp: true
   type: vless
@@ -31,6 +16,18 @@ proxies:
     public-key: SB1uC0OEveYjSiS_Nuw9Ld-uVVXWqi794OGnldthY3I
   servername: aotocon.ggisopi.su
   client-fingerprint: firefox
+- name: 🇦🇲 亚美尼亚 (Armenia) 02 - xiaohe
+  server: 77.91.68.70
+  port: 55983
+  udp: true
+  type: vless
+  uuid: f667a096-5231-4cfb-8759-92bb32473139
+  tls: true
+  reality-opts:
+    public-key: nWQ7b9l9X6N3PrXLgIzOvMM8iSYrqjVHEb9ikWxqYSg
+    short-id: 0e
+  servername: yahoo.com
+  client-fingerprint: chrome
 proxy-groups:
 - name: PROXIES
   type: select

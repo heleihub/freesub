@@ -15,7 +15,7 @@ proxies:
     public-key: v6QpErcVOVKIYLm53R3bAP8zIKCFr4HAJWW0VwBKtws
     short-id: 31f187650d9530bb
   servername: www.cloudflare.com
-  client-fingerprint: chrome
+  client-fingerprint: qq
 - name: 🇧🇪 比利时 (Belgium) 02 - xiaohe
   server: 35.195.122.169
   port: 443
@@ -27,7 +27,7 @@ proxies:
     public-key: i_UbRo65YEpOFuKkNVa0GEMl7xLDx9B1nmeyeNWyJQs
     short-id: 68e97022627fa882
   servername: www.cloudflare.com
-  client-fingerprint: chrome
+  client-fingerprint: firefox
 proxy-groups:
 - name: PROXIES
   type: select

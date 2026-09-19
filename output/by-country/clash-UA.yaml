@@ -1,0 +1,67 @@
+port: 7890
+socks-port: 7891
+allow-lan: true
+mode: rule
+log-level: info
+proxies:
+- name: 🇺🇦 乌克兰 (Ukraine) 01 - xiaohe
+  server: 104.143.223.69
+  port: 2085
+  udp: true
+  type: vless
+  uuid: f68a9fd4-16c7-46d1-b17c-0a4b224cc00d
+  network: grpc
+  grpc-opts:
+    grpc-service-name: vless
+- name: 🇺🇦 乌克兰 (Ukraine) 02 - xiaohe
+  server: 104.143.223.71
+  port: 2085
+  udp: true
+  type: vless
+  uuid: 3f654175-4f83-47ec-8ce2-f2bf0d160b27
+  network: grpc
+  grpc-opts:
+    grpc-service-name: vless
+- name: 🇺🇦 乌克兰 (Ukraine) 03 - xiaohe
+  server: 104.143.223.82
+  port: 2085
+  udp: true
+  type: vless
+  uuid: 15295b3e-e233-4f3b-95d1-8860d40c75fe
+  network: grpc
+  grpc-opts:
+    grpc-service-name: vless
+- name: 🇺🇦 乌克兰 (Ukraine) 04 - xiaohe
+  server: 104.245.240.9
+  port: 8443
+  udp: true
+  type: vless
+  uuid: bb20d3fc-fc15-0935-11c5-82775c39e6b0
+  tls: true
+  reality-opts:
+    public-key: jYD82Xg6TRu2lR0XINMWxKb8dNycDwF-H28ZrtiafUo
+  servername: cdn.steamstatic.com
+  client-fingerprint: chrome
+  network: grpc
+  grpc-opts:
+    grpc-service-name: TunService
+proxy-groups:
+- name: PROXIES
+  type: select
+  proxies:
+  - AUTO
+  - 🇺🇦 乌克兰 (Ukraine) 01 - xiaohe
+  - 🇺🇦 乌克兰 (Ukraine) 02 - xiaohe
+  - 🇺🇦 乌克兰 (Ukraine) 03 - xiaohe
+  - 🇺🇦 乌克兰 (Ukraine) 04 - xiaohe
+- name: AUTO
+  type: url-test
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  proxies:
+  - 🇺🇦 乌克兰 (Ukraine) 01 - xiaohe
+  - 🇺🇦 乌克兰 (Ukraine) 02 - xiaohe
+  - 🇺🇦 乌克兰 (Ukraine) 03 - xiaohe
+  - 🇺🇦 乌克兰 (Ukraine) 04 - xiaohe
+rules:
+- MATCH,PROXIES

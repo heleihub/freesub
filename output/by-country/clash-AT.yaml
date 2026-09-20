@@ -25,6 +25,20 @@ proxies:
   servername: at.quattro-tech.ru
   client-fingerprint: qq
 - name: 🇦🇹 奥地利 (Austria) 03 - xiaohe
+  server: 132.243.203.218
+  port: 8443
+  udp: true
+  type: vless
+  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
+  tls: true
+  servername: cdn8848.776676.xyz
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /v?ed=2560fp=chrome
+    headers:
+      Host: cdn8848.776676.xyz
+- name: 🇦🇹 奥地利 (Austria) 04 - xiaohe
   server: 132.243.203.207
   port: 8443
   udp: true
@@ -39,21 +53,34 @@ proxies:
     path: /lives?ed=2560
     headers:
       Host: cdn8848.776676.xyz
-- name: 🇦🇹 奥地利 (Austria) 04 - xiaohe
-  server: 91.186.218.227
-  port: 4443
+- name: 🇦🇹 奥地利 (Austria) 05 - xiaohe
+  server: 132.243.203.243
+  port: 8443
   udp: true
   type: vless
-  uuid: 9649ca0c-aad3-4d31-bfeb-837ae9d6c255
+  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
   tls: true
-  servername: wjwkhoaftdgrt8qus.mp8pmwdgwf3sdapasouszjobjr57nrxxgtx9n.workers.dev
+  servername: cdn8848.776676.xyz
   skip-cert-verify: false
   client-fingerprint: chrome
   network: ws
   ws-opts:
-    path: /@Marisa_kristi
+    path: /archive?ed=2560
     headers:
-      Host: wjwkhoaftdgrt8qus.mp8pmwdgwf3sdapasouszjobjr57nrxxgtx9n.workers.dev
+      Host: cdn8848.776676.xyz
+- name: 🇦🇹 奥地利 (Austria) 06 - xiaohe
+  server: 67.159.17.62
+  port: 443
+  udp: true
+  type: vless
+  uuid: 1e6fed5b-5edc-4ddb-a268-79d7fae4365c
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: U_E3xSI6QY_Mj-3zjkB4esvMj0aVvYH6W6oHOR50XBs
+    short-id: 10debbdf94767541
+  servername: filesconvert.org
+  client-fingerprint: firefox
 proxy-groups:
 - name: PROXIES
   type: select
@@ -63,6 +90,8 @@ proxy-groups:
   - 🇦🇹 奥地利 (Austria) 02 - xiaohe
   - 🇦🇹 奥地利 (Austria) 03 - xiaohe
   - 🇦🇹 奥地利 (Austria) 04 - xiaohe
+  - 🇦🇹 奥地利 (Austria) 05 - xiaohe
+  - 🇦🇹 奥地利 (Austria) 06 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -72,5 +101,7 @@ proxy-groups:
   - 🇦🇹 奥地利 (Austria) 02 - xiaohe
   - 🇦🇹 奥地利 (Austria) 03 - xiaohe
   - 🇦🇹 奥地利 (Austria) 04 - xiaohe
+  - 🇦🇹 奥地利 (Austria) 05 - xiaohe
+  - 🇦🇹 奥地利 (Austria) 06 - xiaohe
 rules:
 - MATCH,PROXIES

@@ -28,50 +28,8 @@
       }
     },
     {
-      "type": "vless",
-      "tag": "🇪🇪 爱沙尼亚 (Estonia) 02 - xiaohe",
-      "server": "89.106.88.6",
-      "server_port": 20443,
-      "uuid": "ad297a2b-ae17-4d2d-8fce-e2eafb89b145",
-      "flow": "xtls-rprx-vision",
-      "tls": {
-        "enabled": true,
-        "server_name": "dest1.cdn-update.rutube.info",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "-AdhgMZeNHR2zAmGWa5peg7Ni0-e4IVMoSzydC9n7C4",
-          "short_id": "08"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "🇪🇪 爱沙尼亚 (Estonia) 03 - xiaohe",
-      "server": "95.85.224.17",
-      "server_port": 443,
-      "uuid": "d0f0a880-0df1-48c9-bdf1-5669fb9483ce",
-      "flow": "xtls-rprx-vision",
-      "tls": {
-        "enabled": true,
-        "server_name": "est1313.ggisopi.su",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "SB1uC0OEveYjSiS_Nuw9Ld-uVVXWqi794OGnldthY3I",
-          "short_id": ""
-        }
-      }
-    },
-    {
       "type": "trojan",
-      "tag": "🇪🇪 爱沙尼亚 (Estonia) 04 - xiaohe",
+      "tag": "🇪🇪 爱沙尼亚 (Estonia) 02 - xiaohe",
       "server": "109.206.241.10",
       "server_port": 449,
       "password": "oiiaB38ywjEHCWRs_O_a_1113_Il_KeyyyHop_Bes1",
@@ -83,6 +41,29 @@
           "enabled": true,
           "fingerprint": "chrome"
         }
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇪🇪 爱沙尼亚 (Estonia) 03 - xiaohe",
+      "server": "217.60.182.79",
+      "server_port": 443,
+      "password": "sOiWCQ2AdIV0OWNuqQVyWp4JZnRxdyLROSjX",
+      "tls": {
+        "enabled": true,
+        "server_name": "cabinet.wwwinternetvideo.click",
+        "insecure": false
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🇪🇪 爱沙尼亚 (Estonia) 04 - xiaohe",
+      "server": "94.183.170.135",
+      "server_port": 443,
+      "uuid": "06c4e938-2954-478f-a870-ca1b163e30e9",
+      "transport": {
+        "type": "ws",
+        "path": "/"
       }
     },
     {
@@ -125,26 +106,41 @@
     {
       "type": "vless",
       "tag": "🇪🇪 爱沙尼亚 (Estonia) 07 - xiaohe",
-      "server": "93.89.220.7",
-      "server_port": 8443,
-      "uuid": "6eefb4c5-96c2-4b41-a8e3-3dd13e8e09d0",
+      "server": "5.101.114.44",
+      "server_port": 2053,
+      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
       "tls": {
         "enabled": true,
-        "server_name": "eh.vk.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "ios"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "GzQr6fDhigtRAr0n2Y7Nk3snhdytYyOvaYo9zYe1Xn4",
-          "short_id": "b3a1cc510a2001c6"
+        "server_name": "cdn8848.776676.xyz",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/collection/directory?ed=2560fp=chrome",
+        "headers": {
+          "Host": "cdn8848.776676.xyz"
         }
       }
     },
     {
-      "type": "vless",
+      "type": "hysteria2",
       "tag": "🇪🇪 爱沙尼亚 (Estonia) 08 - xiaohe",
+      "server": "ee1.sferavpn.pro",
+      "server_port": 443,
+      "password": "cd74c0a406664a5bc0bac098220a2468",
+      "tls": {
+        "enabled": true,
+        "server_name": "ee1.sferavpn.pro",
+        "insecure": false
+      },
+      "obfs": {
+        "type": "salamander",
+        "password": "44f1c1e2f8b99e792ceed574627a1eb0"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🇪🇪 爱沙尼亚 (Estonia) 09 - xiaohe",
       "server": "5.181.201.36",
       "server_port": 443,
       "uuid": "4bdeee92-97e8-414d-bef6-ec1d5e2ab73b",
@@ -165,22 +161,6 @@
     },
     {
       "type": "hysteria2",
-      "tag": "🇪🇪 爱沙尼亚 (Estonia) 09 - xiaohe",
-      "server": "ee1.sferavpn.pro",
-      "server_port": 443,
-      "password": "cd74c0a406664a5bc0bac098220a2468",
-      "tls": {
-        "enabled": true,
-        "server_name": "ee1.sferavpn.pro",
-        "insecure": false
-      },
-      "obfs": {
-        "type": "salamander",
-        "password": "44f1c1e2f8b99e792ceed574627a1eb0"
-      }
-    },
-    {
-      "type": "hysteria2",
       "tag": "🇪🇪 爱沙尼亚 (Estonia) 10 - xiaohe",
       "server": "tishina-axe.dedyn.io",
       "server_port": 8443,
@@ -189,6 +169,51 @@
         "enabled": true,
         "server_name": "tishina-axe.dedyn.io",
         "insecure": true
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🇪🇪 爱沙尼亚 (Estonia) 11 - xiaohe",
+      "server": "95.85.224.17",
+      "server_port": 443,
+      "uuid": "d0f0a880-0df1-48c9-bdf1-5669fb9483ce",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "est1313.ggisopi.su",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "SB1uC0OEveYjSiS_Nuw9Ld-uVVXWqi794OGnldthY3I",
+          "short_id": ""
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🇪🇪 爱沙尼亚 (Estonia) 12 - xiaohe",
+      "server": "91.215.40.6",
+      "server_port": 443,
+      "uuid": "e3c3b722-1264-4cdc-a97c-b0a1bb73cd67",
+      "tls": {
+        "enabled": true,
+        "server_name": "id.dframe.app",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "ivgTfLR13A6xBsicIA28OPoav2tXlsstTTmGuETfnSk",
+          "short_id": "5c766813929a1fdd"
+        }
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "grpc"
       }
     },
     {
@@ -205,7 +230,9 @@
         "🇪🇪 爱沙尼亚 (Estonia) 07 - xiaohe",
         "🇪🇪 爱沙尼亚 (Estonia) 08 - xiaohe",
         "🇪🇪 爱沙尼亚 (Estonia) 09 - xiaohe",
-        "🇪🇪 爱沙尼亚 (Estonia) 10 - xiaohe"
+        "🇪🇪 爱沙尼亚 (Estonia) 10 - xiaohe",
+        "🇪🇪 爱沙尼亚 (Estonia) 11 - xiaohe",
+        "🇪🇪 爱沙尼亚 (Estonia) 12 - xiaohe"
       ]
     },
     {
@@ -221,7 +248,9 @@
         "🇪🇪 爱沙尼亚 (Estonia) 07 - xiaohe",
         "🇪🇪 爱沙尼亚 (Estonia) 08 - xiaohe",
         "🇪🇪 爱沙尼亚 (Estonia) 09 - xiaohe",
-        "🇪🇪 爱沙尼亚 (Estonia) 10 - xiaohe"
+        "🇪🇪 爱沙尼亚 (Estonia) 10 - xiaohe",
+        "🇪🇪 爱沙尼亚 (Estonia) 11 - xiaohe",
+        "🇪🇪 爱沙尼亚 (Estonia) 12 - xiaohe"
       ],
       "url": "https://www.gstatic.com/generate_204"
     },

@@ -5,42 +5,7 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇸🇪 瑞典 (Sweden) 01 - xiaohe
-  server: 103.139.51.51
-  port: 443
-  udp: true
-  type: vless
-  uuid: 71b91642-93ed-4923-8cab-877e19bfc2d6
-  flow: xtls-rprx-vision
-  tls: true
-  reality-opts:
-    public-key: H5CXI4RvEWW0TFPvFrnF1iX-05Y57ZYMMngjmkMfv24
-    short-id: 711ad7f475c35e5e
-  servername: cloud.figmafound.org
-  client-fingerprint: edge
-- name: 🇸🇪 瑞典 (Sweden) 02 - xiaohe
-  server: 143.246.194.60
-  port: 8081
-  udp: true
-  type: vless
-  uuid: 54ee5e59-55a3-4599-83ff-0c67b3f411b2
-  network: ws
-  ws-opts:
-    path: /vless-test
-- name: 🇸🇪 瑞典 (Sweden) 03 - xiaohe
-  server: 185.231.103.20
-  port: 443
-  udp: true
-  type: vless
-  uuid: 89104901-966e-4c7e-8e83-99d8712c5417
-  flow: xtls-rprx-vision
-  tls: true
-  reality-opts:
-    public-key: dAywk2CpVoA14GcQBWxgkamea0yaLkF6jUmy4--vHAU
-    short-id: fd
-  servername: se.convexia.net
-  client-fingerprint: chrome
-- name: 🇸🇪 瑞典 (Sweden) 04 - xiaohe
-  server: 79.141.174.147
+  server: 193.42.39.10
   port: 33743
   udp: true
   type: vless
@@ -53,51 +18,7 @@ proxies:
   network: grpc
   grpc-opts:
     grpc-service-name: TunService
-- name: 🇸🇪 瑞典 (Sweden) 05 - xiaohe
-  server: 103.139.51.21
-  port: 443
-  udp: true
-  type: vless
-  uuid: 71b91642-93ed-4923-8cab-877e19bfc2d6
-  flow: xtls-rprx-vision
-  tls: true
-  reality-opts:
-    public-key: H5CXI4RvEWW0TFPvFrnF1iX-05Y57ZYMMngjmkMfv24
-    short-id: 711ad7f475c35e5e
-  servername: auth.figmafound.org
-  client-fingerprint: firefox
-- name: 🇸🇪 瑞典 (Sweden) 06 - xiaohe
-  server: 143.246.195.138
-  port: 8081
-  udp: true
-  type: vless
-  uuid: 54ee5e59-55a3-4599-83ff-0c67b3f411b2
-  network: ws
-  ws-opts:
-    path: /vless-test
-- name: 🇸🇪 瑞典 (Sweden) 07 - xiaohe
-  server: 143.246.195.98
-  port: 8081
-  udp: true
-  type: vless
-  uuid: 54ee5e59-55a3-4599-83ff-0c67b3f411b2
-  network: ws
-  ws-opts:
-    path: /vless-test
-- name: 🇸🇪 瑞典 (Sweden) 08 - xiaohe
-  server: 5.157.10.147
-  port: 443
-  udp: true
-  type: vless
-  uuid: 4bdeee92-97e8-414d-bef6-ec1d5e2ab73b
-  flow: xtls-rprx-vision
-  tls: true
-  reality-opts:
-    public-key: x6p656szvu_3CKLsJ4NtkooRvdTVGx7IoPca_p58_jA
-    short-id: fb442438e2223836
-  servername: svvedko.nxxzxaw.beer
-  client-fingerprint: random
-- name: 🇸🇪 瑞典 (Sweden) 09 - xiaohe
+- name: 🇸🇪 瑞典 (Sweden) 02 - xiaohe
   server: 193.148.59.178
   port: 443
   udp: true
@@ -110,7 +31,25 @@ proxies:
     short-id: e3daad69
   servername: www.apple.com
   client-fingerprint: chrome
-- name: 🇸🇪 瑞典 (Sweden) 10 - xiaohe
+- name: 🇸🇪 瑞典 (Sweden) 03 - xiaohe
+  server: 143.246.195.138
+  port: 8081
+  udp: true
+  type: vless
+  uuid: 54ee5e59-55a3-4599-83ff-0c67b3f411b2
+  network: ws
+  ws-opts:
+    path: /vless-test
+- name: 🇸🇪 瑞典 (Sweden) 04 - xiaohe
+  server: 143.246.195.98
+  port: 8081
+  udp: true
+  type: vless
+  uuid: 54ee5e59-55a3-4599-83ff-0c67b3f411b2
+  network: ws
+  ws-opts:
+    path: /vless-test
+- name: 🇸🇪 瑞典 (Sweden) 05 - xiaohe
   server: 91.193.17.156
   port: 9458
   udp: true
@@ -124,20 +63,36 @@ proxies:
   network: grpc
   grpc-opts:
     grpc-service-name: TunService
-- name: 🇸🇪 瑞典 (Sweden) 11 - xiaohe
-  server: 31.76.3.34
-  port: 443
+- name: 🇸🇪 瑞典 (Sweden) 06 - xiaohe
+  server: 202.181.177.8
+  port: 8443
   udp: true
   type: vless
-  uuid: 0d628b17-8ac4-49b9-a422-6b99077bfdf6
-  flow: xtls-rprx-vision
+  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
   tls: true
-  reality-opts:
-    public-key: CetY_ReGID1LBH275yWlxxOctI82PtgxR-fjYSRTKzM
-    short-id: 8a2b3c4d5e6f7012
-  servername: tradingview.com
-  client-fingerprint: firefox
-- name: 🇸🇪 瑞典 (Sweden) 12 - xiaohe
+  servername: cdn8848.776676.xyz
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /channels/act
+    headers:
+      Host: cdn8848.776676.xyz
+- name: 🇸🇪 瑞典 (Sweden) 07 - xiaohe
+  server: 109.107.155.76
+  port: 2053
+  udp: true
+  type: vless
+  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
+  tls: true
+  servername: cdn8848.776676.xyz
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /tv/member/auth?ed=2560fp=chrome
+    headers:
+      Host: cdn8848.776676.xyz
+- name: 🇸🇪 瑞典 (Sweden) 08 - xiaohe
   server: se-node.rumedia-cdn.com
   port: 25443
   udp: true
@@ -145,38 +100,8 @@ proxies:
   password: 29ffde49-e1d6-4dcd-a135-352920f9f0b8
   sni: cf2.rumedia-cdn.com
   skip-cert-verify: false
-- name: 🇸🇪 瑞典 (Sweden) 13 - xiaohe
-  server: 157.228.142.148
-  port: 8443
-  udp: true
-  type: vless
-  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
-  tls: true
-  servername: cdn8848.776676.xyz
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /act/rank/lang?ed=2560
-    headers:
-      Host: cdn8848.776676.xyz
-- name: 🇸🇪 瑞典 (Sweden) 14 - xiaohe
-  server: 89.22.224.146
-  port: 43788
-  udp: true
-  type: vless
-  uuid: 49a6eeaf-7dbf-4aa5-ba21-b36cd47e724e
-  tls: true
-  servername: kqjifhg9rw.tradsc8p9xp7wxyqmc1wy0ah.workers.dev
-  skip-cert-verify: false
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /@Marisa_kristi
-    headers:
-      Host: kqjifhg9rw.tradsc8p9xp7wxyqmc1wy0ah.workers.dev
-- name: 🇸🇪 瑞典 (Sweden) 15 - xiaohe
-  server: se.belka.network
+- name: 🇸🇪 瑞典 (Sweden) 09 - xiaohe
+  server: 177.3.215.171
   port: 443
   udp: true
   type: vless
@@ -188,6 +113,28 @@ proxies:
     short-id: 7f2e9c4b1a8d6e53
   servername: yahoo.com
   client-fingerprint: firefox
+- name: 🇸🇪 瑞典 (Sweden) 10 - xiaohe
+  server: svvedko.nxxzxaw.beer
+  port: 443
+  udp: true
+  type: vless
+  uuid: 4bdeee92-97e8-414d-bef6-ec1d5e2ab73b
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: x6p656szvu_3CKLsJ4NtkooRvdTVGx7IoPca_p58_jA
+    short-id: fb442438e2223836
+  servername: svvedko.nxxzxaw.beer
+  client-fingerprint: random
+- name: 🇸🇪 瑞典 (Sweden) 11 - xiaohe
+  server: 143.246.194.60
+  port: 8081
+  udp: true
+  type: vless
+  uuid: 54ee5e59-55a3-4599-83ff-0c67b3f411b2
+  network: ws
+  ws-opts:
+    path: /vless-test
 proxy-groups:
 - name: PROXIES
   type: select
@@ -204,10 +151,6 @@ proxy-groups:
   - 🇸🇪 瑞典 (Sweden) 09 - xiaohe
   - 🇸🇪 瑞典 (Sweden) 10 - xiaohe
   - 🇸🇪 瑞典 (Sweden) 11 - xiaohe
-  - 🇸🇪 瑞典 (Sweden) 12 - xiaohe
-  - 🇸🇪 瑞典 (Sweden) 13 - xiaohe
-  - 🇸🇪 瑞典 (Sweden) 14 - xiaohe
-  - 🇸🇪 瑞典 (Sweden) 15 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -224,9 +167,5 @@ proxy-groups:
   - 🇸🇪 瑞典 (Sweden) 09 - xiaohe
   - 🇸🇪 瑞典 (Sweden) 10 - xiaohe
   - 🇸🇪 瑞典 (Sweden) 11 - xiaohe
-  - 🇸🇪 瑞典 (Sweden) 12 - xiaohe
-  - 🇸🇪 瑞典 (Sweden) 13 - xiaohe
-  - 🇸🇪 瑞典 (Sweden) 14 - xiaohe
-  - 🇸🇪 瑞典 (Sweden) 15 - xiaohe
 rules:
 - MATCH,PROXIES

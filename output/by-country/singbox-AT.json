@@ -58,12 +58,12 @@
     {
       "type": "vless",
       "tag": "🇦🇹 奥地利 (Austria) 04 - xiaohe",
-      "server": "132.243.203.218",
-      "server_port": 8443,
-      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
+      "server": "91.186.218.227",
+      "server_port": 4443,
+      "uuid": "9649ca0c-aad3-4d31-bfeb-837ae9d6c255",
       "tls": {
         "enabled": true,
-        "server_name": "cdn8848.776676.xyz",
+        "server_name": "wjwkhoaftdgrt8qus.mp8pmwdgwf3sdapasouszjobjr57nrxxgtx9n.workers.dev",
         "insecure": false,
         "utls": {
           "enabled": true,
@@ -72,9 +72,9 @@
       },
       "transport": {
         "type": "ws",
-        "path": "/v?ed=2560",
+        "path": "/@Marisa_kristi",
         "headers": {
-          "Host": "cdn8848.776676.xyz"
+          "Host": "wjwkhoaftdgrt8qus.mp8pmwdgwf3sdapasouszjobjr57nrxxgtx9n.workers.dev"
         }
       }
     },

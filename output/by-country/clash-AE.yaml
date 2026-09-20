@@ -5,20 +5,18 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇦🇪 阿联酋 (UAE) 01 - xiaohe
-  server: 31.56.189.27
-  port: 2087
+  server: 45.130.125.201
+  port: 80
   udp: true
   type: vless
-  uuid: df9f5aca-eda0-428f-a752-e53866153d12
-  tls: true
-  servername: srv-21bac9.vless.monster
-  skip-cert-verify: false
-  client-fingerprint: firefox
-  network: grpc
-  grpc-opts:
-    grpc-service-name: freegrpc
+  uuid: dc8a9493-c54a-459e-d060-81a700000001
+  network: ws
+  ws-opts:
+    path: /sync
+    headers:
+      Host: nahan-core.netizo09.workers.dev
 - name: 🇦🇪 阿联酋 (UAE) 02 - xiaohe
-  server: 85.204.107.181
+  server: 85.204.107.174
   port: 8080
   udp: true
   type: hysteria2

@@ -40,20 +40,20 @@ proxies:
     headers:
       Host: cdn8848.776676.xyz
 - name: 🇦🇹 奥地利 (Austria) 04 - xiaohe
-  server: 132.243.203.218
-  port: 8443
+  server: 91.186.218.227
+  port: 4443
   udp: true
   type: vless
-  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
+  uuid: 9649ca0c-aad3-4d31-bfeb-837ae9d6c255
   tls: true
-  servername: cdn8848.776676.xyz
+  servername: wjwkhoaftdgrt8qus.mp8pmwdgwf3sdapasouszjobjr57nrxxgtx9n.workers.dev
   skip-cert-verify: false
   client-fingerprint: chrome
   network: ws
   ws-opts:
-    path: /v?ed=2560
+    path: /@Marisa_kristi
     headers:
-      Host: cdn8848.776676.xyz
+      Host: wjwkhoaftdgrt8qus.mp8pmwdgwf3sdapasouszjobjr57nrxxgtx9n.workers.dev
 proxy-groups:
 - name: PROXIES
   type: select

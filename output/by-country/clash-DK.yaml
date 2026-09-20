@@ -5,35 +5,6 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇩🇰 丹麦 (Denmark) 01 - xiaohe
-  server: 45.148.30.11
-  port: 443
-  udp: true
-  type: vless
-  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
-  tls: true
-  servername: cdn8848.776676.xyz
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /season/classify?ed=2560
-    headers:
-      Host: cdn8848.776676.xyz
-- name: 🇩🇰 丹麦 (Denmark) 02 - xiaohe
-  server: 193.181.216.117
-  port: 2053
-  udp: true
-  type: vless
-  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
-  tls: true
-  servername: cdn8848.776676.xyz
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /payment?ed=2560fp=chrome
-    headers:
-      Host: cdn8848.776676.xyz
-- name: 🇩🇰 丹麦 (Denmark) 03 - xiaohe
   server: 38.180.214.110
   port: 5600
   udp: true
@@ -46,15 +17,11 @@ proxy-groups:
   proxies:
   - AUTO
   - 🇩🇰 丹麦 (Denmark) 01 - xiaohe
-  - 🇩🇰 丹麦 (Denmark) 02 - xiaohe
-  - 🇩🇰 丹麦 (Denmark) 03 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
   - 🇩🇰 丹麦 (Denmark) 01 - xiaohe
-  - 🇩🇰 丹麦 (Denmark) 02 - xiaohe
-  - 🇩🇰 丹麦 (Denmark) 03 - xiaohe
 rules:
 - MATCH,PROXIES

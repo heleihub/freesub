@@ -6,9 +6,20 @@
     {
       "type": "vless",
       "tag": "🇨🇿 捷克 (Czech) 01 - xiaohe",
-      "server": "153.76.185.84",
+      "server": "153.76.185.144",
       "server_port": 3090,
-      "uuid": "995b4d19-8c0d-4f81-a199-35a4f1d7744e",
+      "uuid": "a9a813b7-13ea-45f4-b8de-922b9bdd2db2",
+      "transport": {
+        "type": "grpc",
+        "service_name": "vless"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🇨🇿 捷克 (Czech) 02 - xiaohe",
+      "server": "194.58.43.245",
+      "server_port": 2089,
+      "uuid": "d144d943-46bd-41ce-af2c-06358c845616",
       "transport": {
         "type": "grpc",
         "service_name": "vless"
@@ -19,14 +30,16 @@
       "tag": "select",
       "outbounds": [
         "auto",
-        "🇨🇿 捷克 (Czech) 01 - xiaohe"
+        "🇨🇿 捷克 (Czech) 01 - xiaohe",
+        "🇨🇿 捷克 (Czech) 02 - xiaohe"
       ]
     },
     {
       "type": "urltest",
       "tag": "auto",
       "outbounds": [
-        "🇨🇿 捷克 (Czech) 01 - xiaohe"
+        "🇨🇿 捷克 (Czech) 01 - xiaohe",
+        "🇨🇿 捷克 (Czech) 02 - xiaohe"
       ],
       "url": "https://www.gstatic.com/generate_204"
     },

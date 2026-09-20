@@ -5,63 +5,6 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇰🇿 哈萨克斯坦 (Kazakhstan) 01 - xiaohe
-  server: 162.159.43.187
-  port: 2086
-  udp: true
-  type: vless
-  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
-  network: ws
-  ws-opts:
-    path: /?ed=2560security=tls
-    headers:
-      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
-- name: 🇰🇿 哈萨克斯坦 (Kazakhstan) 02 - xiaohe
-  server: 172.64.32.103
-  port: 80
-  udp: true
-  type: vless
-  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
-  network: ws
-  ws-opts:
-    path: '/?ed=2560security=tls '
-    headers:
-      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
-- name: 🇰🇿 哈萨克斯坦 (Kazakhstan) 03 - xiaohe
-  server: 172.64.53.55
-  port: 2095
-  udp: true
-  type: vless
-  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
-  network: ws
-  ws-opts:
-    path: /?ed=2560security=tls
-    headers:
-      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
-- name: 🇰🇿 哈萨克斯坦 (Kazakhstan) 04 - xiaohe
-  server: 77.73.232.61
-  port: 19747
-  udp: true
-  type: vless
-  uuid: 2a9ed01e-5455-44b4-a66a-76ee8165f0ac
-  tls: true
-  reality-opts:
-    public-key: ZO9dTeg1slvTXgVsBsaJ1BDvz_YUImTLJjbHs-GdVyM
-    short-id: '2001'
-  servername: yahoo.com
-  client-fingerprint: chrome
-- name: 🇰🇿 哈萨克斯坦 (Kazakhstan) 05 - xiaohe
-  server: 109.248.170.119
-  port: 13447
-  udp: true
-  type: vless
-  uuid: b573cefb-7bc7-4a42-b407-b8b534e66773
-  tls: true
-  reality-opts:
-    public-key: _0wM2ep44eAcrgf5PflKaBivknCWT6kMvQBQUoScCkE
-    short-id: '83'
-  servername: yahoo.com
-  client-fingerprint: chrome
-- name: 🇰🇿 哈萨克斯坦 (Kazakhstan) 06 - xiaohe
   server: 83.222.23.81
   port: 38065
   udp: true
@@ -73,6 +16,18 @@ proxies:
     short-id: fa
   servername: yahoo.com
   client-fingerprint: chrome
+- name: 🇰🇿 哈萨克斯坦 (Kazakhstan) 02 - xiaohe
+  server: 109.248.170.119
+  port: 13447
+  udp: true
+  type: vless
+  uuid: b573cefb-7bc7-4a42-b407-b8b534e66773
+  tls: true
+  reality-opts:
+    public-key: _0wM2ep44eAcrgf5PflKaBivknCWT6kMvQBQUoScCkE
+    short-id: '83'
+  servername: yahoo.com
+  client-fingerprint: chrome
 proxy-groups:
 - name: PROXIES
   type: select
@@ -80,10 +35,6 @@ proxy-groups:
   - AUTO
   - 🇰🇿 哈萨克斯坦 (Kazakhstan) 01 - xiaohe
   - 🇰🇿 哈萨克斯坦 (Kazakhstan) 02 - xiaohe
-  - 🇰🇿 哈萨克斯坦 (Kazakhstan) 03 - xiaohe
-  - 🇰🇿 哈萨克斯坦 (Kazakhstan) 04 - xiaohe
-  - 🇰🇿 哈萨克斯坦 (Kazakhstan) 05 - xiaohe
-  - 🇰🇿 哈萨克斯坦 (Kazakhstan) 06 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -91,9 +42,5 @@ proxy-groups:
   proxies:
   - 🇰🇿 哈萨克斯坦 (Kazakhstan) 01 - xiaohe
   - 🇰🇿 哈萨克斯坦 (Kazakhstan) 02 - xiaohe
-  - 🇰🇿 哈萨克斯坦 (Kazakhstan) 03 - xiaohe
-  - 🇰🇿 哈萨克斯坦 (Kazakhstan) 04 - xiaohe
-  - 🇰🇿 哈萨克斯坦 (Kazakhstan) 05 - xiaohe
-  - 🇰🇿 哈萨克斯坦 (Kazakhstan) 06 - xiaohe
 rules:
 - MATCH,PROXIES

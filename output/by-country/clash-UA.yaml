@@ -1,0 +1,29 @@
+port: 7890
+socks-port: 7891
+allow-lan: true
+mode: rule
+log-level: info
+proxies:
+- name: 🇺🇦 乌克兰 (Ukraine) 01 - xiaohe
+  server: 104.143.223.80
+  port: 2085
+  udp: true
+  type: vless
+  uuid: 38ffee35-b305-41ba-89e0-78e62d95b99c
+  network: grpc
+  grpc-opts:
+    grpc-service-name: vless
+proxy-groups:
+- name: PROXIES
+  type: select
+  proxies:
+  - AUTO
+  - 🇺🇦 乌克兰 (Ukraine) 01 - xiaohe
+- name: AUTO
+  type: url-test
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  proxies:
+  - 🇺🇦 乌克兰 (Ukraine) 01 - xiaohe
+rules:
+- MATCH,PROXIES

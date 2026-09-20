@@ -23,7 +23,7 @@
         "server_name": "at.quattro-tech.ru",
         "utls": {
           "enabled": true,
-          "fingerprint": "qq"
+          "fingerprint": "chrome"
         },
         "reality": {
           "enabled": true,
@@ -35,7 +35,7 @@
     {
       "type": "vless",
       "tag": "🇦🇹 奥地利 (Austria) 03 - xiaohe",
-      "server": "132.243.203.218",
+      "server": "132.243.203.243",
       "server_port": 8443,
       "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
       "tls": {
@@ -49,7 +49,7 @@
       },
       "transport": {
         "type": "ws",
-        "path": "/v?ed=2560",
+        "path": "/archive?ed=2560",
         "headers": {
           "Host": "cdn8848.776676.xyz"
         }
@@ -58,13 +58,13 @@
     {
       "type": "vless",
       "tag": "🇦🇹 奥地利 (Austria) 04 - xiaohe",
-      "server": "132.243.203.243",
+      "server": "132.243.203.207",
       "server_port": 8443,
       "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
       "tls": {
         "enabled": true,
         "server_name": "cdn8848.776676.xyz",
-        "insecure": true,
+        "insecure": false,
         "utls": {
           "enabled": true,
           "fingerprint": "chrome"
@@ -72,7 +72,7 @@
       },
       "transport": {
         "type": "ws",
-        "path": "/archive?ed=2560",
+        "path": "/lives?ed=2560",
         "headers": {
           "Host": "cdn8848.776676.xyz"
         }

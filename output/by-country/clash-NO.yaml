@@ -5,24 +5,18 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇳🇴 挪威 (Norway) 01 - xiaohe
-  server: 185.213.23.63
-  port: 990
-  udp: true
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
-- name: 🇳🇴 挪威 (Norway) 02 - xiaohe
-  server: 31.76.5.156
-  port: 443
+  server: 46.29.238.88
+  port: 40443
   udp: true
   type: vless
-  uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
-  flow: xtls-rprx-vision
+  uuid: db320947-adfb-400d-b60b-383b8324bffe
   tls: true
-  servername: norw.failspace.top
-  skip-cert-verify: true
-  client-fingerprint: firefox
-- name: 🇳🇴 挪威 (Norway) 03 - xiaohe
+  reality-opts:
+    public-key: aZOpodpnifoxDqTzWgxJRffgsiGnG9-h-EZd4SvOImc
+    short-id: f7b2
+  servername: deepl.com
+  client-fingerprint: chrome
+- name: 🇳🇴 挪威 (Norway) 02 - xiaohe
   server: 31.76.5.124
   port: 443
   udp: true
@@ -40,7 +34,6 @@ proxy-groups:
   - AUTO
   - 🇳🇴 挪威 (Norway) 01 - xiaohe
   - 🇳🇴 挪威 (Norway) 02 - xiaohe
-  - 🇳🇴 挪威 (Norway) 03 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -48,6 +41,5 @@ proxy-groups:
   proxies:
   - 🇳🇴 挪威 (Norway) 01 - xiaohe
   - 🇳🇴 挪威 (Norway) 02 - xiaohe
-  - 🇳🇴 挪威 (Norway) 03 - xiaohe
 rules:
 - MATCH,PROXIES

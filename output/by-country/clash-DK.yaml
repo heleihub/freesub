@@ -19,7 +19,7 @@ proxies:
   uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
   tls: true
   servername: cdn8848.776676.xyz
-  skip-cert-verify: true
+  skip-cert-verify: false
   client-fingerprint: chrome
   network: ws
   ws-opts:
@@ -34,11 +34,10 @@ proxies:
   uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
   tls: true
   servername: cdn8848.776676.xyz
-  skip-cert-verify: true
-  client-fingerprint: chrome
+  skip-cert-verify: false
   network: ws
   ws-opts:
-    path: /payment?ed=2560
+    path: /payment?ed=2560fp=chrome
     headers:
       Host: cdn8848.776676.xyz
 - name: 🇩🇰 丹麦 (Denmark) 04 - xiaohe

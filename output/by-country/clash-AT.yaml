@@ -25,35 +25,6 @@ proxies:
   servername: at.quattro-tech.ru
   client-fingerprint: chrome
 - name: 🇦🇹 奥地利 (Austria) 03 - xiaohe
-  server: 132.243.203.243
-  port: 8443
-  udp: true
-  type: vless
-  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
-  tls: true
-  servername: cdn8848.776676.xyz
-  skip-cert-verify: false
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /archive?ed=2560
-    headers:
-      Host: cdn8848.776676.xyz
-- name: 🇦🇹 奥地利 (Austria) 04 - xiaohe
-  server: 132.243.203.218
-  port: 8443
-  udp: true
-  type: vless
-  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
-  tls: true
-  servername: cdn8848.776676.xyz
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /v
-    headers:
-      Host: cdn8848.776676.xyz
-- name: 🇦🇹 奥地利 (Austria) 05 - xiaohe
   server: 132.243.203.207
   port: 8443
   udp: true
@@ -68,6 +39,29 @@ proxies:
     path: /lives?ed=2560
     headers:
       Host: cdn8848.776676.xyz
+- name: 🇦🇹 奥地利 (Austria) 04 - xiaohe
+  server: 132.243.203.243
+  port: 8443
+  udp: true
+  type: vless
+  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
+  tls: true
+  servername: cdn8848.776676.xyz
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /archive?ed=2560
+    headers:
+      Host: cdn8848.776676.xyz
+- name: 🇦🇹 奥地利 (Austria) 05 - xiaohe
+  server: 67.159.17.39
+  port: 30443
+  udp: true
+  type: hysteria2
+  password: 1e6fed5b-5edc-4ddb-a268-79d7fae4365c
+  sni: filesconvert.org
+  skip-cert-verify: true
 proxy-groups:
 - name: PROXIES
   type: select

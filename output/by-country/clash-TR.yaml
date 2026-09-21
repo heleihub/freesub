@@ -5,6 +5,15 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇹🇷 土耳其 (Turkey) 01 - xiaohe
+  server: 93.190.9.9
+  port: 3090
+  udp: true
+  type: vless
+  uuid: c4a36c29-39db-4782-b7cb-6e391461a999
+  network: grpc
+  grpc-opts:
+    grpc-service-name: vless
+- name: 🇹🇷 土耳其 (Turkey) 02 - xiaohe
   server: 31.214.152.140
   port: 443
   udp: true
@@ -17,7 +26,7 @@ proxies:
     short-id: 08
   servername: dw.b-cdn.net
   client-fingerprint: firefox
-- name: 🇹🇷 土耳其 (Turkey) 02 - xiaohe
+- name: 🇹🇷 土耳其 (Turkey) 03 - xiaohe
   server: 78.135.73.47
   port: 443
   udp: true
@@ -30,16 +39,6 @@ proxies:
     short-id: f46cd3ea3d1eb72d
   servername: www.datadoghq.com
   client-fingerprint: firefox
-- name: 🇹🇷 土耳其 (Turkey) 03 - xiaohe
-  server: me17.msjia8844.site
-  port: 7443
-  udp: true
-  type: hysteria2
-  password: M8LP9DztTr3znqCkmf-r08CQLBLLFK1r
-  sni: me17.msjia8844.site
-  skip-cert-verify: false
-  obfs: salamander
-  obfs-password: u3Soh9_Ui0UmcuY6vk0ug8Lq
 - name: 🇹🇷 土耳其 (Turkey) 04 - xiaohe
   server: 151.241.226.201
   port: 2053
@@ -67,13 +66,6 @@ proxies:
     path: /channels/act
     headers:
       Host: cdn8848.776676.xyz
-- name: 🇹🇷 土耳其 (Turkey) 06 - xiaohe
-  server: jgzt1997.qivfelo.ir
-  port: 5052
-  udp: true
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: ept2V6yarWzazZStMu0CqM-jx3NN2wG0
 proxy-groups:
 - name: PROXIES
   type: select
@@ -84,7 +76,6 @@ proxy-groups:
   - 🇹🇷 土耳其 (Turkey) 03 - xiaohe
   - 🇹🇷 土耳其 (Turkey) 04 - xiaohe
   - 🇹🇷 土耳其 (Turkey) 05 - xiaohe
-  - 🇹🇷 土耳其 (Turkey) 06 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -95,6 +86,5 @@ proxy-groups:
   - 🇹🇷 土耳其 (Turkey) 03 - xiaohe
   - 🇹🇷 土耳其 (Turkey) 04 - xiaohe
   - 🇹🇷 土耳其 (Turkey) 05 - xiaohe
-  - 🇹🇷 土耳其 (Turkey) 06 - xiaohe
 rules:
 - MATCH,PROXIES

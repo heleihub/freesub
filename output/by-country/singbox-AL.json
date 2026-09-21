@@ -4,38 +4,9 @@
   },
   "outbounds": [
     {
-      "type": "shadowsocks",
+      "type": "vless",
       "tag": "🇦🇱 AL 01 - xiaohe",
-      "server": "130.49.189.158",
-      "server_port": 43558,
-      "method": "chacha20-ietf-poly1305",
-      "password": "5dLyPJpSV+QyXFRj+S0dt6xFKHxtcXEkRO/TzJGzryU="
-    },
-    {
-      "type": "vless",
-      "tag": "🇦🇱 AL 02 - xiaohe",
-      "server": "130.49.189.158",
-      "server_port": 45433,
-      "uuid": "4ea67585-c211-4358-9173-cbdff7a6aede",
-      "flow": "xtls-rprx-vision",
-      "tls": {
-        "enabled": true,
-        "server_name": "addons.mozilla.org",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "dfJb8gJq6IRsE1KMsfZp5tNLiwBNQMbSl5NF1z5dq3c",
-          "short_id": "5e101cd5"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "🇦🇱 AL 03 - xiaohe",
-      "server": "alda1.thewalkingded.life",
+      "server": "85.155.228.24",
       "server_port": 443,
       "uuid": "4bdeee92-97e8-414d-bef6-ec1d5e2ab73b",
       "flow": "xtls-rprx-vision",
@@ -44,7 +15,7 @@
         "server_name": "alda1.thewalkingded.life",
         "utls": {
           "enabled": true,
-          "fingerprint": "random"
+          "fingerprint": "firefox"
         },
         "reality": {
           "enabled": true,
@@ -58,18 +29,14 @@
       "tag": "select",
       "outbounds": [
         "auto",
-        "🇦🇱 AL 01 - xiaohe",
-        "🇦🇱 AL 02 - xiaohe",
-        "🇦🇱 AL 03 - xiaohe"
+        "🇦🇱 AL 01 - xiaohe"
       ]
     },
     {
       "type": "urltest",
       "tag": "auto",
       "outbounds": [
-        "🇦🇱 AL 01 - xiaohe",
-        "🇦🇱 AL 02 - xiaohe",
-        "🇦🇱 AL 03 - xiaohe"
+        "🇦🇱 AL 01 - xiaohe"
       ],
       "url": "https://www.gstatic.com/generate_204"
     },

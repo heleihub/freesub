@@ -40,6 +40,20 @@ proxies:
     headers:
       Host: cdn8848.776676.xyz
 - name: 🇦🇹 奥地利 (Austria) 04 - xiaohe
+  server: 132.243.203.218
+  port: 8443
+  udp: true
+  type: vless
+  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
+  tls: true
+  servername: cdn8848.776676.xyz
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /v
+    headers:
+      Host: cdn8848.776676.xyz
+- name: 🇦🇹 奥地利 (Austria) 05 - xiaohe
   server: 132.243.203.207
   port: 8443
   udp: true
@@ -47,7 +61,7 @@ proxies:
   uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
   tls: true
   servername: cdn8848.776676.xyz
-  skip-cert-verify: false
+  skip-cert-verify: true
   client-fingerprint: chrome
   network: ws
   ws-opts:
@@ -63,6 +77,7 @@ proxy-groups:
   - 🇦🇹 奥地利 (Austria) 02 - xiaohe
   - 🇦🇹 奥地利 (Austria) 03 - xiaohe
   - 🇦🇹 奥地利 (Austria) 04 - xiaohe
+  - 🇦🇹 奥地利 (Austria) 05 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -72,5 +87,6 @@ proxy-groups:
   - 🇦🇹 奥地利 (Austria) 02 - xiaohe
   - 🇦🇹 奥地利 (Austria) 03 - xiaohe
   - 🇦🇹 奥地利 (Austria) 04 - xiaohe
+  - 🇦🇹 奥地利 (Austria) 05 - xiaohe
 rules:
 - MATCH,PROXIES

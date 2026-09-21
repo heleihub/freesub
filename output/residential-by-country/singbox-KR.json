@@ -4,10 +4,18 @@
   },
   "outbounds": [
     {
-      "type": "vless",
+      "type": "shadowsocks",
       "tag": "🇰🇷 韩国 (South Korea) 01 (家宽) - xiaohe",
-      "server": "jpzzqqnzdbgwhbhzsrgh.cfooov.xyz",
-      "server_port": 48179,
+      "server": "49.254.204.134",
+      "server_port": 1774,
+      "method": "aes-256-cfb",
+      "password": "1234!@#$"
+    },
+    {
+      "type": "vless",
+      "tag": "🇰🇷 韩国 (South Korea) 02 (家宽) - xiaohe",
+      "server": "clhkzzzdbgwxxndnlm.cfooov.xyz",
+      "server_port": 61205,
       "uuid": "17ab31f7-c021-4aec-83b2-ab48de8886bd",
       "flow": "xtls-rprx-vision",
       "tls": {
@@ -29,14 +37,16 @@
       "tag": "select",
       "outbounds": [
         "auto",
-        "🇰🇷 韩国 (South Korea) 01 (家宽) - xiaohe"
+        "🇰🇷 韩国 (South Korea) 01 (家宽) - xiaohe",
+        "🇰🇷 韩国 (South Korea) 02 (家宽) - xiaohe"
       ]
     },
     {
       "type": "urltest",
       "tag": "auto",
       "outbounds": [
-        "🇰🇷 韩国 (South Korea) 01 (家宽) - xiaohe"
+        "🇰🇷 韩国 (South Korea) 01 (家宽) - xiaohe",
+        "🇰🇷 韩国 (South Korea) 02 (家宽) - xiaohe"
       ],
       "url": "https://www.gstatic.com/generate_204"
     },

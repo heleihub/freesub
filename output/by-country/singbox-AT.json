@@ -23,7 +23,7 @@
         "server_name": "at.quattro-tech.ru",
         "utls": {
           "enabled": true,
-          "fingerprint": "chrome"
+          "fingerprint": "qq"
         },
         "reality": {
           "enabled": true,
@@ -35,23 +35,21 @@
     {
       "type": "vless",
       "tag": "🇦🇹 奥地利 (Austria) 03 - xiaohe",
-      "server": "91.186.218.227",
-      "server_port": 4443,
-      "uuid": "e6059f19-eb60-4165-9bb7-271750d2629e",
+      "server": "31.76.69.58",
+      "server_port": 443,
+      "uuid": "61da8f4b-6ab1-4ca7-bae0-1cec4f9be2f8",
+      "flow": "xtls-rprx-vision",
       "tls": {
         "enabled": true,
-        "server_name": "wkytah9k8oggj60.qzfi0skkopy875xhtc0l9pwds.workers.dev",
-        "insecure": false,
+        "server_name": "fastly.jsdelivr.net",
         "utls": {
           "enabled": true,
-          "fingerprint": "firefox"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/@Marisa_kristi",
-        "headers": {
-          "Host": "wkytah9k8oggj60.qzfi0skkopy875xhtc0l9pwds.workers.dev"
+          "fingerprint": "safari"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "J9-352rPmu8GybqIDnC22sE3zs6Vg8tnMbbi-DyLFR8",
+          "short_id": "830b93d6a086e00e"
         }
       }
     },

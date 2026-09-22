@@ -23,22 +23,20 @@ proxies:
     public-key: 10rVZPoOUP1TlQviIAsQ_jAROX0fRQxH0C92nq_zGQc
     short-id: 43dcff53849b81e6
   servername: at.quattro-tech.ru
-  client-fingerprint: chrome
+  client-fingerprint: qq
 - name: 🇦🇹 奥地利 (Austria) 03 - xiaohe
-  server: 91.186.218.227
-  port: 4443
+  server: 31.76.69.58
+  port: 443
   udp: true
   type: vless
-  uuid: e6059f19-eb60-4165-9bb7-271750d2629e
+  uuid: 61da8f4b-6ab1-4ca7-bae0-1cec4f9be2f8
+  flow: xtls-rprx-vision
   tls: true
-  servername: wkytah9k8oggj60.qzfi0skkopy875xhtc0l9pwds.workers.dev
-  skip-cert-verify: false
-  client-fingerprint: firefox
-  network: ws
-  ws-opts:
-    path: /@Marisa_kristi
-    headers:
-      Host: wkytah9k8oggj60.qzfi0skkopy875xhtc0l9pwds.workers.dev
+  reality-opts:
+    public-key: J9-352rPmu8GybqIDnC22sE3zs6Vg8tnMbbi-DyLFR8
+    short-id: 830b93d6a086e00e
+  servername: fastly.jsdelivr.net
+  client-fingerprint: safari
 proxy-groups:
 - name: PROXIES
   type: select

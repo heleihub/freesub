@@ -18,7 +18,7 @@ proxies:
   udp: true
   type: hysteria2
   password: gf1:gfhysteria2024
-  sni: whatsapp.com
+  sni: www.bing.com
   skip-cert-verify: true
 - name: 🇷🇴 罗马尼亚 (Romania) 03 - xiaohe
   server: 46.28.67.55

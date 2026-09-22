@@ -26,14 +26,14 @@
     {
       "type": "vless",
       "tag": "🇨🇱 智利 (Chile) 02 - xiaohe",
-      "server": "platform109.golnamakcert.top",
+      "server": "platform117.golnamakcert.top",
       "server_port": 80,
       "uuid": "e13cf851-b4fd-413b-8d49-146e6eb8e5d4",
       "transport": {
         "type": "ws",
-        "path": "/platform109",
+        "path": "/platform117",
         "headers": {
-          "Host": "platform109.halalkhor.info"
+          "Host": "platform117.halalkhor.info"
         }
       }
     },
@@ -54,14 +54,14 @@
     {
       "type": "vless",
       "tag": "🇨🇱 智利 (Chile) 04 - xiaohe",
-      "server": "platform117.golnamakcert.top",
+      "server": "platform109.golnamakcert.top",
       "server_port": 80,
       "uuid": "e13cf851-b4fd-413b-8d49-146e6eb8e5d4",
       "transport": {
         "type": "ws",
-        "path": "/platform117",
+        "path": "/platform109",
         "headers": {
-          "Host": "platform117.halalkhor.info"
+          "Host": "platform109.halalkhor.info"
         }
       }
     },

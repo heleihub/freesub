@@ -5,18 +5,6 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇮🇳 印度 (India) 01 - xiaohe
-  server: 194.61.31.126
-  port: 2053
-  udp: true
-  type: vless
-  uuid: 1d4e18bd-1f26-4915-b35a-7ace4826e76a
-  tls: true
-  reality-opts:
-    public-key: PuAGLfJy6cu1TNoHuKIKSxPetCbZI41fc8hQDjWPIAU
-    short-id: 9980e0609b0d3891
-  servername: www.apple.com
-  client-fingerprint: firefox
-- name: 🇮🇳 印度 (India) 02 - xiaohe
   server: 35.154.58.87
   port: 443
   udp: true
@@ -24,6 +12,18 @@ proxies:
   password: H7mP2xY9kJ4nQ8wR5tF6vB3z
   sni: vpn-in-001.fastervpn.world
   skip-cert-verify: true
+- name: 🇮🇳 印度 (India) 02 - xiaohe
+  server: 34.47.245.203
+  port: 443
+  udp: true
+  type: vless
+  uuid: 3fed34dc-2fe6-4fe0-86e7-a80213f9b7cc
+  tls: true
+  reality-opts:
+    public-key: dB68n-Vyph0_KBtBIe45b5GCB4F1IqpBF_ohlN-KpkY
+    short-id: 50440423703c945f
+  servername: www.cloudflare.com
+  client-fingerprint: chrome
 - name: 🇮🇳 印度 (India) 03 - xiaohe
   server: 13.207.151.141
   port: 443
@@ -45,30 +45,32 @@ proxies:
   servername: www.cloudflare.com
   client-fingerprint: chrome
 - name: 🇮🇳 印度 (India) 05 - xiaohe
-  server: 34.47.245.203
-  port: 443
+  server: 194.61.31.126
+  port: 2053
   udp: true
   type: vless
-  uuid: 3fed34dc-2fe6-4fe0-86e7-a80213f9b7cc
+  uuid: 1d4e18bd-1f26-4915-b35a-7ace4826e76a
   tls: true
   reality-opts:
-    public-key: dB68n-Vyph0_KBtBIe45b5GCB4F1IqpBF_ohlN-KpkY
-    short-id: 50440423703c945f
-  servername: www.cloudflare.com
-  client-fingerprint: chrome
+    public-key: PuAGLfJy6cu1TNoHuKIKSxPetCbZI41fc8hQDjWPIAU
+    short-id: 9980e0609b0d3891
+  servername: www.apple.com
+  client-fingerprint: firefox
 - name: 🇮🇳 印度 (India) 06 - xiaohe
-  server: 148.113.5.44
-  port: 443
+  server: hydra.yokkastars.com
+  port: 2443
   udp: true
   type: vless
-  uuid: 72ea5a91-ffcc-43d2-9297-5993c3abf186
-  flow: xtls-rprx-vision
+  uuid: 5e679ccd-1586-4d5f-b87b-48251046cad8
   tls: true
   reality-opts:
-    public-key: QLjTpkXRB453R9fXhJzKkc_q_gSm2MZrIOuxW4uW-mI
-    short-id: 221873918e0bb74d
-  servername: www.cloudflare.com
+    public-key: h85e28MxBgNyT9d9cNeOLVtWfHq6cT_1_oxZOTajtTg
+    short-id: 92c32de179e5d908
+  servername: deepl.com
   client-fingerprint: chrome
+  network: grpc
+  grpc-opts:
+    grpc-service-name: rex-eb0bf76b710ce763
 proxy-groups:
 - name: PROXIES
   type: select

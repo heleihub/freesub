@@ -13,19 +13,19 @@ proxies:
   alterId: 0
   cipher: auto
 - name: 🇪🇸 西班牙 (Spain) 02 - xiaohe
-  server: 140.174.184.5
-  port: 8388
-  udp: true
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: qItG8SueYQcP
-- name: 🇪🇸 西班牙 (Spain) 03 - xiaohe
   server: 108.181.121.226
   port: 8388
   udp: true
   type: ss
   cipher: chacha20-ietf-poly1305
   password: WSyL4XTwNsdv
+- name: 🇪🇸 西班牙 (Spain) 03 - xiaohe
+  server: 140.174.184.5
+  port: 8388
+  udp: true
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: qItG8SueYQcP
 - name: 🇪🇸 西班牙 (Spain) 04 - xiaohe
   server: 212.227.235.66
   port: 2053
@@ -65,6 +65,20 @@ proxies:
   servername: www.samsung.com
   client-fingerprint: firefox
 - name: 🇪🇸 西班牙 (Spain) 07 - xiaohe
+  server: mygptagent.org
+  port: 443
+  udp: true
+  type: vmess
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: mygptagent.org
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /linkvws
+- name: 🇪🇸 西班牙 (Spain) 08 - xiaohe
   server: es1.xiaoliyu.cyou
   port: 4433
   udp: true
@@ -72,6 +86,14 @@ proxies:
   password: 19f72087-4591-4d72-930b-2697078ec2be
   sni: es1.xiaoliyu.cyou
   skip-cert-verify: true
+- name: 🇪🇸 西班牙 (Spain) 09 - xiaohe
+  server: 85.90.217.42
+  port: 22324
+  udp: true
+  type: vmess
+  uuid: 04621bae-ab36-11ec-b909-0242ac120002
+  alterId: 0
+  cipher: auto
 proxy-groups:
 - name: PROXIES
   type: select
@@ -84,6 +106,8 @@ proxy-groups:
   - 🇪🇸 西班牙 (Spain) 05 - xiaohe
   - 🇪🇸 西班牙 (Spain) 06 - xiaohe
   - 🇪🇸 西班牙 (Spain) 07 - xiaohe
+  - 🇪🇸 西班牙 (Spain) 08 - xiaohe
+  - 🇪🇸 西班牙 (Spain) 09 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -96,5 +120,7 @@ proxy-groups:
   - 🇪🇸 西班牙 (Spain) 05 - xiaohe
   - 🇪🇸 西班牙 (Spain) 06 - xiaohe
   - 🇪🇸 西班牙 (Spain) 07 - xiaohe
+  - 🇪🇸 西班牙 (Spain) 08 - xiaohe
+  - 🇪🇸 西班牙 (Spain) 09 - xiaohe
 rules:
 - MATCH,PROXIES

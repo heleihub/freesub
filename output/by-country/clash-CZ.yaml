@@ -5,17 +5,19 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇨🇿 捷克 (Czech) 01 - xiaohe
-  server: 95.182.94.186
+  server: 63.141.128.22
   port: 443
   udp: true
   type: vless
-  uuid: ec7a4183-3e7b-49c4-90dc-fe352e1b0ad0
-  flow: xtls-rprx-vision
+  uuid: b8b01773-36b1-4b49-9bd0-6249f52345b4
   tls: true
-  reality-opts:
-    public-key: fkZTYNydTBVO-1LSiTvDcyBMx-zBP5Am780jECmUgg0
-  servername: us04.mcloud.mov
-  client-fingerprint: safari
+  servername: MiSty-tooth-78cA.FoboGAH414-e7B.WoRKERs.DEv
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /eyJqdW5rIjoiTkNUaFg0ZnJNUjhhcyIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0=
+    headers:
+      Host: MiSty-tooth-78cA.FoboGAH414-e7B.WoRKERs.DEv
 proxy-groups:
 - name: PROXIES
   type: select

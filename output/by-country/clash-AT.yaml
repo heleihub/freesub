@@ -25,22 +25,7 @@ proxies:
   servername: at.quattro-tech.ru
   client-fingerprint: chrome
 - name: 🇦🇹 奥地利 (Austria) 03 - xiaohe
-  server: 132.243.203.243
-  port: 8443
-  udp: true
-  type: vless
-  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
-  tls: true
-  servername: cdn8848.776676.xyz
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /archive?ed=2560
-    headers:
-      Host: cdn8848.776676.xyz
-- name: 🇦🇹 奥地利 (Austria) 04 - xiaohe
-  server: austria-dedic1.failspace.top
+  server: 50.7.184.190
   port: 443
   udp: true
   type: vless
@@ -58,7 +43,6 @@ proxy-groups:
   - 🇦🇹 奥地利 (Austria) 01 - xiaohe
   - 🇦🇹 奥地利 (Austria) 02 - xiaohe
   - 🇦🇹 奥地利 (Austria) 03 - xiaohe
-  - 🇦🇹 奥地利 (Austria) 04 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -67,6 +51,5 @@ proxy-groups:
   - 🇦🇹 奥地利 (Austria) 01 - xiaohe
   - 🇦🇹 奥地利 (Austria) 02 - xiaohe
   - 🇦🇹 奥地利 (Austria) 03 - xiaohe
-  - 🇦🇹 奥地利 (Austria) 04 - xiaohe
 rules:
 - MATCH,PROXIES

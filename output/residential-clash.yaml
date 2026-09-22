@@ -14,18 +14,45 @@ proxies:
   skip-cert-verify: true
   obfs: salamander
   obfs-password: a39ca173b57ac7021b08bf3e3de9f1f6
-- name: 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - xiaohe
-  server: hinet1.2yly.com
-  port: 24215
+- name: 🇯🇵 日本 (Japan) 02 (家宽) - xiaohe
+  server: 37.120.222.70
+  port: 8082
   udp: true
   type: vless
-  uuid: 19d5a678-8396-4e3b-93da-ece618d0e83a
+  uuid: f3481e31-2fe2-4545-89b6-e7b566699ba4
   tls: true
-  reality-opts:
-    public-key: mdWKUPMVTtTbDqK10BPb89OcqBC2-Lx-4NOYtqc1GWE
-  servername: addons.mozilla.org
+  servername: ke859ch2gse1iery3hiz.e3q4a5mjld11kpj0zj8dq.workers.dev
+  skip-cert-verify: false
   client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: ke859ch2gse1iery3hiz.e3q4a5mjld11kpj0zj8dq.workers.dev
 - name: 🇹🇼 中国台湾 (Taiwan) 03 (家宽) - xiaohe
+  server: 36.224.141.124
+  port: 50099
+  udp: true
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: 7e731ec3-f8e1-43f6-92cf-3978d14705c4
+- name: 🇭🇰 中国香港 (Hong Kong) 04 (家宽) - xiaohe
+  server: a2c6d68b-tm3mo0-u4mwoi-1jdha.hk3.hyhuawei.com
+  port: 443
+  udp: true
+  type: hysteria2
+  password: de629d50-1711-11ed-bd7c-f23c913c8d2b
+  sni: a2c6d68b-tm3mo0-u4mwoi-1jdha.hk3.hyhuawei.com
+  skip-cert-verify: true
+- name: 🇭🇰 中国香港 (Hong Kong) 05 (家宽) - xiaohe
+  server: aa683731-tm3mo0-unh4sc-xm0q.nw4.hyhuawei.com
+  port: 443
+  udp: true
+  type: hysteria2
+  password: 3437f34e-1b77-11eb-8684-f23c913c8d2b
+  sni: aa683731-tm3mo0-unh4sc-xm0q.nw4.hyhuawei.com
+  skip-cert-verify: true
+- name: 🇹🇼 中国台湾 (Taiwan) 06 (家宽) - xiaohe
   server: 6ivh.pnuqcnp.cn
   port: 443
   udp: true
@@ -33,7 +60,7 @@ proxies:
   password: 9sK2mP8xQ7vL3nZ6
   sni: images.ctfassets.net
   skip-cert-verify: true
-- name: 🇹🇼 中国台湾 (Taiwan) 04 (家宽) - xiaohe
+- name: 🇹🇼 中国台湾 (Taiwan) 07 (家宽) - xiaohe
   server: dee2309db4se3grs6e8hg4w61sd53g1.oylfmxz.cn
   port: 443
   udp: true
@@ -47,23 +74,39 @@ proxies:
   network: ws
   ws-opts:
     path: /
+- name: 🇭🇰 中国香港 (Hong Kong) 08 (家宽) - xiaohe
+  server: ac7548f3ebe045b39a90288ff1e97528.pnuqcnp.cn
+  port: 443
+  udp: true
+  type: anytls
+  password: 9sK2mP8xQ7vL3nZ6
+  sni: ac7548f3ebe045b39a90288ff1e97528.lwdnxf.cn
+  skip-cert-verify: true
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇺🇸 美国 (United States) 01 (家宽) - xiaohe
-  - 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - xiaohe
+  - 🇯🇵 日本 (Japan) 02 (家宽) - xiaohe
   - 🇹🇼 中国台湾 (Taiwan) 03 (家宽) - xiaohe
-  - 🇹🇼 中国台湾 (Taiwan) 04 (家宽) - xiaohe
+  - 🇭🇰 中国香港 (Hong Kong) 04 (家宽) - xiaohe
+  - 🇭🇰 中国香港 (Hong Kong) 05 (家宽) - xiaohe
+  - 🇹🇼 中国台湾 (Taiwan) 06 (家宽) - xiaohe
+  - 🇹🇼 中国台湾 (Taiwan) 07 (家宽) - xiaohe
+  - 🇭🇰 中国香港 (Hong Kong) 08 (家宽) - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
   - 🇺🇸 美国 (United States) 01 (家宽) - xiaohe
-  - 🇹🇼 中国台湾 (Taiwan) 02 (家宽) - xiaohe
+  - 🇯🇵 日本 (Japan) 02 (家宽) - xiaohe
   - 🇹🇼 中国台湾 (Taiwan) 03 (家宽) - xiaohe
-  - 🇹🇼 中国台湾 (Taiwan) 04 (家宽) - xiaohe
+  - 🇭🇰 中国香港 (Hong Kong) 04 (家宽) - xiaohe
+  - 🇭🇰 中国香港 (Hong Kong) 05 (家宽) - xiaohe
+  - 🇹🇼 中国台湾 (Taiwan) 06 (家宽) - xiaohe
+  - 🇹🇼 中国台湾 (Taiwan) 07 (家宽) - xiaohe
+  - 🇭🇰 中国香港 (Hong Kong) 08 (家宽) - xiaohe
 rules:
 - MATCH,PROXIES

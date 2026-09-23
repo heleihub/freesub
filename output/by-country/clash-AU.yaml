@@ -5,14 +5,23 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇦🇺 澳大利亚 (Australia) 01 - xiaohe
-  server: 84.17.41.2
-  port: 18000
+  server: 82.198.246.250
+  port: 180
   udp: true
   type: vmess
-  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
   alterId: 0
   cipher: auto
 - name: 🇦🇺 澳大利亚 (Australia) 02 - xiaohe
+  server: 172.105.169.70
+  port: 443
+  udp: true
+  type: vless
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  tls: true
+  servername: 172.105.169.70
+  skip-cert-verify: true
+- name: 🇦🇺 澳大利亚 (Australia) 03 - xiaohe
   server: 51.161.204.244
   port: 443
   udp: true
@@ -24,8 +33,8 @@ proxies:
     public-key: gCAazs5uxNuMZIxfDdw8wPE0nwKY4QfBfBkQveKAkEk
     short-id: 0ad08b47f498efd2
   servername: www.cloudflare.com
-  client-fingerprint: firefox
-- name: 🇦🇺 澳大利亚 (Australia) 03 - xiaohe
+  client-fingerprint: chrome
+- name: 🇦🇺 澳大利亚 (Australia) 04 - xiaohe
   server: 34.87.229.148
   port: 443
   udp: true
@@ -37,7 +46,7 @@ proxies:
     short-id: 8a7d5e0248cdb1b1
   servername: www.cloudflare.com
   client-fingerprint: chrome
-- name: 🇦🇺 澳大利亚 (Australia) 04 - xiaohe
+- name: 🇦🇺 澳大利亚 (Australia) 05 - xiaohe
   server: 34.87.244.111
   port: 443
   udp: true
@@ -48,16 +57,7 @@ proxies:
     public-key: fsdIMU2apN1C_NbkL7mHTsBKEfhwbDhgCRcB8ICf03E
     short-id: d725f0dd8cce210f
   servername: www.cloudflare.com
-  client-fingerprint: chrome
-- name: 🇦🇺 澳大利亚 (Australia) 05 - xiaohe
-  server: 172.105.169.70
-  port: 443
-  udp: true
-  type: vless
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-  tls: true
-  servername: 172.105.169.70
-  skip-cert-verify: true
+  client-fingerprint: ios
 - name: 🇦🇺 澳大利亚 (Australia) 06 - xiaohe
   server: au1.gsafevpnapi.com
   port: 20270

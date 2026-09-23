@@ -5,20 +5,16 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇰🇿 哈萨克斯坦 (Kazakhstan) 01 - xiaohe
-  server: 176.109.104.195
-  port: 9882
+  server: 3h-kazakhstan1.09vpn.com
+  port: 80
   udp: true
-  type: vless
-  uuid: 5d16ac22-6eea-426f-b778-6f4c2961faef
-  tls: true
-  reality-opts:
-    public-key: bnRIb3Er1i-K6NGGByCO9UbGfOvu43ZoiK7ulPd1SzU
-    short-id: aa
-  servername: dl.google.com
-  client-fingerprint: qq
-  network: grpc
-  grpc-opts:
-    grpc-service-name: grpc-tunnel
+  type: vmess
+  uuid: 567f4be5-12ab-42e1-b8d9-db6fd1fdd31c
+  alterId: 0
+  cipher: auto
+  network: ws
+  ws-opts:
+    path: /vmess/
 - name: 🇰🇿 哈萨克斯坦 (Kazakhstan) 02 - xiaohe
   server: 109.248.170.119
   port: 13447

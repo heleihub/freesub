@@ -46,14 +46,18 @@ proxies:
   servername: www.ikea.com
   client-fingerprint: chrome
 - name: 🇸🇪 瑞典 (Sweden) 05 - xiaohe
-  server: 143.246.195.138
-  port: 8081
+  server: surstreming.vvzzkontaktezzvv.garden
+  port: 443
   udp: true
   type: vless
-  uuid: 54ee5e59-55a3-4599-83ff-0c67b3f411b2
-  network: ws
-  ws-opts:
-    path: /vless-test
+  uuid: 4bdeee92-97e8-414d-bef6-ec1d5e2ab73b
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: x6p656szvu_3CKLsJ4NtkooRvdTVGx7IoPca_p58_jA
+    short-id: fb442438e2223836
+  servername: surstreming.vvzzkontaktezzvv.garden
+  client-fingerprint: firefox
 - name: 🇸🇪 瑞典 (Sweden) 06 - xiaohe
   server: 143.246.195.98
   port: 8081
@@ -72,7 +76,7 @@ proxies:
   sni: cf2.rumedia-cdn.com
   skip-cert-verify: false
 - name: 🇸🇪 瑞典 (Sweden) 08 - xiaohe
-  server: 143.246.194.60
+  server: 143.246.195.138
   port: 8081
   udp: true
   type: vless
@@ -81,6 +85,29 @@ proxies:
   ws-opts:
     path: /vless-test
 - name: 🇸🇪 瑞典 (Sweden) 09 - xiaohe
+  server: 176.108.246.58
+  port: 9881
+  udp: true
+  type: vless
+  uuid: 5d16ac22-6eea-426f-b778-6f4c2961faef
+  tls: true
+  reality-opts:
+    public-key: ycPIUcY6ci2yi7YA_OHc20e4gzxEdJTqpmeShxSuHRU
+  servername: dl.google.com
+  client-fingerprint: chrome
+  network: grpc
+  grpc-opts:
+    grpc-service-name: grpc-tunnel
+- name: 🇸🇪 瑞典 (Sweden) 10 - xiaohe
+  server: 143.246.194.60
+  port: 8081
+  udp: true
+  type: vless
+  uuid: 54ee5e59-55a3-4599-83ff-0c67b3f411b2
+  network: ws
+  ws-opts:
+    path: /vless-test
+- name: 🇸🇪 瑞典 (Sweden) 11 - xiaohe
   server: 2.56.121.43
   port: 443
   udp: true
@@ -93,19 +120,48 @@ proxies:
     short-id: 86229a5e3b1e6ef4
   servername: www.ikea.com
   client-fingerprint: ''
-- name: 🇸🇪 瑞典 (Sweden) 10 - xiaohe
-  server: 31.207.7.104
-  port: 443
+- name: 🇸🇪 瑞典 (Sweden) 12 - xiaohe
+  server: 91.193.17.156
+  port: 9458
   udp: true
   type: vless
-  uuid: 12ee5833-c8f5-4534-94e7-6d5c338008df
-  flow: xtls-rprx-vision
+  uuid: b3a11068-1a7e-4643-85de-7c82cce46943
   tls: true
   reality-opts:
-    public-key: nF_kEdHan2dgl2tlQ_dtNaKZ4oORhuiFrXHbtEDcT2Q
-    short-id: 2d6d073dc88f22a8
-  servername: se.global-cdn.org
-  client-fingerprint: safari
+    public-key: wGMBs7bvzyzA0-OUiwSkOOTDEMdxEOsSdRzxiP8GGQY
+  servername: www.google.com
+  client-fingerprint: edge
+  network: grpc
+  grpc-opts:
+    grpc-service-name: TunService
+- name: 🇸🇪 瑞典 (Sweden) 13 - xiaohe
+  server: 176.108.246.110
+  port: 9830
+  udp: true
+  type: vless
+  uuid: 5d16ac22-6eea-426f-b778-6f4c2961faef
+  tls: true
+  reality-opts:
+    public-key: bnRIb3Er1i-K6NGGByCO9UbGfOvu43ZoiK7ulPd1SzU
+  servername: dl.google.com
+  client-fingerprint: chrome
+  network: grpc
+  grpc-opts:
+    grpc-service-name: grpc-tunnel
+- name: 🇸🇪 瑞典 (Sweden) 14 - xiaohe
+  server: 79.141.174.147
+  port: 33743
+  udp: true
+  type: vless
+  uuid: b3a11068-1a7e-4643-85de-7c82cce46943
+  tls: true
+  reality-opts:
+    public-key: wGMBs7bvzyzA0-OUiwSkOOTDEMdxEOsSdRzxiP8GGQY
+  servername: www.google.com
+  client-fingerprint: chrome
+  network: grpc
+  grpc-opts:
+    grpc-service-name: TunService
 proxy-groups:
 - name: PROXIES
   type: select
@@ -121,6 +177,10 @@ proxy-groups:
   - 🇸🇪 瑞典 (Sweden) 08 - xiaohe
   - 🇸🇪 瑞典 (Sweden) 09 - xiaohe
   - 🇸🇪 瑞典 (Sweden) 10 - xiaohe
+  - 🇸🇪 瑞典 (Sweden) 11 - xiaohe
+  - 🇸🇪 瑞典 (Sweden) 12 - xiaohe
+  - 🇸🇪 瑞典 (Sweden) 13 - xiaohe
+  - 🇸🇪 瑞典 (Sweden) 14 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -136,5 +196,9 @@ proxy-groups:
   - 🇸🇪 瑞典 (Sweden) 08 - xiaohe
   - 🇸🇪 瑞典 (Sweden) 09 - xiaohe
   - 🇸🇪 瑞典 (Sweden) 10 - xiaohe
+  - 🇸🇪 瑞典 (Sweden) 11 - xiaohe
+  - 🇸🇪 瑞典 (Sweden) 12 - xiaohe
+  - 🇸🇪 瑞典 (Sweden) 13 - xiaohe
+  - 🇸🇪 瑞典 (Sweden) 14 - xiaohe
 rules:
 - MATCH,PROXIES

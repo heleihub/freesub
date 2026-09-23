@@ -14,22 +14,21 @@
     {
       "type": "vless",
       "tag": "🇦🇹 奥地利 (Austria) 02 - xiaohe",
-      "server": "31.76.69.58",
-      "server_port": 443,
-      "uuid": "61da8f4b-6ab1-4ca7-bae0-1cec4f9be2f8",
-      "flow": "xtls-rprx-vision",
+      "server": "193.8.215.96",
+      "server_port": 9443,
+      "uuid": "d9d0f208-d582-41d5-bb7b-742671402810",
       "tls": {
         "enabled": true,
-        "server_name": "fastly.jsdelivr.net",
+        "server_name": "hub-vie-02.hanvpn.cc",
+        "insecure": false,
         "utls": {
           "enabled": true,
           "fingerprint": "chrome"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "J9-352rPmu8GybqIDnC22sE3zs6Vg8tnMbbi-DyLFR8",
-          "short_id": "830b93d6a086e00e"
         }
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "vie02-grpc-8e47a"
       }
     },
     {
@@ -44,7 +43,7 @@
         "server_name": "at.quattro-tech.ru",
         "utls": {
           "enabled": true,
-          "fingerprint": "chrome"
+          "fingerprint": "qq"
         },
         "reality": {
           "enabled": true,

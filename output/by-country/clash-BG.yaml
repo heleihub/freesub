@@ -19,11 +19,11 @@ proxies:
   client-fingerprint: chrome
 - name: 🇧🇬 保加利亚 (Bulgaria) 02 - xiaohe
   server: 213.183.63.60
-  port: 9066
+  port: 9064
   udp: true
   type: ss
   cipher: aes-256-cfb
-  password: 2KUaE2a8NWTvuCZ3
+  password: cp8pRSUAyLhTfVWH
 - name: 🇧🇬 保加利亚 (Bulgaria) 03 - xiaohe
   server: 131.123.37.199
   port: 8081
@@ -34,7 +34,7 @@ proxies:
   ws-opts:
     path: /vless-test
 - name: 🇧🇬 保加利亚 (Bulgaria) 04 - xiaohe
-  server: 131.123.41.18
+  server: 131.123.41.31
   port: 8081
   udp: true
   type: vless
@@ -43,7 +43,7 @@ proxies:
   ws-opts:
     path: /vless-test
 - name: 🇧🇬 保加利亚 (Bulgaria) 05 - xiaohe
-  server: 131.123.41.31
+  server: 131.123.41.18
   port: 8081
   udp: true
   type: vless
@@ -74,18 +74,20 @@ proxies:
   servername: sheetpeek.com
   client-fingerprint: chrome
 - name: 🇧🇬 保加利亚 (Bulgaria) 08 - xiaohe
-  server: 144.31.50.236
+  server: 108.165.233.223
   port: 443
   udp: true
   type: vless
-  uuid: 1c332eae-7e02-4acd-996d-4eb3e652401c
-  flow: xtls-rprx-vision
+  uuid: 2388e166-3890-33ae-f77e-efac00000001
   tls: true
-  reality-opts:
-    public-key: uitO4Z8t9TplwwYaqwLqh5rfxDh_X8bOBiNuPbzvaEM
-    short-id: bbe46bd8f6b96839
-  servername: yandex.ru
+  servername: netlivpn4813.ddhshhshs.workers.dev
+  skip-cert-verify: false
   client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: netlivpn4813.ddhshhshs.workers.dev
 - name: 🇧🇬 保加利亚 (Bulgaria) 09 - xiaohe
   server: 136.175.82.85
   port: 18775

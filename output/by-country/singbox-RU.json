@@ -4,16 +4,8 @@
   },
   "outbounds": [
     {
-      "type": "shadowsocks",
-      "tag": "🇷🇺 俄罗斯 (Russia) 01 - xiaohe",
-      "server": "62.113.41.165",
-      "server_port": 888,
-      "method": "chacha20-ietf-poly1305",
-      "password": "hF-qqin2wYhP7zS47SyR0Q"
-    },
-    {
       "type": "hysteria2",
-      "tag": "🇷🇺 俄罗斯 (Russia) 02 - xiaohe",
+      "tag": "🇷🇺 俄罗斯 (Russia) 01 - xiaohe",
       "server": "91.240.86.70",
       "server_port": 22443,
       "password": "3f63c86c-ac4a-4900-85cf-4fedf93c2ca5",
@@ -21,6 +13,29 @@
         "enabled": true,
         "server_name": "hy.quattro-tech.ru",
         "insecure": false
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🇷🇺 俄罗斯 (Russia) 02 - xiaohe",
+      "server": "46.8.200.91",
+      "server_port": 443,
+      "uuid": "0a2dde28-70da-4863-a06f-35d007d94d35",
+      "tls": {
+        "enabled": true,
+        "server_name": "cf3.rumedia-cdn.com",
+        "insecure": false,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "firefox"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/casc",
+        "headers": {
+          "Host": "cf3.rumedia-cdn.com"
+        }
       }
     },
     {

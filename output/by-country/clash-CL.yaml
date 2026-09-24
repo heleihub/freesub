@@ -16,28 +16,6 @@ proxies:
     headers:
       Host: platform113.halalkhor.info
 - name: 🇨🇱 智利 (Chile) 02 - xiaohe
-  server: 64.176.5.166
-  port: 80
-  udp: true
-  type: vless
-  uuid: e13cf851-b4fd-413b-8d49-146e6eb8e5d4
-  network: ws
-  ws-opts:
-    path: /platform117
-    headers:
-      Host: platform117.halalkhor.info
-- name: 🇨🇱 智利 (Chile) 03 - xiaohe
-  server: 64.176.23.207
-  port: 80
-  udp: true
-  type: vless
-  uuid: e13cf851-b4fd-413b-8d49-146e6eb8e5d4
-  network: ws
-  ws-opts:
-    path: /platform118
-    headers:
-      Host: platform118.halalkhor.info
-- name: 🇨🇱 智利 (Chile) 04 - xiaohe
   server: 64.176.18.104
   port: 80
   udp: true
@@ -48,6 +26,28 @@ proxies:
     path: /platform109
     headers:
       Host: platform109.halalkhor.info
+- name: 🇨🇱 智利 (Chile) 03 - xiaohe
+  server: 64.176.5.166
+  port: 80
+  udp: true
+  type: vless
+  uuid: e13cf851-b4fd-413b-8d49-146e6eb8e5d4
+  network: ws
+  ws-opts:
+    path: /platform117
+    headers:
+      Host: platform117.halalkhor.info
+- name: 🇨🇱 智利 (Chile) 04 - xiaohe
+  server: 64.176.23.207
+  port: 80
+  udp: true
+  type: vless
+  uuid: e13cf851-b4fd-413b-8d49-146e6eb8e5d4
+  network: ws
+  ws-opts:
+    path: /platform118
+    headers:
+      Host: platform118.halalkhor.info
 - name: 🇨🇱 智利 (Chile) 05 - xiaohe
   server: 34.176.98.128
   port: 443

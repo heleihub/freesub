@@ -4,8 +4,15 @@
   },
   "outbounds": [
     {
-      "type": "shadowsocks",
+      "type": "vless",
       "tag": "🇮🇹 意大利 (Italy) 01 - xiaohe",
+      "server": "204.216.216.23",
+      "server_port": 10086,
+      "uuid": "9f0285ee-20ca-4953-bcdb-86a920652923"
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "🇮🇹 意大利 (Italy) 02 - xiaohe",
       "server": "185.164.175.81",
       "server_port": 19999,
       "method": "aes-256-gcm",
@@ -13,7 +20,7 @@
     },
     {
       "type": "shadowsocks",
-      "tag": "🇮🇹 意大利 (Italy) 02 - xiaohe",
+      "tag": "🇮🇹 意大利 (Italy) 03 - xiaohe",
       "server": "57.131.48.45",
       "server_port": 8388,
       "method": "aes-256-gcm",
@@ -21,7 +28,49 @@
     },
     {
       "type": "vless",
-      "tag": "🇮🇹 意大利 (Italy) 03 - xiaohe",
+      "tag": "🇮🇹 意大利 (Italy) 04 - xiaohe",
+      "server": "31.76.113.231",
+      "server_port": 443,
+      "uuid": "c5694dc5-39fd-4a92-8430-3837baa522a3",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "italia.superbuba.top",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "firefox"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "G2U8_BvRAgcOw0sX8u_0yYdVAlD8CWLSi-uYjvH07hw",
+          "short_id": "4fa44664f6a566d3"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🇮🇹 意大利 (Italy) 05 - xiaohe",
+      "server": "31.77.201.33",
+      "server_port": 443,
+      "uuid": "c5694dc5-39fd-4a92-8430-3837baa522a3",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "italia.superbuba.top",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "firefox"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "G2U8_BvRAgcOw0sX8u_0yYdVAlD8CWLSi-uYjvH07hw",
+          "short_id": "4fa44664f6a566d3"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🇮🇹 意大利 (Italy) 06 - xiaohe",
       "server": "31.76.113.212",
       "server_port": 443,
       "uuid": "c5694dc5-39fd-4a92-8430-3837baa522a3",
@@ -42,28 +91,7 @@
     },
     {
       "type": "vless",
-      "tag": "🇮🇹 意大利 (Italy) 04 - xiaohe",
-      "server": "31.76.113.108",
-      "server_port": 443,
-      "uuid": "fed5c436-f9aa-4a60-b25f-876052fdf578",
-      "flow": "xtls-rprx-vision",
-      "tls": {
-        "enabled": true,
-        "server_name": "rome.spbculture.org",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "EpCXTNjfOio49u5WHJDERuPmwc_e7HZQcS5aSOovo04",
-          "short_id": ""
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "🇮🇹 意大利 (Italy) 05 - xiaohe",
+      "tag": "🇮🇹 意大利 (Italy) 07 - xiaohe",
       "server": "57.131.38.163",
       "server_port": 2053,
       "uuid": "d4b08cd6-0903-411a-9dac-45dbdf5c9712",
@@ -83,7 +111,7 @@
     },
     {
       "type": "vless",
-      "tag": "🇮🇹 意大利 (Italy) 06 - xiaohe",
+      "tag": "🇮🇹 意大利 (Italy) 08 - xiaohe",
       "server": "82.118.16.187",
       "server_port": 443,
       "uuid": "dc2259c4-388e-4285-ba18-df619b6672b6",
@@ -104,28 +132,7 @@
     },
     {
       "type": "vless",
-      "tag": "🇮🇹 意大利 (Italy) 07 - xiaohe",
-      "server": "204.216.216.23",
-      "server_port": 1114,
-      "uuid": "6ba2eac6-0ec9-44ca-a42b-a8e23aafb530",
-      "flow": "xtls-rprx-vision",
-      "tls": {
-        "enabled": true,
-        "server_name": "yahoo.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "WfkCF0eEuIoO0MyJsKOddU89QrTzCZ4y2dzCJbH99CQ",
-          "short_id": "79a1e14b"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "🇮🇹 意大利 (Italy) 08 - xiaohe",
+      "tag": "🇮🇹 意大利 (Italy) 09 - xiaohe",
       "server": "31.77.154.14",
       "server_port": 8443,
       "uuid": "75079a7f-75b5-418b-8a65-f7b2f438cd4a",
@@ -149,7 +156,53 @@
     },
     {
       "type": "vless",
-      "tag": "🇮🇹 意大利 (Italy) 09 - xiaohe",
+      "tag": "🇮🇹 意大利 (Italy) 10 - xiaohe",
+      "server": "116.204.164.5",
+      "server_port": 7443,
+      "uuid": "32404bf4-fdba-4c77-b6be-e29b8ed54808",
+      "tls": {
+        "enabled": true,
+        "server_name": "8n9qi6t-owl.gevc9s4n60cc3wzcmwhjyezydpmbchocxp.workers.dev",
+        "insecure": false,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/@Marisa_kristi",
+        "headers": {
+          "Host": "8n9qi6t-owl.gevc9s4n60cc3wzcmwhjyezydpmbchocxp.workers.dev"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🇮🇹 意大利 (Italy) 11 - xiaohe",
+      "server": "116.204.164.30",
+      "server_port": 7443,
+      "uuid": "dcd08975-739e-44c7-9022-7c7fcb87e74b",
+      "tls": {
+        "enabled": true,
+        "server_name": "8n9qi6t-owl.gevc9s4n60cc3wzcmwhjyezydpmbchocxp.workers.dev",
+        "insecure": false,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/@Marisa_kristi",
+        "headers": {
+          "Host": "8n9qi6t-owl.gevc9s4n60cc3wzcmwhjyezydpmbchocxp.workers.dev"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🇮🇹 意大利 (Italy) 12 - xiaohe",
       "server": "milan.adaspoloandco.com",
       "server_port": 8443,
       "uuid": "69ac162b-1643-4acb-9f49-09d8b0fad609",
@@ -168,10 +221,68 @@
     },
     {
       "type": "vless",
-      "tag": "🇮🇹 意大利 (Italy) 10 - xiaohe",
+      "tag": "🇮🇹 意大利 (Italy) 13 - xiaohe",
       "server": "204.216.216.23",
-      "server_port": 10086,
-      "uuid": "9f0285ee-20ca-4953-bcdb-86a920652923"
+      "server_port": 1114,
+      "uuid": "6ba2eac6-0ec9-44ca-a42b-a8e23aafb530",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "yahoo.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "WfkCF0eEuIoO0MyJsKOddU89QrTzCZ4y2dzCJbH99CQ",
+          "short_id": "79a1e14b"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🇮🇹 意大利 (Italy) 14 - xiaohe",
+      "server": "95.181.162.170",
+      "server_port": 444,
+      "uuid": "751b51bc-af59-4b04-93c0-3fed4965297e",
+      "tls": {
+        "enabled": true,
+        "server_name": "2-gys60wmzb6bqzd.qpsjn114hh3vlph9z60sesz0agjawpwroneg.workers.dev",
+        "insecure": false,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/@Marisa_kristi",
+        "headers": {
+          "Host": "2-gys60wmzb6bqzd.qpsjn114hh3vlph9z60sesz0agjawpwroneg.workers.dev"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🇮🇹 意大利 (Italy) 15 - xiaohe",
+      "server": "2.56.121.43",
+      "server_port": 443,
+      "uuid": "eec2f6a7-c10f-43b0-b133-61f9bf9bbc27",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.ikea.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": ""
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "vnUSQFujh6K08KR6FHYWoBkZCAEZNWSKji0PPw9eMWM",
+          "short_id": "86229a5e3b1e6ef4"
+        }
+      }
     },
     {
       "type": "selector",
@@ -187,7 +298,12 @@
         "🇮🇹 意大利 (Italy) 07 - xiaohe",
         "🇮🇹 意大利 (Italy) 08 - xiaohe",
         "🇮🇹 意大利 (Italy) 09 - xiaohe",
-        "🇮🇹 意大利 (Italy) 10 - xiaohe"
+        "🇮🇹 意大利 (Italy) 10 - xiaohe",
+        "🇮🇹 意大利 (Italy) 11 - xiaohe",
+        "🇮🇹 意大利 (Italy) 12 - xiaohe",
+        "🇮🇹 意大利 (Italy) 13 - xiaohe",
+        "🇮🇹 意大利 (Italy) 14 - xiaohe",
+        "🇮🇹 意大利 (Italy) 15 - xiaohe"
       ]
     },
     {
@@ -203,7 +319,12 @@
         "🇮🇹 意大利 (Italy) 07 - xiaohe",
         "🇮🇹 意大利 (Italy) 08 - xiaohe",
         "🇮🇹 意大利 (Italy) 09 - xiaohe",
-        "🇮🇹 意大利 (Italy) 10 - xiaohe"
+        "🇮🇹 意大利 (Italy) 10 - xiaohe",
+        "🇮🇹 意大利 (Italy) 11 - xiaohe",
+        "🇮🇹 意大利 (Italy) 12 - xiaohe",
+        "🇮🇹 意大利 (Italy) 13 - xiaohe",
+        "🇮🇹 意大利 (Italy) 14 - xiaohe",
+        "🇮🇹 意大利 (Italy) 15 - xiaohe"
       ],
       "url": "https://www.gstatic.com/generate_204"
     },

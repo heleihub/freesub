@@ -27,20 +27,8 @@ proxies:
     public-key: CsDgNRcCwCkPIslfZpKTIK71KFpIFNsotbdzKcZVoH8
     short-id: cd21e552537c7c0b
   servername: www.samsung.com
-  client-fingerprint: chrome
-- name: 🇫🇮 芬兰 (Finland) 03 - xiaohe
-  server: 95.216.27.15
-  port: 2053
-  udp: true
-  type: vless
-  uuid: 1c81f6d3-5771-4c5d-9fdd-1655eff50634
-  tls: true
-  reality-opts:
-    public-key: 4nfogj5mHqNowtSn_2sXS3xTX8vcH75rFEU2BWvyekM
-    short-id: d368b94e275ab080
-  servername: www.google.com
   client-fingerprint: firefox
-- name: 🇫🇮 芬兰 (Finland) 04 - xiaohe
+- name: 🇫🇮 芬兰 (Finland) 03 - xiaohe
   server: 95.217.24.236
   port: 2087
   udp: true
@@ -53,20 +41,19 @@ proxies:
     short-id: a32cfb5deca913ad
   servername: 62.238.41.21
   client-fingerprint: chrome
-- name: 🇫🇮 芬兰 (Finland) 05 - xiaohe
-  server: 2.27.175.71
-  port: 443
+- name: 🇫🇮 芬兰 (Finland) 04 - xiaohe
+  server: 95.216.27.15
+  port: 2053
   udp: true
   type: vless
-  uuid: 0dca2cfe-98eb-4f9d-9a47-cf87510c558b
+  uuid: 1c81f6d3-5771-4c5d-9fdd-1655eff50634
   tls: true
-  servername: assets-fi.pleiades.codes
-  skip-cert-verify: false
+  reality-opts:
+    public-key: 4nfogj5mHqNowtSn_2sXS3xTX8vcH75rFEU2BWvyekM
+    short-id: d368b94e275ab080
+  servername: www.google.com
   client-fingerprint: firefox
-  network: grpc
-  grpc-opts:
-    grpc-service-name: cdn.v1.AssetService
-- name: 🇫🇮 芬兰 (Finland) 06 - xiaohe
+- name: 🇫🇮 芬兰 (Finland) 05 - xiaohe
   server: 37.143.129.244
   port: 443
   udp: true
@@ -79,15 +66,7 @@ proxies:
     short-id: 48fd192dc4e46bc0
   servername: gateway.icloud.com
   client-fingerprint: chrome
-- name: 🇫🇮 芬兰 (Finland) 07 - xiaohe
-  server: iq5ny.pleiades.codes
-  port: 8443
-  udp: true
-  type: hysteria2
-  password: 0dca2cfe-98eb-4f9d-9a47-cf87510c558b
-  sni: iq5ny.pleiades.codes
-  skip-cert-verify: false
-- name: 🇫🇮 芬兰 (Finland) 08 - xiaohe
+- name: 🇫🇮 芬兰 (Finland) 06 - xiaohe
   server: 31.77.199.147
   port: 4443
   udp: true
@@ -100,32 +79,98 @@ proxies:
     short-id: 7da2eae792187ab9
   servername: images.unsplash.com
   client-fingerprint: chrome
+- name: 🇫🇮 芬兰 (Finland) 07 - xiaohe
+  server: 104.21.33.198
+  port: 80
+  udp: true
+  type: vless
+  uuid: 246b101b-4e4a-451f-8e9c-5e8d3b64b4ef
+  network: ws
+  ws-opts:
+    path: /snob-ws
+    headers:
+      Host: fi.snobvpn.online
+- name: 🇫🇮 芬兰 (Finland) 08 - xiaohe
+  server: se1.chromevpn.cc
+  port: 443
+  udp: true
+  type: hysteria2
+  password: 02bd8b5a-170b-4a79-8e68-9cec710272c7
+  sni: se1.chromevpn.cc
+  skip-cert-verify: true
 - name: 🇫🇮 芬兰 (Finland) 09 - xiaohe
-  server: me1.movieseryalirani.ir
+  server: 144.31.27.215
+  port: 43000
+  udp: true
+  type: vless
+  uuid: 47f79fc1-0646-40e8-8a58-73e85d183d5a
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: dxCQnOekn14riFxt3vdwDNydvW47FsmwFG6BJ2mUgEg
+    short-id: 568d87a47271344e
+  servername: 144.31.27.215
+  client-fingerprint: chrome
+- name: 🇫🇮 芬兰 (Finland) 10 - xiaohe
+  server: 31.129.97.137
   port: 443
   udp: true
   type: vless
-  uuid: 63aaea7f-2847-4f41-afab-0836b1cf79d9
+  uuid: 28ff173d-b7ad-42d1-84a3-bb2e233c9996
+  flow: xtls-rprx-vision
   tls: true
   reality-opts:
-    public-key: CxRZ7oJWwR7okmOoqEEbVYCSfTaBlNA6ycf_UniyeEk
-    short-id: 8d814a
-  servername: matrix-client.matrix.org
-  client-fingerprint: firefox
-- name: 🇫🇮 芬兰 (Finland) 10 - xiaohe
+    public-key: x9yfMdHRe9ZAJJUF9kZnDnO3Y7otoyFBCS9RoaIG3Es
+  servername: api-maps.yandex.ru
+  client-fingerprint: safari
+- name: 🇫🇮 芬兰 (Finland) 11 - xiaohe
+  server: me6.movieseryalirani.ir
+  port: 57361
+  udp: true
+  type: vmess
+  uuid: ed815caa-bff1-4419-8c61-1d108eabaf1f
+  alterId: 0
+  cipher: auto
+- name: 🇫🇮 芬兰 (Finland) 12 - xiaohe
+  server: 62.60.152.1
+  port: 56328
+  udp: true
+  type: vless
+  uuid: ce230b9c-0531-40da-bc3f-f27a8e059db1
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: iI1pc8k9-mIPHL2Dga-4n4h3KoBT68lN434nglpgm2M
+    short-id: f3a9c21e8b6d4571
+  servername: table.vkroom-it-service.xyz
+  client-fingerprint: chrome
+- name: 🇫🇮 芬兰 (Finland) 13 - xiaohe
   server: 107.181.151.241
   port: 443
   udp: true
   type: vless
-  uuid: ee39fb11-56a3-4ee7-9e7c-35a4235bd30e
+  uuid: 106d20f6-d70a-40e2-b69b-8e82baf8d117
   flow: xtls-rprx-vision
   tls: true
   reality-opts:
     public-key: FjcEZNQ8t5E4R04_11T6ghsOutdqwKKrelkuadakoQg
-    short-id: b27ba098687b
-  servername: www.tradingview.com
+    short-id: 60500a63ad12
+  servername: www.microsoft.com
   client-fingerprint: chrome
-- name: 🇫🇮 芬兰 (Finland) 11 - xiaohe
+- name: 🇫🇮 芬兰 (Finland) 14 - xiaohe
+  server: 94.156.79.93
+  port: 443
+  udp: true
+  type: vless
+  uuid: 1a5e7720-abf3-4b9b-bc9b-9a900a04b434
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: _0fpFqEEuCso3B8K7AAcMjctwG_xfCxO2PdKzGd_-hg
+    short-id: f129dcdbf64f
+  servername: www.microsoft.com
+  client-fingerprint: firefox
+- name: 🇫🇮 芬兰 (Finland) 15 - xiaohe
   server: 87.239.249.137
   port: 443
   udp: true
@@ -138,18 +183,44 @@ proxies:
     short-id: 91af08b1ce1f
   servername: www.foxsports.com
   client-fingerprint: chrome
-- name: 🇫🇮 芬兰 (Finland) 12 - xiaohe
-  server: 94.156.79.93
+- name: 🇫🇮 芬兰 (Finland) 16 - xiaohe
+  server: 85.208.86.91
+  port: 9872
+  udp: true
+  type: vless
+  uuid: 5d16ac22-6eea-426f-b778-6f4c2961faef
+  tls: true
+  reality-opts:
+    public-key: sm3E3hjmT6_Gmg_O9rBz4nfXYrHpnl6-LvcCp6T6_xc
+  servername: dl.google.com
+  client-fingerprint: ''
+  network: grpc
+  grpc-opts:
+    grpc-service-name: grpc-tunnel
+- name: 🇫🇮 芬兰 (Finland) 17 - xiaohe
+  server: 107.181.151.39
   port: 443
   udp: true
   type: vless
-  uuid: d6752c6b-80ae-4a91-b446-bb330f7f8177
+  uuid: 1896c6c9-a941-4688-a865-29027bf7f8e6
   flow: xtls-rprx-vision
   tls: true
   reality-opts:
-    public-key: _0fpFqEEuCso3B8K7AAcMjctwG_xfCxO2PdKzGd_-hg
-    short-id: 88a13cf2655c
-  servername: www.foxsports.com
+    public-key: J-dv-HrWfQ_IOoyutv0Kg-rO8QwoRwc02dS1dS_tblk
+    short-id: 6c825bc79850
+  servername: www.microsoft.com
+  client-fingerprint: chrome
+- name: 🇫🇮 芬兰 (Finland) 18 - xiaohe
+  server: me1.movieseryalirani.ir
+  port: 443
+  udp: true
+  type: vless
+  uuid: 63aaea7f-2847-4f41-afab-0836b1cf79d9
+  tls: true
+  reality-opts:
+    public-key: CxRZ7oJWwR7okmOoqEEbVYCSfTaBlNA6ycf_UniyeEk
+    short-id: 8d814a
+  servername: matrix-client.matrix.org
   client-fingerprint: firefox
 proxy-groups:
 - name: PROXIES
@@ -168,6 +239,12 @@ proxy-groups:
   - 🇫🇮 芬兰 (Finland) 10 - xiaohe
   - 🇫🇮 芬兰 (Finland) 11 - xiaohe
   - 🇫🇮 芬兰 (Finland) 12 - xiaohe
+  - 🇫🇮 芬兰 (Finland) 13 - xiaohe
+  - 🇫🇮 芬兰 (Finland) 14 - xiaohe
+  - 🇫🇮 芬兰 (Finland) 15 - xiaohe
+  - 🇫🇮 芬兰 (Finland) 16 - xiaohe
+  - 🇫🇮 芬兰 (Finland) 17 - xiaohe
+  - 🇫🇮 芬兰 (Finland) 18 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -185,5 +262,11 @@ proxy-groups:
   - 🇫🇮 芬兰 (Finland) 10 - xiaohe
   - 🇫🇮 芬兰 (Finland) 11 - xiaohe
   - 🇫🇮 芬兰 (Finland) 12 - xiaohe
+  - 🇫🇮 芬兰 (Finland) 13 - xiaohe
+  - 🇫🇮 芬兰 (Finland) 14 - xiaohe
+  - 🇫🇮 芬兰 (Finland) 15 - xiaohe
+  - 🇫🇮 芬兰 (Finland) 16 - xiaohe
+  - 🇫🇮 芬兰 (Finland) 17 - xiaohe
+  - 🇫🇮 芬兰 (Finland) 18 - xiaohe
 rules:
 - MATCH,PROXIES

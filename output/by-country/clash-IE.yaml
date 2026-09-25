@@ -4,30 +4,30 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇸🇮 斯洛文尼亚 (Slovenia) 01 - xiaohe
-  server: node-slo01.rkitman.ru
-  port: 443
+- name: 🇮🇪 爱尔兰 (Ireland) 01 - xiaohe
+  server: 3.9.135.156
+  port: 51847
   udp: true
   type: vless
-  uuid: 322710c4-eef9-45ea-ad10-1efa1c6767d0
+  uuid: 391a01e9-b664-407b-9158-610fab3f5920
   flow: xtls-rprx-vision
   tls: true
   reality-opts:
-    public-key: 8C7evg_SSrJbxMTaUqJoylqB9HSNsmBvmUlgs_c5EiU
-    short-id: 88d9dc52ef39c8bd
-  servername: node-slo01.rkitman.ru
+    public-key: S6noV0L8eNASnTe1gXLutLZNdfENsvKMsOJiGQYi6nc
+    short-id: 0eec442e7b34d2f2
+  servername: www.tesla.com
   client-fingerprint: chrome
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇸🇮 斯洛文尼亚 (Slovenia) 01 - xiaohe
+  - 🇮🇪 爱尔兰 (Ireland) 01 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
-  - 🇸🇮 斯洛文尼亚 (Slovenia) 01 - xiaohe
+  - 🇮🇪 爱尔兰 (Ireland) 01 - xiaohe
 rules:
 - MATCH,PROXIES

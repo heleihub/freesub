@@ -24,7 +24,7 @@
       "tls": {
         "enabled": true,
         "server_name": "ac7548f3ebe045b39a90288ff1e97528.lwdnxf.cn",
-        "insecure": true
+        "insecure": false
       }
     },
     {

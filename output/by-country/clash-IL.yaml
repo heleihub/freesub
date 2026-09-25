@@ -5,20 +5,18 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇮🇱 以色列 (Israel) 01 - xiaohe
-  server: 185.95.231.156
-  port: 443
+  server: 64.176.164.173
+  port: 80
   udp: true
   type: vless
-  uuid: 1f8cf47a-b66a-4916-979f-26edfcf44eea
-  flow: xtls-rprx-vision
-  tls: true
-  reality-opts:
-    public-key: 8eXftARun6KH38UZhuqIfPR1VF2DLS9RMBZEnF5k6To
-    short-id: a3a578ab
-  servername: www.apple.com
-  client-fingerprint: random
+  uuid: e13cf851-b4fd-413b-8d49-146e6eb8e5d4
+  network: ws
+  ws-opts:
+    path: /platform113
+    headers:
+      Host: platform113.halalkhor.info
 - name: 🇮🇱 以色列 (Israel) 02 - xiaohe
-  server: platform118.golnamakcert.top
+  server: 64.177.65.132
   port: 80
   udp: true
   type: vless
@@ -29,18 +27,7 @@ proxies:
     headers:
       Host: platform118.halalkhor.info
 - name: 🇮🇱 以色列 (Israel) 03 - xiaohe
-  server: platform113.golnamakcert.top
-  port: 80
-  udp: true
-  type: vless
-  uuid: e13cf851-b4fd-413b-8d49-146e6eb8e5d4
-  network: ws
-  ws-opts:
-    path: /platform113
-    headers:
-      Host: platform113.halalkhor.info
-- name: 🇮🇱 以色列 (Israel) 04 - xiaohe
-  server: platform117.golnamakcert.top
+  server: 64.177.71.188
   port: 80
   udp: true
   type: vless
@@ -50,6 +37,17 @@ proxies:
     path: /platform117
     headers:
       Host: platform117.halalkhor.info
+- name: 🇮🇱 以色列 (Israel) 04 - xiaohe
+  server: platform101.golnamakcert.top
+  port: 80
+  udp: true
+  type: vless
+  uuid: e13cf851-b4fd-413b-8d49-146e6eb8e5d4
+  network: ws
+  ws-opts:
+    path: /platform101
+    headers:
+      Host: platform101.halalkhor.info
 - name: 🇮🇱 以色列 (Israel) 05 - xiaohe
   server: platform102.golnamakcert.top
   port: 80
@@ -62,18 +60,7 @@ proxies:
     headers:
       Host: platform102.halalkhor.info
 - name: 🇮🇱 以色列 (Israel) 06 - xiaohe
-  server: platform101.golnamakcert.top
-  port: 80
-  udp: true
-  type: vless
-  uuid: e13cf851-b4fd-413b-8d49-146e6eb8e5d4
-  network: ws
-  ws-opts:
-    path: /platform101
-    headers:
-      Host: platform101.halalkhor.info
-- name: 🇮🇱 以色列 (Israel) 07 - xiaohe
-  server: platform115.golnamakcert.top
+  server: 64.177.66.183
   port: 80
   udp: true
   type: vless
@@ -94,7 +81,6 @@ proxy-groups:
   - 🇮🇱 以色列 (Israel) 04 - xiaohe
   - 🇮🇱 以色列 (Israel) 05 - xiaohe
   - 🇮🇱 以色列 (Israel) 06 - xiaohe
-  - 🇮🇱 以色列 (Israel) 07 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -106,6 +92,5 @@ proxy-groups:
   - 🇮🇱 以色列 (Israel) 04 - xiaohe
   - 🇮🇱 以色列 (Israel) 05 - xiaohe
   - 🇮🇱 以色列 (Israel) 06 - xiaohe
-  - 🇮🇱 以色列 (Israel) 07 - xiaohe
 rules:
 - MATCH,PROXIES

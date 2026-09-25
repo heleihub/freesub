@@ -5,28 +5,28 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇸🇪 瑞典 (Sweden) 01 - xiaohe
-  server: 70.34.212.124
-  port: 8388
-  udp: true
-  type: ss
-  cipher: aes-256-gcm
-  password: AxIYWtskJWIIaefW
-- name: 🇸🇪 瑞典 (Sweden) 02 - xiaohe
-  server: 13.48.104.64
+  server: 51.20.122.188
   port: 443
   udp: true
   type: ss
   cipher: aes-256-cfb
   password: amazonskr05
-- name: 🇸🇪 瑞典 (Sweden) 03 - xiaohe
+- name: 🇸🇪 瑞典 (Sweden) 02 - xiaohe
   server: 51.20.86.152
   port: 443
   udp: true
   type: ss
   cipher: aes-256-cfb
   password: amazonskr05
+- name: 🇸🇪 瑞典 (Sweden) 03 - xiaohe
+  server: 70.34.212.124
+  port: 8388
+  udp: true
+  type: ss
+  cipher: aes-256-gcm
+  password: AxIYWtskJWIIaefW
 - name: 🇸🇪 瑞典 (Sweden) 04 - xiaohe
-  server: 51.20.122.188
+  server: 13.48.104.64
   port: 443
   udp: true
   type: ss
@@ -40,20 +40,36 @@ proxies:
   cipher: aes-256-cfb
   password: amazonskr05
 - name: 🇸🇪 瑞典 (Sweden) 06 - xiaohe
-  server: 193.148.59.178
+  server: 193.42.39.10
+  port: 33743
+  udp: true
+  type: vless
+  uuid: b3a11068-1a7e-4643-85de-7c82cce46943
+  tls: true
+  reality-opts:
+    public-key: wGMBs7bvzyzA0-OUiwSkOOTDEMdxEOsSdRzxiP8GGQY
+  servername: www.google.com
+  client-fingerprint: chrome
+  network: grpc
+  grpc-opts:
+    grpc-service-name: TunService
+- name: 🇸🇪 瑞典 (Sweden) 07 - xiaohe
+  server: 191.44.114.66
   port: 443
   udp: true
   type: vless
-  uuid: 20d7c485-5d24-49b5-a5cc-bb7a7daf9908
-  flow: xtls-rprx-vision
+  uuid: 718b9643-20e3-4f9e-9f8d-87ce6801d55e
   tls: true
   reality-opts:
-    public-key: -GMpCber8qtrKzJbwvpLcwlIhOy-5zS66u_x9lLvIjE
-    short-id: e3daad69
-  servername: www.apple.com
+    public-key: uE1WBdW9se1rQnx8Vh-a1jjaehzK-iUmCVrPui5KU3g
+    short-id: 53499a662395
+  servername: ai.android
   client-fingerprint: chrome
-- name: 🇸🇪 瑞典 (Sweden) 07 - xiaohe
-  server: 143.246.195.138
+  network: grpc
+  grpc-opts:
+    grpc-service-name: ''
+- name: 🇸🇪 瑞典 (Sweden) 08 - xiaohe
+  server: 143.246.194.60
   port: 8081
   udp: true
   type: vless
@@ -61,7 +77,7 @@ proxies:
   network: ws
   ws-opts:
     path: /vless-test
-- name: 🇸🇪 瑞典 (Sweden) 08 - xiaohe
+- name: 🇸🇪 瑞典 (Sweden) 09 - xiaohe
   server: 143.246.193.215
   port: 443
   udp: true
@@ -73,14 +89,6 @@ proxies:
     public-key: wSjV1yR_rhDUdoNbM9zIXNGLASLp9RorComnyoayo2c
   servername: www.blocket.se
   client-fingerprint: ''
-- name: 🇸🇪 瑞典 (Sweden) 09 - xiaohe
-  server: se1.chromevpn.cc
-  port: 443
-  udp: true
-  type: hysteria2
-  password: 02bd8b5a-170b-4a79-8e68-9cec710272c7
-  sni: se1.chromevpn.cc
-  skip-cert-verify: true
 - name: 🇸🇪 瑞典 (Sweden) 10 - xiaohe
   server: 143.246.195.98
   port: 8081
@@ -91,56 +99,7 @@ proxies:
   ws-opts:
     path: /vless-test
 - name: 🇸🇪 瑞典 (Sweden) 11 - xiaohe
-  server: 5.157.10.148
-  port: 443
-  udp: true
-  type: vless
-  uuid: 4bdeee92-97e8-414d-bef6-ec1d5e2ab73b
-  flow: xtls-rprx-vision
-  tls: true
-  reality-opts:
-    public-key: x6p656szvu_3CKLsJ4NtkooRvdTVGx7IoPca_p58_jA
-    short-id: fb442438e2223836
-  servername: surstreming.vvzzkontaktezzvv.garden
-  client-fingerprint: chrome
-- name: 🇸🇪 瑞典 (Sweden) 12 - xiaohe
-  server: se-node.rumedia-cdn.com
-  port: 25443
-  udp: true
-  type: hysteria2
-  password: 29ffde49-e1d6-4dcd-a135-352920f9f0b8
-  sni: cf2.rumedia-cdn.com
-  skip-cert-verify: true
-- name: 🇸🇪 瑞典 (Sweden) 13 - xiaohe
-  server: 176.108.246.110
-  port: 9830
-  udp: true
-  type: vless
-  uuid: 5d16ac22-6eea-426f-b778-6f4c2961faef
-  tls: true
-  reality-opts:
-    public-key: bnRIb3Er1i-K6NGGByCO9UbGfOvu43ZoiK7ulPd1SzU
-  servername: dl.google.com
-  client-fingerprint: chrome
-  network: grpc
-  grpc-opts:
-    grpc-service-name: grpc-tunnel
-- name: 🇸🇪 瑞典 (Sweden) 14 - xiaohe
-  server: 176.108.246.58
-  port: 9881
-  udp: true
-  type: vless
-  uuid: 5d16ac22-6eea-426f-b778-6f4c2961faef
-  tls: true
-  reality-opts:
-    public-key: ycPIUcY6ci2yi7YA_OHc20e4gzxEdJTqpmeShxSuHRU
-  servername: dl.google.com
-  client-fingerprint: chrome
-  network: grpc
-  grpc-opts:
-    grpc-service-name: grpc-tunnel
-- name: 🇸🇪 瑞典 (Sweden) 15 - xiaohe
-  server: 143.246.194.60
+  server: 143.246.195.138
   port: 8081
   udp: true
   type: vless
@@ -148,20 +107,60 @@ proxies:
   network: ws
   ws-opts:
     path: /vless-test
-- name: 🇸🇪 瑞典 (Sweden) 16 - xiaohe
-  server: 85.208.86.91
-  port: 9872
+- name: 🇸🇪 瑞典 (Sweden) 12 - xiaohe
+  server: 91.193.17.156
+  port: 9458
   udp: true
   type: vless
-  uuid: 5d16ac22-6eea-426f-b778-6f4c2961faef
+  uuid: b3a11068-1a7e-4643-85de-7c82cce46943
   tls: true
   reality-opts:
-    public-key: sm3E3hjmT6_Gmg_O9rBz4nfXYrHpnl6-LvcCp6T6_xc
-  servername: dl.google.com
-  client-fingerprint: ''
+    public-key: wGMBs7bvzyzA0-OUiwSkOOTDEMdxEOsSdRzxiP8GGQY
+  servername: www.google.com
+  client-fingerprint: edge
   network: grpc
   grpc-opts:
-    grpc-service-name: grpc-tunnel
+    grpc-service-name: TunService
+- name: 🇸🇪 瑞典 (Sweden) 13 - xiaohe
+  server: 144.31.50.82
+  port: 4249
+  udp: true
+  type: vless
+  uuid: ddef7283-2343-462f-8e00-1a1d47ad178e
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: J5ITJbg5FQFembAfkogKHHQB6DigsFXQxK7xu-QMWUs
+    short-id: a20d3ed244c76426
+  servername: swe.serverstats.ru
+  client-fingerprint: safari
+- name: 🇸🇪 瑞典 (Sweden) 14 - xiaohe
+  server: 94.103.2.224
+  port: 50445
+  udp: true
+  type: vless
+  uuid: 29ea8cd9-300e-4ab7-a261-75533d86f58d
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: hp9ht_jsxocTnQEbChb1G3JoDF50x-xDT8UYr66D1TQ
+  servername: www.icloud.com
+  client-fingerprint: safari
+- name: 🇸🇪 瑞典 (Sweden) 15 - xiaohe
+  server: se-node.rumedia-cdn.com
+  port: 25443
+  udp: true
+  type: hysteria2
+  password: 29ffde49-e1d6-4dcd-a135-352920f9f0b8
+  sni: cf2.rumedia-cdn.com
+  skip-cert-verify: true
+- name: 🇸🇪 瑞典 (Sweden) 16 - xiaohe
+  server: 51.170.190.140
+  port: 45819
+  udp: true
+  type: ss
+  cipher: 2022-blake3-chacha20-poly1305
+  password: yVKPB5WeYxyaTioROYKKNwo3BlzJLFfUpUbI7ue6zVk=
 proxy-groups:
 - name: PROXIES
   type: select

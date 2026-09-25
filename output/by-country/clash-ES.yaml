@@ -5,12 +5,13 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇪🇸 西班牙 (Spain) 01 - xiaohe
-  server: 140.174.184.5
-  port: 8388
+  server: 66.163.118.73
+  port: 22324
   udp: true
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: qItG8SueYQcP
+  type: vmess
+  uuid: 04621bae-ab36-11ec-b909-0242ac120002
+  alterId: 0
+  cipher: auto
 - name: 🇪🇸 西班牙 (Spain) 02 - xiaohe
   server: 108.181.121.226
   port: 8388
@@ -31,19 +32,6 @@ proxies:
   servername: www.apple.com
   client-fingerprint: firefox
 - name: 🇪🇸 西班牙 (Spain) 04 - xiaohe
-  server: 87.76.179.117
-  port: 7443
-  udp: true
-  type: vless
-  uuid: cb15d1b0-e48b-4c4c-b98a-fa1103aa3723
-  flow: xtls-rprx-vision
-  tls: true
-  reality-opts:
-    public-key: 1MLoHw7RVkGefh7XUyuGg4ndxwv4vDU9en-f9JxpXRQ
-    short-id: d2061bb1
-  servername: www.samsung.com
-  client-fingerprint: ''
-- name: 🇪🇸 西班牙 (Spain) 05 - xiaohe
   server: 46.28.71.247
   port: 443
   udp: true
@@ -56,7 +44,27 @@ proxies:
     short-id: 0dfc23fe80778c00
   servername: www.cloudflare.com
   client-fingerprint: ''
+- name: 🇪🇸 西班牙 (Spain) 05 - xiaohe
+  server: 87.76.179.117
+  port: 7443
+  udp: true
+  type: vless
+  uuid: cb15d1b0-e48b-4c4c-b98a-fa1103aa3723
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: 1MLoHw7RVkGefh7XUyuGg4ndxwv4vDU9en-f9JxpXRQ
+    short-id: d2061bb1
+  servername: www.samsung.com
+  client-fingerprint: firefox
 - name: 🇪🇸 西班牙 (Spain) 06 - xiaohe
+  server: 140.174.184.5
+  port: 8388
+  udp: true
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: qItG8SueYQcP
+- name: 🇪🇸 西班牙 (Spain) 07 - xiaohe
   server: mygptagent.org
   port: 443
   udp: true
@@ -70,14 +78,8 @@ proxies:
   network: ws
   ws-opts:
     path: /linkvws
-- name: 🇪🇸 西班牙 (Spain) 07 - xiaohe
-  server: 66.163.118.73
-  port: 22324
-  udp: true
-  type: vmess
-  uuid: 04621bae-ab36-11ec-b909-0242ac120002
-  alterId: 0
-  cipher: auto
+    headers:
+      Host: mygptagent.org
 proxy-groups:
 - name: PROXIES
   type: select

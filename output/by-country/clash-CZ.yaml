@@ -5,14 +5,13 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇨🇿 捷克 (Czech) 01 - xiaohe
-  server: 153.76.185.104
-  port: 3090
+  server: 162.249.127.130
+  port: 8443
   udp: true
-  type: vless
-  uuid: 6bd9b04b-17de-4f05-b8b8-e5f2a0a649c1
-  network: grpc
-  grpc-opts:
-    grpc-service-name: vless
+  type: hysteria2
+  password: 9Me_Jx935gnHx13_Nx45M_NYXe037js_Be4z
+  sni: hop-germany-september.dynuddns.com
+  skip-cert-verify: true
 proxy-groups:
 - name: PROXIES
   type: select

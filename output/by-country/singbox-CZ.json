@@ -4,14 +4,15 @@
   },
   "outbounds": [
     {
-      "type": "vless",
+      "type": "hysteria2",
       "tag": "🇨🇿 捷克 (Czech) 01 - xiaohe",
-      "server": "153.76.185.104",
-      "server_port": 3090,
-      "uuid": "6bd9b04b-17de-4f05-b8b8-e5f2a0a649c1",
-      "transport": {
-        "type": "grpc",
-        "service_name": "vless"
+      "server": "162.249.127.130",
+      "server_port": 8443,
+      "password": "9Me_Jx935gnHx13_Nx45M_NYXe037js_Be4z",
+      "tls": {
+        "enabled": true,
+        "server_name": "hop-germany-september.dynuddns.com",
+        "insecure": true
       }
     },
     {

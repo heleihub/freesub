@@ -4,40 +4,17 @@
   },
   "outbounds": [
     {
-      "type": "vless",
-      "tag": "🇯🇵 日本 (Japan) 01 (家宽) - xiaohe",
-      "server": "188.34.142.174",
-      "server_port": 444,
-      "uuid": "da46ec1f-84ad-4470-866f-010b58357b19",
-      "tls": {
-        "enabled": true,
-        "server_name": "9-7u3b6e.wzkija0v0du4yhk6jfyfafml3nh22kne.workers.dev",
-        "insecure": false,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/@Marisa_kristi",
-        "headers": {
-          "Host": "9-7u3b6e.wzkija0v0du4yhk6jfyfafml3nh22kne.workers.dev"
-        }
-      }
-    },
-    {
       "type": "shadowsocks",
-      "tag": "🇹🇼 中国台湾 (Taiwan) 02 (家宽) - xiaohe",
-      "server": "namrcg001640lrm.cybervena.com",
+      "tag": "🇹🇼 中国台湾 (Taiwan) 01 (家宽) - xiaohe",
+      "server": "125.224.202.118",
       "server_port": 50099,
       "method": "chacha20-ietf-poly1305",
       "password": "a9a0d092-6f0e-4701-81ee-454643d6d506"
     },
     {
       "type": "vless",
-      "tag": "🇹🇼 中国台湾 (Taiwan) 03 (家宽) - xiaohe",
-      "server": "hinet1.2yly.com",
+      "tag": "🇹🇼 中国台湾 (Taiwan) 02 (家宽) - xiaohe",
+      "server": "118.167.230.191",
       "server_port": 24215,
       "uuid": "19d5a678-8396-4e3b-93da-ece618d0e83a",
       "tls": {
@@ -45,7 +22,7 @@
         "server_name": "addons.mozilla.org",
         "utls": {
           "enabled": true,
-          "fingerprint": "chrome"
+          "fingerprint": "edge"
         },
         "reality": {
           "enabled": true,
@@ -56,19 +33,19 @@
     },
     {
       "type": "anytls",
-      "tag": "🇹🇼 中国台湾 (Taiwan) 04 (家宽) - xiaohe",
-      "server": "ac7548f3ebe045b39a90288ff1e97526.pnuqcnp.cn",
+      "tag": "🇭🇰 中国香港 (Hong Kong) 03 (家宽) - xiaohe",
+      "server": "ac7548f3ebe045b39a90288ff1e97528.pnuqcnp.cn",
       "server_port": 443,
       "password": "9sK2mP8xQ7vL3nZ6",
       "tls": {
         "enabled": true,
-        "server_name": "ac7548f3ebe045b39a90288ff1e97526.lwdnxf.cn",
+        "server_name": "ac7548f3ebe045b39a90288ff1e97528.lwdnxf.cn",
         "insecure": true
       }
     },
     {
       "type": "anytls",
-      "tag": "🇹🇼 中国台湾 (Taiwan) 05 (家宽) - xiaohe",
+      "tag": "🇹🇼 中国台湾 (Taiwan) 04 (家宽) - xiaohe",
       "server": "6ivh.pnuqcnp.cn",
       "server_port": 443,
       "password": "9sK2mP8xQ7vL3nZ6",
@@ -80,13 +57,13 @@
     },
     {
       "type": "anytls",
-      "tag": "🇭🇰 中国香港 (Hong Kong) 06 (家宽) - xiaohe",
-      "server": "ac7548f3ebe045b39a90288ff1e97528.pnuqcnp.cn",
+      "tag": "🇹🇼 中国台湾 (Taiwan) 05 (家宽) - xiaohe",
+      "server": "ac7548f3ebe045b39a90288ff1e97526.pnuqcnp.cn",
       "server_port": 443,
       "password": "9sK2mP8xQ7vL3nZ6",
       "tls": {
         "enabled": true,
-        "server_name": "ac7548f3ebe045b39a90288ff1e97528.lwdnxf.cn",
+        "server_name": "ac7548f3ebe045b39a90288ff1e97526.lwdnxf.cn",
         "insecure": true
       }
     },
@@ -95,24 +72,22 @@
       "tag": "select",
       "outbounds": [
         "auto",
-        "🇯🇵 日本 (Japan) 01 (家宽) - xiaohe",
+        "🇹🇼 中国台湾 (Taiwan) 01 (家宽) - xiaohe",
         "🇹🇼 中国台湾 (Taiwan) 02 (家宽) - xiaohe",
-        "🇹🇼 中国台湾 (Taiwan) 03 (家宽) - xiaohe",
+        "🇭🇰 中国香港 (Hong Kong) 03 (家宽) - xiaohe",
         "🇹🇼 中国台湾 (Taiwan) 04 (家宽) - xiaohe",
-        "🇹🇼 中国台湾 (Taiwan) 05 (家宽) - xiaohe",
-        "🇭🇰 中国香港 (Hong Kong) 06 (家宽) - xiaohe"
+        "🇹🇼 中国台湾 (Taiwan) 05 (家宽) - xiaohe"
       ]
     },
     {
       "type": "urltest",
       "tag": "auto",
       "outbounds": [
-        "🇯🇵 日本 (Japan) 01 (家宽) - xiaohe",
+        "🇹🇼 中国台湾 (Taiwan) 01 (家宽) - xiaohe",
         "🇹🇼 中国台湾 (Taiwan) 02 (家宽) - xiaohe",
-        "🇹🇼 中国台湾 (Taiwan) 03 (家宽) - xiaohe",
+        "🇭🇰 中国香港 (Hong Kong) 03 (家宽) - xiaohe",
         "🇹🇼 中国台湾 (Taiwan) 04 (家宽) - xiaohe",
-        "🇹🇼 中国台湾 (Taiwan) 05 (家宽) - xiaohe",
-        "🇭🇰 中国香港 (Hong Kong) 06 (家宽) - xiaohe"
+        "🇹🇼 中国台湾 (Taiwan) 05 (家宽) - xiaohe"
       ],
       "url": "https://www.gstatic.com/generate_204"
     },

@@ -13,7 +13,7 @@
       "tls": {
         "enabled": true,
         "server_name": "md-new.failspace.top",
-        "insecure": false
+        "insecure": true
       }
     },
     {

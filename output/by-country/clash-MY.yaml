@@ -5,12 +5,12 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇲🇾 马来西亚 (Malaysia) 01 - xiaohe
-  server: mlxy1.mangshe.xyz
+  server: mlxy2.mangshe.xyz
   port: 2060
   udp: true
   type: hysteria2
   password: 5d0a6445-a30d-4522-bb1f-94f1d3ad63be
-  sni: mlxy1.mangshe.xyz
+  sni: mlxy2.mangshe.xyz
   skip-cert-verify: true
 proxy-groups:
 - name: PROXIES

@@ -6,22 +6,23 @@
     {
       "type": "vless",
       "tag": "🇺🇦 乌克兰 (Ukraine) 01 - xiaohe",
-      "server": "13.143.161.69",
-      "server_port": 443,
-      "uuid": "deea5046-3543-4b1b-a17f-3d08a65db91d",
-      "flow": "xtls-rprx-vision",
-      "tls": {
-        "enabled": true,
-        "server_name": "nl5.mcloud.mov",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "safari"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "fkZTYNydTBVO-1LSiTvDcyBMx-zBP5Am780jECmUgg0",
-          "short_id": ""
-        }
+      "server": "104.143.223.59",
+      "server_port": 2085,
+      "uuid": "6864bd16-f8bb-457c-a191-dca5b80ca32a",
+      "transport": {
+        "type": "grpc",
+        "service_name": "vless"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🇺🇦 乌克兰 (Ukraine) 02 - xiaohe",
+      "server": "104.143.223.80",
+      "server_port": 2085,
+      "uuid": "273e534f-1b9f-4392-bdbb-cbb0549cb6f4",
+      "transport": {
+        "type": "grpc",
+        "service_name": "vless"
       }
     },
     {
@@ -29,14 +30,16 @@
       "tag": "select",
       "outbounds": [
         "auto",
-        "🇺🇦 乌克兰 (Ukraine) 01 - xiaohe"
+        "🇺🇦 乌克兰 (Ukraine) 01 - xiaohe",
+        "🇺🇦 乌克兰 (Ukraine) 02 - xiaohe"
       ]
     },
     {
       "type": "urltest",
       "tag": "auto",
       "outbounds": [
-        "🇺🇦 乌克兰 (Ukraine) 01 - xiaohe"
+        "🇺🇦 乌克兰 (Ukraine) 01 - xiaohe",
+        "🇺🇦 乌克兰 (Ukraine) 02 - xiaohe"
       ],
       "url": "https://www.gstatic.com/generate_204"
     },

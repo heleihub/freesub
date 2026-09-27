@@ -1,0 +1,32 @@
+port: 7890
+socks-port: 7891
+allow-lan: true
+mode: rule
+log-level: info
+proxies:
+- name: 🇬🇪 格鲁吉亚 (Georgia) 01 - xiaohe
+  server: 147.45.46.3
+  port: 443
+  udp: true
+  type: vless
+  uuid: ce5949b7-5137-4007-8a0a-063aad88b920
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
+  servername: sellflow.org
+  client-fingerprint: firefox
+proxy-groups:
+- name: PROXIES
+  type: select
+  proxies:
+  - AUTO
+  - 🇬🇪 格鲁吉亚 (Georgia) 01 - xiaohe
+- name: AUTO
+  type: url-test
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  proxies:
+  - 🇬🇪 格鲁吉亚 (Georgia) 01 - xiaohe
+rules:
+- MATCH,PROXIES

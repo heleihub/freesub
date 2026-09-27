@@ -5,21 +5,7 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇳🇴 挪威 (Norway) 01 - xiaohe
-  server: 185.213.23.63
-  port: 990
-  udp: true
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
-- name: 🇳🇴 挪威 (Norway) 02 - xiaohe
-  server: 139.100.236.74
-  port: 1
-  udp: true
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: WxYpOK1iPSJySbVNMMJDtw
-- name: 🇳🇴 挪威 (Norway) 03 - xiaohe
-  server: norw-1.failspace.top
+  server: 31.76.5.144
   port: 443
   udp: true
   type: vless
@@ -28,8 +14,9 @@ proxies:
   tls: true
   servername: norw-1.failspace.top
   skip-cert-verify: false
-- name: 🇳🇴 挪威 (Norway) 04 - xiaohe
-  server: 31.76.5.51
+  client-fingerprint: firefox
+- name: 🇳🇴 挪威 (Norway) 02 - xiaohe
+  server: norw-mori-5.failspace.top
   port: 443
   udp: true
   type: vless
@@ -37,20 +24,7 @@ proxies:
   flow: xtls-rprx-vision
   tls: true
   servername: norw-mori-5.failspace.top
-  skip-cert-verify: false
-  client-fingerprint: firefox
-- name: 🇳🇴 挪威 (Norway) 05 - xiaohe
-  server: 46.29.238.88
-  port: 40443
-  udp: true
-  type: vless
-  uuid: db320947-adfb-400d-b60b-383b8324bffe
-  tls: true
-  reality-opts:
-    public-key: aZOpodpnifoxDqTzWgxJRffgsiGnG9-h-EZd4SvOImc
-    short-id: f7b2
-  servername: deepl.com
-  client-fingerprint: chrome
+  skip-cert-verify: true
 proxy-groups:
 - name: PROXIES
   type: select
@@ -58,9 +32,6 @@ proxy-groups:
   - AUTO
   - 🇳🇴 挪威 (Norway) 01 - xiaohe
   - 🇳🇴 挪威 (Norway) 02 - xiaohe
-  - 🇳🇴 挪威 (Norway) 03 - xiaohe
-  - 🇳🇴 挪威 (Norway) 04 - xiaohe
-  - 🇳🇴 挪威 (Norway) 05 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -68,8 +39,5 @@ proxy-groups:
   proxies:
   - 🇳🇴 挪威 (Norway) 01 - xiaohe
   - 🇳🇴 挪威 (Norway) 02 - xiaohe
-  - 🇳🇴 挪威 (Norway) 03 - xiaohe
-  - 🇳🇴 挪威 (Norway) 04 - xiaohe
-  - 🇳🇴 挪威 (Norway) 05 - xiaohe
 rules:
 - MATCH,PROXIES

@@ -6,6 +6,14 @@
     {
       "type": "shadowsocks",
       "tag": "🇿🇦 南非 (South Africa) 01 - xiaohe",
+      "server": "102.37.156.224",
+      "server_port": 443,
+      "method": "chacha20-ietf-poly1305",
+      "password": "aduB9HGxQHjA2SBMRjkHX6"
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "🇿🇦 南非 (South Africa) 02 - xiaohe",
       "server": "139.84.247.164",
       "server_port": 8388,
       "method": "chacha20-ietf-poly1305",
@@ -13,7 +21,7 @@
     },
     {
       "type": "shadowsocks",
-      "tag": "🇿🇦 南非 (South Africa) 02 - xiaohe",
+      "tag": "🇿🇦 南非 (South Africa) 03 - xiaohe",
       "server": "102.133.165.160",
       "server_port": 16233,
       "method": "chacha20-ietf-poly1305",
@@ -21,49 +29,21 @@
     },
     {
       "type": "vless",
-      "tag": "🇿🇦 南非 (South Africa) 03 - xiaohe",
-      "server": "platform113.golnamakcert.top",
-      "server_port": 80,
-      "uuid": "e13cf851-b4fd-413b-8d49-146e6eb8e5d4",
-      "transport": {
-        "type": "ws",
-        "path": "/platform113",
-        "headers": {
-          "Host": "platform113.halalkhor.info"
-        }
-      }
-    },
-    {
-      "type": "vless",
       "tag": "🇿🇦 南非 (South Africa) 04 - xiaohe",
-      "server": "platform108.golnamakcert.top",
+      "server": "platform103.golnamakcert.top",
       "server_port": 80,
       "uuid": "e13cf851-b4fd-413b-8d49-146e6eb8e5d4",
       "transport": {
         "type": "ws",
-        "path": "/platform108",
+        "path": "/platform103",
         "headers": {
-          "Host": "platform108.halalkhor.info"
+          "Host": "platform103.halalkhor.info"
         }
       }
     },
     {
       "type": "vless",
       "tag": "🇿🇦 南非 (South Africa) 05 - xiaohe",
-      "server": "platform118.golnamakcert.top",
-      "server_port": 80,
-      "uuid": "e13cf851-b4fd-413b-8d49-146e6eb8e5d4",
-      "transport": {
-        "type": "ws",
-        "path": "/platform118",
-        "headers": {
-          "Host": "platform118.halalkhor.info"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "🇿🇦 南非 (South Africa) 06 - xiaohe",
       "server": "platform101.golnamakcert.top",
       "server_port": 80,
       "uuid": "e13cf851-b4fd-413b-8d49-146e6eb8e5d4",
@@ -77,15 +57,43 @@
     },
     {
       "type": "vless",
-      "tag": "🇿🇦 南非 (South Africa) 07 - xiaohe",
-      "server": "platform107.golnamakcert.top",
+      "tag": "🇿🇦 南非 (South Africa) 06 - xiaohe",
+      "server": "platform106.golnamakcert.top",
       "server_port": 80,
       "uuid": "e13cf851-b4fd-413b-8d49-146e6eb8e5d4",
       "transport": {
         "type": "ws",
-        "path": "/platform107",
+        "path": "/platform106",
         "headers": {
-          "Host": "platform107.halalkhor.info"
+          "Host": "platform106.halalkhor.info"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🇿🇦 南非 (South Africa) 07 - xiaohe",
+      "server": "platform117.golnamakcert.top",
+      "server_port": 80,
+      "uuid": "e13cf851-b4fd-413b-8d49-146e6eb8e5d4",
+      "transport": {
+        "type": "ws",
+        "path": "/platform117",
+        "headers": {
+          "Host": "platform117.halalkhor.info"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🇿🇦 南非 (South Africa) 08 - xiaohe",
+      "server": "platform109.golnamakcert.top",
+      "server_port": 80,
+      "uuid": "e13cf851-b4fd-413b-8d49-146e6eb8e5d4",
+      "transport": {
+        "type": "ws",
+        "path": "/platform109",
+        "headers": {
+          "Host": "platform109.halalkhor.info"
         }
       }
     },
@@ -100,7 +108,8 @@
         "🇿🇦 南非 (South Africa) 04 - xiaohe",
         "🇿🇦 南非 (South Africa) 05 - xiaohe",
         "🇿🇦 南非 (South Africa) 06 - xiaohe",
-        "🇿🇦 南非 (South Africa) 07 - xiaohe"
+        "🇿🇦 南非 (South Africa) 07 - xiaohe",
+        "🇿🇦 南非 (South Africa) 08 - xiaohe"
       ]
     },
     {
@@ -113,7 +122,8 @@
         "🇿🇦 南非 (South Africa) 04 - xiaohe",
         "🇿🇦 南非 (South Africa) 05 - xiaohe",
         "🇿🇦 南非 (South Africa) 06 - xiaohe",
-        "🇿🇦 南非 (South Africa) 07 - xiaohe"
+        "🇿🇦 南非 (South Africa) 07 - xiaohe",
+        "🇿🇦 南非 (South Africa) 08 - xiaohe"
       ],
       "url": "https://www.gstatic.com/generate_204"
     },

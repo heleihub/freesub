@@ -5,36 +5,30 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇺🇦 乌克兰 (Ukraine) 01 - xiaohe
-  server: 104.143.223.59
-  port: 2085
+  server: 122.8.45.2
+  port: 8443
   udp: true
   type: vless
-  uuid: 6864bd16-f8bb-457c-a191-dca5b80ca32a
+  uuid: 3ae00194-1bc0-0bf4-9564-3c55b1c6d485
+  tls: true
+  reality-opts:
+    public-key: QzFNQqkvBnDKIyjXUHJQe9jruaw9G5AV44vDC-qvnlo
+  servername: www.hp.com
+  client-fingerprint: chrome
   network: grpc
   grpc-opts:
-    grpc-service-name: vless
-- name: 🇺🇦 乌克兰 (Ukraine) 02 - xiaohe
-  server: 104.143.223.80
-  port: 2085
-  udp: true
-  type: vless
-  uuid: 273e534f-1b9f-4392-bdbb-cbb0549cb6f4
-  network: grpc
-  grpc-opts:
-    grpc-service-name: vless
+    grpc-service-name: TunService
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇺🇦 乌克兰 (Ukraine) 01 - xiaohe
-  - 🇺🇦 乌克兰 (Ukraine) 02 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
   - 🇺🇦 乌克兰 (Ukraine) 01 - xiaohe
-  - 🇺🇦 乌克兰 (Ukraine) 02 - xiaohe
 rules:
 - MATCH,PROXIES

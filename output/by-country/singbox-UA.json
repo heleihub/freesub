@@ -6,23 +6,25 @@
     {
       "type": "vless",
       "tag": "🇺🇦 乌克兰 (Ukraine) 01 - xiaohe",
-      "server": "104.143.223.59",
-      "server_port": 2085,
-      "uuid": "6864bd16-f8bb-457c-a191-dca5b80ca32a",
+      "server": "122.8.45.2",
+      "server_port": 8443,
+      "uuid": "3ae00194-1bc0-0bf4-9564-3c55b1c6d485",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.hp.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "QzFNQqkvBnDKIyjXUHJQe9jruaw9G5AV44vDC-qvnlo",
+          "short_id": ""
+        }
+      },
       "transport": {
         "type": "grpc",
-        "service_name": "vless"
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "🇺🇦 乌克兰 (Ukraine) 02 - xiaohe",
-      "server": "104.143.223.80",
-      "server_port": 2085,
-      "uuid": "273e534f-1b9f-4392-bdbb-cbb0549cb6f4",
-      "transport": {
-        "type": "grpc",
-        "service_name": "vless"
+        "service_name": "TunService"
       }
     },
     {
@@ -30,16 +32,14 @@
       "tag": "select",
       "outbounds": [
         "auto",
-        "🇺🇦 乌克兰 (Ukraine) 01 - xiaohe",
-        "🇺🇦 乌克兰 (Ukraine) 02 - xiaohe"
+        "🇺🇦 乌克兰 (Ukraine) 01 - xiaohe"
       ]
     },
     {
       "type": "urltest",
       "tag": "auto",
       "outbounds": [
-        "🇺🇦 乌克兰 (Ukraine) 01 - xiaohe",
-        "🇺🇦 乌克兰 (Ukraine) 02 - xiaohe"
+        "🇺🇦 乌克兰 (Ukraine) 01 - xiaohe"
       ],
       "url": "https://www.gstatic.com/generate_204"
     },

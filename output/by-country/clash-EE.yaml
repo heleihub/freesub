@@ -13,21 +13,6 @@ proxies:
   sni: 109.206.241.10
   skip-cert-verify: true
 - name: 🇪🇪 爱沙尼亚 (Estonia) 02 - xiaohe
-  server: 94.183.170.147
-  port: 8443
-  udp: true
-  type: vless
-  uuid: 5edbcb44-8d04-4fa7-a587-bc5d60c24ca1
-  tls: true
-  reality-opts:
-    public-key: s2uiu3GQA2SlZzsr86Z5Dav97eAFTPf7Nvr-zqzzRgg
-    short-id: 72ccd4a7563c2953
-  servername: www.cloudflare.com
-  client-fingerprint: chrome
-  network: grpc
-  grpc-opts:
-    grpc-service-name: 9d30d49278
-- name: 🇪🇪 爱沙尼亚 (Estonia) 03 - xiaohe
   server: 94.183.170.65
   port: 8081
   udp: true
@@ -38,7 +23,7 @@ proxies:
     path: /ws/generate
     headers:
       Host: hys2.arkonsoft.top
-- name: 🇪🇪 爱沙尼亚 (Estonia) 04 - xiaohe
+- name: 🇪🇪 爱沙尼亚 (Estonia) 03 - xiaohe
   server: 94.183.170.135
   port: 443
   udp: true
@@ -47,7 +32,9 @@ proxies:
   network: ws
   ws-opts:
     path: /
-- name: 🇪🇪 爱沙尼亚 (Estonia) 05 - xiaohe
+    headers:
+      Host: estproxy4.lockdwn.com
+- name: 🇪🇪 爱沙尼亚 (Estonia) 04 - xiaohe
   server: 94.183.170.65
   port: 443
   udp: true
@@ -55,7 +42,32 @@ proxies:
   password: e60bc99b-6630-4799-af84-f90ebdc643b6
   sni: hys2.arkonsoft.top
   skip-cert-verify: false
+- name: 🇪🇪 爱沙尼亚 (Estonia) 05 - xiaohe
+  server: 94.183.170.135
+  port: 8443
+  udp: true
+  type: vless
+  uuid: 06c4e938-2954-478f-a870-ca1b163e30e9
+  tls: true
+  servername: estproxy4.lockdwn.com
+  skip-cert-verify: false
+  client-fingerprint: chrome
 - name: 🇪🇪 爱沙尼亚 (Estonia) 06 - xiaohe
+  server: 94.183.170.147
+  port: 8443
+  udp: true
+  type: vless
+  uuid: 66ac188b-bd8d-4218-b9ba-0bad0e152cd0
+  tls: true
+  reality-opts:
+    public-key: s2uiu3GQA2SlZzsr86Z5Dav97eAFTPf7Nvr-zqzzRgg
+    short-id: 72ccd4a7563c2953
+  servername: www.cloudflare.com
+  client-fingerprint: firefox
+  network: grpc
+  grpc-opts:
+    grpc-service-name: 9d30d49278
+- name: 🇪🇪 爱沙尼亚 (Estonia) 07 - xiaohe
   server: 93.89.220.7
   port: 8443
   udp: true
@@ -67,42 +79,69 @@ proxies:
     short-id: b3a1cc510a2001c6
   servername: eh.vk.com
   client-fingerprint: ios
-- name: 🇪🇪 爱沙尼亚 (Estonia) 07 - xiaohe
-  server: 94.183.170.135
+- name: 🇪🇪 爱沙尼亚 (Estonia) 08 - xiaohe
+  server: 150.241.101.17
   port: 8443
   udp: true
   type: vless
-  uuid: 06c4e938-2954-478f-a870-ca1b163e30e9
-  tls: true
-  servername: estproxy4.lockdwn.com
-  skip-cert-verify: false
-  client-fingerprint: chrome
-- name: 🇪🇪 爱沙尼亚 (Estonia) 08 - xiaohe
-  server: 95.85.224.51
-  port: 443
-  udp: true
-  type: vless
-  uuid: 342ab7e4-5a89-0001-8809-304120d4aa83
+  uuid: 47d9b534-8a0a-4bd2-90f1-1d6ade14427e
   flow: xtls-rprx-vision
   tls: true
   reality-opts:
-    public-key: WWeAHWUVD-phmnjNJ823cer0c4CMIbEs08AhsuEZmDc
-    short-id: a696de84963656de
-  servername: max.ru
-  client-fingerprint: qq
+    public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
+    short-id: 6ba85179e30d4fc2
+  servername: yandex.net
+  client-fingerprint: safari
 - name: 🇪🇪 爱沙尼亚 (Estonia) 09 - xiaohe
-  server: 5.181.201.44
+  server: 5.181.201.43
   port: 443
   udp: true
   type: vless
-  uuid: 47b63e55-a4e4-43ce-97dc-946e6a26971d
+  uuid: f495298f-2bdb-4fd8-9ac9-5dd33d1b482a
   flow: xtls-rprx-vision
   tls: true
   reality-opts:
     public-key: 98MNvJC4t0ZjK_xHlQjOx2WfLfAPluNDb71MzS9sPT8
     short-id: 38018dde3e27335e
-  servername: bababoy.karp1pdd.life
-  client-fingerprint: random
+  servername: est1.loozerp.wiki
+  client-fingerprint: firefox
+- name: 🇪🇪 爱沙尼亚 (Estonia) 10 - xiaohe
+  server: 80.97.27.106
+  port: 114
+  udp: true
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: 9binmVT58Wnr6vNzxu_JmpzEW6i-FgAj
+- name: 🇪🇪 爱沙尼亚 (Estonia) 11 - xiaohe
+  server: 83.147.216.223
+  port: 4433
+  udp: true
+  type: vless
+  uuid: b491331e-3be5-4097-8bc1-fa86de978c29
+  tls: true
+  servername: bapj1qapjk4.0sds0li1bwcz0i76it0gjxv1.workers.dev
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: bapj1qapjk4.0sds0li1bwcz0i76it0gjxv1.workers.dev
+- name: 🇪🇪 爱沙尼亚 (Estonia) 12 - xiaohe
+  server: 109.120.155.155
+  port: 444
+  udp: true
+  type: vless
+  uuid: c325206e-0f0c-4472-9d76-43e9b9b2ef63
+  tls: true
+  servername: bapj1qapjk4.0sds0li1bwcz0i76it0gjxv1.workers.dev
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: bapj1qapjk4.0sds0li1bwcz0i76it0gjxv1.workers.dev
 proxy-groups:
 - name: PROXIES
   type: select
@@ -117,6 +156,9 @@ proxy-groups:
   - 🇪🇪 爱沙尼亚 (Estonia) 07 - xiaohe
   - 🇪🇪 爱沙尼亚 (Estonia) 08 - xiaohe
   - 🇪🇪 爱沙尼亚 (Estonia) 09 - xiaohe
+  - 🇪🇪 爱沙尼亚 (Estonia) 10 - xiaohe
+  - 🇪🇪 爱沙尼亚 (Estonia) 11 - xiaohe
+  - 🇪🇪 爱沙尼亚 (Estonia) 12 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -131,5 +173,8 @@ proxy-groups:
   - 🇪🇪 爱沙尼亚 (Estonia) 07 - xiaohe
   - 🇪🇪 爱沙尼亚 (Estonia) 08 - xiaohe
   - 🇪🇪 爱沙尼亚 (Estonia) 09 - xiaohe
+  - 🇪🇪 爱沙尼亚 (Estonia) 10 - xiaohe
+  - 🇪🇪 爱沙尼亚 (Estonia) 11 - xiaohe
+  - 🇪🇪 爱沙尼亚 (Estonia) 12 - xiaohe
 rules:
 - MATCH,PROXIES

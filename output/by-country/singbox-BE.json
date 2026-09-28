@@ -5,24 +5,21 @@
   "outbounds": [
     {
       "type": "vless",
-      "tag": "🇰🇷 韩国 (South Korea) 01 (家宽) - xiaohe",
-      "server": "160.16.209.61",
+      "tag": "🇧🇪 比利时 (Belgium) 01 - xiaohe",
+      "server": "34.79.178.1",
       "server_port": 443,
-      "uuid": "97532b08-357e-4140-a6f0-8e07f2ed3327",
+      "uuid": "51e493d4-b275-45e0-a714-e014f40b3c32",
       "tls": {
         "enabled": true,
-        "server_name": "yf.962456.xyz",
-        "insecure": false,
+        "server_name": "www.cloudflare.com",
         "utls": {
           "enabled": true,
-          "fingerprint": "random"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/proxyip=kr.william.us.ci",
-        "headers": {
-          "Host": "yf.962456.xyz"
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "nTLhc6e5HMgO-hpD8RUMp0cd2t6p2_RqHLHM0P39_xA",
+          "short_id": "95ae4a39d3933191"
         }
       }
     },
@@ -31,14 +28,14 @@
       "tag": "select",
       "outbounds": [
         "auto",
-        "🇰🇷 韩国 (South Korea) 01 (家宽) - xiaohe"
+        "🇧🇪 比利时 (Belgium) 01 - xiaohe"
       ]
     },
     {
       "type": "urltest",
       "tag": "auto",
       "outbounds": [
-        "🇰🇷 韩国 (South Korea) 01 (家宽) - xiaohe"
+        "🇧🇪 比利时 (Belgium) 01 - xiaohe"
       ],
       "url": "https://www.gstatic.com/generate_204"
     },

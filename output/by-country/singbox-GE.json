@@ -6,21 +6,21 @@
     {
       "type": "vless",
       "tag": "🇬🇪 格鲁吉亚 (Georgia) 01 - xiaohe",
-      "server": "147.45.46.3",
-      "server_port": 443,
-      "uuid": "ce5949b7-5137-4007-8a0a-063aad88b920",
+      "server": "185.143.179.179",
+      "server_port": 25026,
+      "uuid": "441a29b2-d9aa-47d5-9209-0a9191479f9f",
       "flow": "xtls-rprx-vision",
       "tls": {
         "enabled": true,
-        "server_name": "sellflow.org",
+        "server_name": "www.google.com",
         "utls": {
           "enabled": true,
-          "fingerprint": "chrome"
+          "fingerprint": "safari"
         },
         "reality": {
           "enabled": true,
-          "public_key": "SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc",
-          "short_id": ""
+          "public_key": "RVh0D446O5pKnOqlNkJNxSGGbmzl8swn4YBXYce1HSw",
+          "short_id": "34c465417d7ebca0"
         }
       }
     },

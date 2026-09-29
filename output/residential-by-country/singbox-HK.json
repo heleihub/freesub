@@ -6,24 +6,24 @@
     {
       "type": "hysteria2",
       "tag": "🇭🇰 中国香港 (Hong Kong) 01 (家宽) - xiaohe",
-      "server": "b9bccf5a-tmeqo0-0-1jcwu.hk3.hyhuawei.com",
-      "server_port": 443,
-      "password": "f93486ce-cc84-11ed-9e98-f23c913c8d2b",
+      "server": "hk01.kfc-520.com",
+      "server_port": 60001,
+      "password": "5ec96249-b753-317a-b065-b67ad66b8185",
       "tls": {
         "enabled": true,
-        "server_name": "b9bccf5a-tmeqo0-0-1jcwu.hk3.hyhuawei.com",
+        "server_name": "hk01.kfc-520.com",
         "insecure": true
       }
     },
     {
-      "type": "hysteria2",
+      "type": "anytls",
       "tag": "🇭🇰 中国香港 (Hong Kong) 02 (家宽) - xiaohe",
-      "server": "hk01.kfc-520.com",
-      "server_port": 60001,
-      "password": "8cb0c4fb-03ee-35b8-a47b-cd1d7e76dfd3",
+      "server": "ac7548f3ebe045b39a90288ff1e97528.pnuqcnp.cn",
+      "server_port": 443,
+      "password": "9sK2mP8xQ7vL3nZ6",
       "tls": {
         "enabled": true,
-        "server_name": "hk01.kfc-520.com",
+        "server_name": "ac7548f3ebe045b39a90288ff1e97528.lwdnxf.cn",
         "insecure": true
       }
     },

@@ -5,24 +5,17 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇮🇱 以色列 (Israel) 01 - xiaohe
-  server: 94.249.187.46
-  port: 1080
-  udp: true
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: IXa3ylzS_jBOAsQy071tIQ
-- name: 🇮🇱 以色列 (Israel) 02 - xiaohe
-  server: 193.169.229.145
+  server: 185.95.231.156
   port: 443
   udp: true
   type: vless
-  uuid: 46b3a70b-b99f-4c6e-aa83-df6d842bb954
+  uuid: 1f8cf47a-b66a-4916-979f-26edfcf44eea
   flow: xtls-rprx-vision
   tls: true
   reality-opts:
-    public-key: 2CwgJn1lc23uxQjAdGphQl4SSRmd1amunSpYXxgCgCM
-    short-id: 7e13fde9
-  servername: isr.vpnskyline.com
+    public-key: 8eXftARun6KH38UZhuqIfPR1VF2DLS9RMBZEnF5k6To
+    short-id: a3a578ab
+  servername: www.apple.com
   client-fingerprint: chrome
 proxy-groups:
 - name: PROXIES
@@ -30,13 +23,11 @@ proxy-groups:
   proxies:
   - AUTO
   - 🇮🇱 以色列 (Israel) 01 - xiaohe
-  - 🇮🇱 以色列 (Israel) 02 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
   - 🇮🇱 以色列 (Israel) 01 - xiaohe
-  - 🇮🇱 以色列 (Israel) 02 - xiaohe
 rules:
 - MATCH,PROXIES

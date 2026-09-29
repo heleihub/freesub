@@ -5,17 +5,12 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇦🇱 AL 01 - xiaohe
-  server: 85.155.228.185
-  port: 443
+  server: 130.49.189.158
+  port: 43558
   udp: true
-  type: vless
-  uuid: ca5ffe64-81e0-42f0-a136-03cc4f662a4f
-  tls: true
-  reality-opts:
-    public-key: 9M294WArTUZ9m1fMmvlHauSb5wZo68SkCW_lEgBVAF8
-    short-id: 4d5faa03b738bd3b
-  servername: avsal.krusofiya.fun
-  client-fingerprint: firefox
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: ziOeKejhhw+fmWet+xvuJsVJH7U9DvSWq1hlqtaKv+I=
 proxy-groups:
 - name: PROXIES
   type: select

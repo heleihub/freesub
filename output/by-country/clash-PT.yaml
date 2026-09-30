@@ -4,24 +4,24 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇦🇱 AL 01 - xiaohe
-  server: 130.49.189.158
-  port: 43558
+- name: 🇵🇹 葡萄牙 (Portugal) 01 - xiaohe
+  server: 185.231.233.91
+  port: 17167
   udp: true
   type: ss
-  cipher: chacha20-ietf-poly1305
-  password: IcovoXEMyjfGjN9RenzKs0/iPaZ3vtk9fkxJ0s/R5vw=
+  cipher: aes-128-gcm
+  password: ca438054771821250089399a2f33275e
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇦🇱 AL 01 - xiaohe
+  - 🇵🇹 葡萄牙 (Portugal) 01 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
-  - 🇦🇱 AL 01 - xiaohe
+  - 🇵🇹 葡萄牙 (Portugal) 01 - xiaohe
 rules:
 - MATCH,PROXIES

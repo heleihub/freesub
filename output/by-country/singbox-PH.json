@@ -4,16 +4,12 @@
   },
   "outbounds": [
     {
-      "type": "anytls",
+      "type": "shadowsocks",
       "tag": "🇵🇭 菲律宾 (Philippines) 01 - xiaohe",
-      "server": "jpglobal-identity-federation-auth.younai-ytl.shop",
-      "server_port": 27011,
-      "password": "3fc0f254-54c3-4cf3-896b-5999a2b4c757",
-      "tls": {
-        "enabled": true,
-        "server_name": "flb01.pulsarcore.site",
-        "insecure": true
-      }
+      "server": "149.104.109.252",
+      "server_port": 8882,
+      "method": "aes-256-gcm",
+      "password": "kDWvXYZoTBcGkC4"
     },
     {
       "type": "selector",

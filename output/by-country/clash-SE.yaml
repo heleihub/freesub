@@ -12,12 +12,19 @@ proxies:
   cipher: aes-256-gcm
   password: AxIYWtskJWIIaefW
 - name: 🇸🇪 瑞典 (Sweden) 02 - xiaohe
-  server: 51.20.86.152
-  port: 443
+  server: 193.42.39.10
+  port: 33743
   udp: true
-  type: ss
-  cipher: aes-256-cfb
-  password: amazonskr05
+  type: vless
+  uuid: b3a11068-1a7e-4643-85de-7c82cce46943
+  tls: true
+  reality-opts:
+    public-key: wGMBs7bvzyzA0-OUiwSkOOTDEMdxEOsSdRzxiP8GGQY
+  servername: www.google.com
+  client-fingerprint: firefox
+  network: grpc
+  grpc-opts:
+    grpc-service-name: TunService
 - name: 🇸🇪 瑞典 (Sweden) 03 - xiaohe
   server: 5.157.10.148
   port: 443
@@ -32,86 +39,6 @@ proxies:
   servername: surstreming.vvzzkontaktezzvv.garden
   client-fingerprint: chrome
 - name: 🇸🇪 瑞典 (Sweden) 04 - xiaohe
-  server: 79.141.174.147
-  port: 33743
-  udp: true
-  type: vless
-  uuid: b3a11068-1a7e-4643-85de-7c82cce46943
-  tls: true
-  reality-opts:
-    public-key: wGMBs7bvzyzA0-OUiwSkOOTDEMdxEOsSdRzxiP8GGQY
-  servername: www.google.com
-  client-fingerprint: firefox
-  network: grpc
-  grpc-opts:
-    grpc-service-name: TunService
-- name: 🇸🇪 瑞典 (Sweden) 05 - xiaohe
-  server: 193.148.59.178
-  port: 443
-  udp: true
-  type: vless
-  uuid: 20d7c485-5d24-49b5-a5cc-bb7a7daf9908
-  flow: xtls-rprx-vision
-  tls: true
-  reality-opts:
-    public-key: -GMpCber8qtrKzJbwvpLcwlIhOy-5zS66u_x9lLvIjE
-    short-id: e3daad69
-  servername: www.apple.com
-  client-fingerprint: chrome
-- name: 🇸🇪 瑞典 (Sweden) 06 - xiaohe
-  server: 179.254.109.54
-  port: 443
-  udp: true
-  type: vless
-  uuid: d0f0a880-0df1-0005-bdf1-5669fb9483ce
-  flow: xtls-rprx-vision
-  tls: true
-  reality-opts:
-    public-key: SB1uC0OEveYjSiS_Nuw9Ld-uVVXWqi794OGnldthY3I
-  servername: cosw.ggisopi.su
-  client-fingerprint: chrome
-- name: 🇸🇪 瑞典 (Sweden) 07 - xiaohe
-  server: 176.108.246.110
-  port: 9830
-  udp: true
-  type: vless
-  uuid: 5d16ac22-6eea-426f-b778-6f4c2961faef
-  tls: true
-  reality-opts:
-    public-key: bnRIb3Er1i-K6NGGByCO9UbGfOvu43ZoiK7ulPd1SzU
-  servername: dl.google.com
-  client-fingerprint: chrome
-  network: grpc
-  grpc-opts:
-    grpc-service-name: grpc-tunnel
-- name: 🇸🇪 瑞典 (Sweden) 08 - xiaohe
-  server: 176.108.246.58
-  port: 9881
-  udp: true
-  type: vless
-  uuid: 5d16ac22-6eea-426f-b778-6f4c2961faef
-  tls: true
-  reality-opts:
-    public-key: ycPIUcY6ci2yi7YA_OHc20e4gzxEdJTqpmeShxSuHRU
-  servername: dl.google.com
-  client-fingerprint: chrome
-  network: grpc
-  grpc-opts:
-    grpc-service-name: grpc-tunnel
-- name: 🇸🇪 瑞典 (Sweden) 09 - xiaohe
-  server: 193.163.203.170
-  port: 443
-  udp: true
-  type: vless
-  uuid: 11aabba0-5fd1-4f15-8068-74c1a466cefc
-  flow: xtls-rprx-vision
-  tls: true
-  reality-opts:
-    public-key: GCCZ1ZZjB_nj7yxqFi22bIIWWr_G6rnWUzDcssN_40o
-    short-id: b28db60d77c50b4f
-  servername: yandex.ru
-  client-fingerprint: chrome
-- name: 🇸🇪 瑞典 (Sweden) 10 - xiaohe
   server: 62.60.159.81
   port: 2053
   udp: true
@@ -122,11 +49,19 @@ proxies:
     public-key: ygmJxS-Mc7g0buNSUTVGhazT-FoBjyYtLLfUYIQxFTw
     short-id: d0ea1847066af5a6
   servername: www.samsung.com
-  client-fingerprint: safari
+  client-fingerprint: chrome
   network: grpc
   grpc-opts:
     grpc-service-name: grpce5bb9e71
-- name: 🇸🇪 瑞典 (Sweden) 11 - xiaohe
+- name: 🇸🇪 瑞典 (Sweden) 05 - xiaohe
+  server: svip.skycon808.com
+  port: 60005
+  udp: true
+  type: anytls
+  password: 13f0acfa-38c1-4e82-a758-583aa31740df
+  sni: xjp18.2uuzhe.com
+  skip-cert-verify: true
+- name: 🇸🇪 瑞典 (Sweden) 06 - xiaohe
   server: sw-01.vacvps.com
   port: 443
   udp: true
@@ -149,11 +84,6 @@ proxy-groups:
   - 🇸🇪 瑞典 (Sweden) 04 - xiaohe
   - 🇸🇪 瑞典 (Sweden) 05 - xiaohe
   - 🇸🇪 瑞典 (Sweden) 06 - xiaohe
-  - 🇸🇪 瑞典 (Sweden) 07 - xiaohe
-  - 🇸🇪 瑞典 (Sweden) 08 - xiaohe
-  - 🇸🇪 瑞典 (Sweden) 09 - xiaohe
-  - 🇸🇪 瑞典 (Sweden) 10 - xiaohe
-  - 🇸🇪 瑞典 (Sweden) 11 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -165,10 +95,5 @@ proxy-groups:
   - 🇸🇪 瑞典 (Sweden) 04 - xiaohe
   - 🇸🇪 瑞典 (Sweden) 05 - xiaohe
   - 🇸🇪 瑞典 (Sweden) 06 - xiaohe
-  - 🇸🇪 瑞典 (Sweden) 07 - xiaohe
-  - 🇸🇪 瑞典 (Sweden) 08 - xiaohe
-  - 🇸🇪 瑞典 (Sweden) 09 - xiaohe
-  - 🇸🇪 瑞典 (Sweden) 10 - xiaohe
-  - 🇸🇪 瑞典 (Sweden) 11 - xiaohe
 rules:
 - MATCH,PROXIES

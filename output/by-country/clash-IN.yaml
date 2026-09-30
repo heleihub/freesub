@@ -16,18 +16,6 @@ proxies:
   ws-opts:
     path: /
 - name: 🇮🇳 印度 (India) 02 - xiaohe
-  server: 194.61.31.126
-  port: 2053
-  udp: true
-  type: vless
-  uuid: 1d4e18bd-1f26-4915-b35a-7ace4826e76a
-  tls: true
-  reality-opts:
-    public-key: PuAGLfJy6cu1TNoHuKIKSxPetCbZI41fc8hQDjWPIAU
-    short-id: 9980e0609b0d3891
-  servername: www.apple.com
-  client-fingerprint: firefox
-- name: 🇮🇳 印度 (India) 03 - xiaohe
   server: india.letsconnectpoint.com
   port: 443
   udp: true
@@ -39,6 +27,18 @@ proxies:
     public-key: erUEmyU1QK8y2corQh9bOjk0oHl2Mo6Z9WgoyKg_rC0
     short-id: c1e3d5d4
   servername: india.letsconnectpoint.com
+  client-fingerprint: random
+- name: 🇮🇳 印度 (India) 03 - xiaohe
+  server: 194.61.31.126
+  port: 2053
+  udp: true
+  type: vless
+  uuid: 1d4e18bd-1f26-4915-b35a-7ace4826e76a
+  tls: true
+  reality-opts:
+    public-key: PuAGLfJy6cu1TNoHuKIKSxPetCbZI41fc8hQDjWPIAU
+    short-id: 9980e0609b0d3891
+  servername: www.apple.com
   client-fingerprint: random
 proxy-groups:
 - name: PROXIES

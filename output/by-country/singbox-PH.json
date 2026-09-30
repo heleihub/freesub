@@ -4,19 +4,15 @@
   },
   "outbounds": [
     {
-      "type": "hysteria2",
-      "tag": "🇺🇸 美国 (United States) 01 (家宽) - xiaohe",
-      "server": "155.117.19.17",
-      "server_port": 443,
-      "password": "5fa748137b6d822308eea4611f474ad5",
+      "type": "anytls",
+      "tag": "🇵🇭 菲律宾 (Philippines) 01 - xiaohe",
+      "server": "jpglobal-identity-federation-auth.younai-ytl.shop",
+      "server_port": 27011,
+      "password": "3fc0f254-54c3-4cf3-896b-5999a2b4c757",
       "tls": {
         "enabled": true,
-        "server_name": "www.bing.com",
+        "server_name": "flb01.pulsarcore.site",
         "insecure": true
-      },
-      "obfs": {
-        "type": "salamander",
-        "password": "a39ca173b57ac7021b08bf3e3de9f1f6"
       }
     },
     {
@@ -24,14 +20,14 @@
       "tag": "select",
       "outbounds": [
         "auto",
-        "🇺🇸 美国 (United States) 01 (家宽) - xiaohe"
+        "🇵🇭 菲律宾 (Philippines) 01 - xiaohe"
       ]
     },
     {
       "type": "urltest",
       "tag": "auto",
       "outbounds": [
-        "🇺🇸 美国 (United States) 01 (家宽) - xiaohe"
+        "🇵🇭 菲律宾 (Philippines) 01 - xiaohe"
       ],
       "url": "https://www.gstatic.com/generate_204"
     },

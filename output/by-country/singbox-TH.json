@@ -26,12 +26,25 @@
       }
     },
     {
+      "type": "anytls",
+      "tag": "🇹🇭 泰国 (Thailand) 03 - xiaohe",
+      "server": "yazhouany02.downapptwo.cc",
+      "server_port": 16955,
+      "password": "3fc0f254-54c3-4cf3-896b-5999a2b4c757",
+      "tls": {
+        "enabled": true,
+        "server_name": "taiguo02.swiftrelay.cc",
+        "insecure": true
+      }
+    },
+    {
       "type": "selector",
       "tag": "select",
       "outbounds": [
         "auto",
         "🇹🇭 泰国 (Thailand) 01 - xiaohe",
-        "🇹🇭 泰国 (Thailand) 02 - xiaohe"
+        "🇹🇭 泰国 (Thailand) 02 - xiaohe",
+        "🇹🇭 泰国 (Thailand) 03 - xiaohe"
       ]
     },
     {
@@ -39,7 +52,8 @@
       "tag": "auto",
       "outbounds": [
         "🇹🇭 泰国 (Thailand) 01 - xiaohe",
-        "🇹🇭 泰国 (Thailand) 02 - xiaohe"
+        "🇹🇭 泰国 (Thailand) 02 - xiaohe",
+        "🇹🇭 泰国 (Thailand) 03 - xiaohe"
       ],
       "url": "https://www.gstatic.com/generate_204"
     },

@@ -1,0 +1,28 @@
+port: 7890
+socks-port: 7891
+allow-lan: true
+mode: rule
+log-level: info
+proxies:
+- name: 🇵🇭 菲律宾 (Philippines) 01 - xiaohe
+  server: jpglobal-identity-federation-auth.younai-ytl.shop
+  port: 27011
+  udp: true
+  type: anytls
+  password: 3fc0f254-54c3-4cf3-896b-5999a2b4c757
+  sni: flb01.pulsarcore.site
+  skip-cert-verify: true
+proxy-groups:
+- name: PROXIES
+  type: select
+  proxies:
+  - AUTO
+  - 🇵🇭 菲律宾 (Philippines) 01 - xiaohe
+- name: AUTO
+  type: url-test
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  proxies:
+  - 🇵🇭 菲律宾 (Philippines) 01 - xiaohe
+rules:
+- MATCH,PROXIES

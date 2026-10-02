@@ -12,12 +12,18 @@ proxies:
   cipher: aes-256-cfb
   password: 45xgMgm386pjWjTx
 - name: 🇱🇻 拉脱维亚 (Latvia) 02 - xiaohe
-  server: 185.135.86.175
-  port: 9017
+  server: 138.124.180.137
+  port: 443
   udp: true
-  type: ss
-  cipher: aes-256-cfb
-  password: HAVAdE3nXhqA5nHp
+  type: vless
+  uuid: 5234b2b7-5e07-422c-8159-d62a676c00c6
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: GBdkyDLfr0LIZo_94Xv8ycAKOmkjArYzwJAEMhuXX2c
+    short-id: 33acba1b
+  servername: www.apple.com
+  client-fingerprint: chrome
 - name: 🇱🇻 拉脱维亚 (Latvia) 03 - xiaohe
   server: 185.135.86.175
   port: 9068
@@ -32,7 +38,7 @@ proxies:
   type: hysteria2
   password: 3a92b39a-5f02-415e-a908-783ec320e83f
   sni: speedtestmark.com
-  skip-cert-verify: false
+  skip-cert-verify: true
 - name: 🇱🇻 拉脱维亚 (Latvia) 05 - xiaohe
   server: 195.123.213.28
   port: 443
@@ -47,34 +53,37 @@ proxies:
   servername: www.cloudflare.com
   client-fingerprint: chrome
 - name: 🇱🇻 拉脱维亚 (Latvia) 06 - xiaohe
-  server: 104.165.205.67
-  port: 8443
+  server: 91.240.86.70
+  port: 24443
   udp: true
   type: hysteria2
-  password: 3a92b39a-5f02-415e-a908-783ec320e83f
-  sni: speedtestmark.com
-  skip-cert-verify: false
+  password: 3f63c86c-ac4a-4900-85cf-4fedf93c2ca5
+  sni: hy.quattro-tech.ru
+  skip-cert-verify: true
 - name: 🇱🇻 拉脱维亚 (Latvia) 07 - xiaohe
-  server: 104.165.205.42
-  port: 8443
-  udp: true
-  type: hysteria2
-  password: 52e3dd44-ed23-4030-b0cc-5b5a953f2d4d
-  sni: speedtestmark.com
-  skip-cert-verify: false
-- name: 🇱🇻 拉脱维亚 (Latvia) 08 - xiaohe
-  server: 138.124.180.137
+  server: 85.159.228.223
   port: 443
   udp: true
   type: vless
-  uuid: 5234b2b7-5e07-422c-8159-d62a676c00c6
+  uuid: 454431fc-71e2-42b1-b375-5b55dd06666a
+  tls: true
+  reality-opts:
+    public-key: aUdvs6o4PHN6jmdkIKBA2rHsN_7l8W2SaDfNgzn-BwU
+  servername: example.org
+  client-fingerprint: chrome
+- name: 🇱🇻 拉脱维亚 (Latvia) 08 - xiaohe
+  server: 185.28.47.28
+  port: 443
+  udp: true
+  type: vless
+  uuid: 8f6e49e6-7f03-4f10-9da9-1716158d80ed
   flow: xtls-rprx-vision
   tls: true
   reality-opts:
-    public-key: GBdkyDLfr0LIZo_94Xv8ycAKOmkjArYzwJAEMhuXX2c
-    short-id: 33acba1b
-  servername: www.apple.com
-  client-fingerprint: chrome
+    public-key: wHTq_owme8N6237B37GhneBcNJQtzRdIFouRkSscgnQ
+    short-id: 40fac5d64bc6a540
+  servername: latinki.pumpkinpie.study
+  client-fingerprint: firefox
 proxy-groups:
 - name: PROXIES
   type: select

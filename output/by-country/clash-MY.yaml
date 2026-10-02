@@ -5,13 +5,6 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇲🇾 马来西亚 (Malaysia) 01 - xiaohe
-  server: 130.94.69.15
-  port: 7001
-  udp: true
-  type: ss
-  cipher: aes-256-gcm
-  password: RexnBgU7EV5ADxG
-- name: 🇲🇾 马来西亚 (Malaysia) 02 - xiaohe
   server: 149.33.30.176
   port: 443
   udp: true
@@ -24,6 +17,13 @@ proxies:
     short-id: 4b26322b354bd74e
   servername: www.apple.com
   client-fingerprint: chrome
+- name: 🇲🇾 马来西亚 (Malaysia) 02 - xiaohe
+  server: 130.94.69.15
+  port: 7001
+  udp: true
+  type: ss
+  cipher: aes-256-gcm
+  password: RexnBgU7EV5ADxG
 proxy-groups:
 - name: PROXIES
   type: select

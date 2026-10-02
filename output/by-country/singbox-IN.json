@@ -4,8 +4,24 @@
   },
   "outbounds": [
     {
-      "type": "vless",
+      "type": "shadowsocks",
       "tag": "🇮🇳 印度 (India) 01 - xiaohe",
+      "server": "45.149.114.171",
+      "server_port": 777,
+      "method": "chacha20-ietf-poly1305",
+      "password": "Jeoq8ujfkqZKKvACQhoqBQ1PA3uq4242"
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "🇮🇳 印度 (India) 02 - xiaohe",
+      "server": "172.105.39.124",
+      "server_port": 7002,
+      "method": "aes-256-gcm",
+      "password": "RexnBgU7EV5ADxG"
+    },
+    {
+      "type": "vless",
+      "tag": "🇮🇳 印度 (India) 03 - xiaohe",
       "server": "194.61.31.126",
       "server_port": 2053,
       "uuid": "1d4e18bd-1f26-4915-b35a-7ace4826e76a",
@@ -14,7 +30,7 @@
         "server_name": "www.apple.com",
         "utls": {
           "enabled": true,
-          "fingerprint": "chrome"
+          "fingerprint": "firefox"
         },
         "reality": {
           "enabled": true,
@@ -25,8 +41,8 @@
     },
     {
       "type": "vless",
-      "tag": "🇮🇳 印度 (India) 02 - xiaohe",
-      "server": "139.84.177.239",
+      "tag": "🇮🇳 印度 (India) 04 - xiaohe",
+      "server": "194.195.119.26",
       "server_port": 443,
       "uuid": "d90087c3-54f5-4283-a13f-615260c8b0c7",
       "flow": "xtls-rprx-vision",
@@ -45,18 +61,30 @@
       }
     },
     {
-      "type": "vless",
-      "tag": "🇮🇳 印度 (India) 03 - xiaohe",
-      "server": "india.letsconnectpoint.com",
+      "type": "trojan",
+      "tag": "🇮🇳 印度 (India) 05 - xiaohe",
+      "server": "hyfuuf6.wsone.icu",
       "server_port": 443,
-      "uuid": "914f3806-07a1-4158-9624-e183de065a38",
+      "password": "M7v%w11Se*",
+      "tls": {
+        "enabled": true,
+        "server_name": "hyfuuf6.wsone.icu",
+        "insecure": false
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🇮🇳 印度 (India) 06 - xiaohe",
+      "server": "5.253.42.159",
+      "server_port": 443,
+      "uuid": "a368752a-32fc-42f3-980a-6b049218b23f",
       "flow": "xtls-rprx-vision",
       "tls": {
         "enabled": true,
         "server_name": "india.letsconnectpoint.com",
         "utls": {
           "enabled": true,
-          "fingerprint": "chrome"
+          "fingerprint": "random"
         },
         "reality": {
           "enabled": true,
@@ -66,15 +94,27 @@
       }
     },
     {
-      "type": "vmess",
-      "tag": "🇮🇳 印度 (India) 04 - xiaohe",
-      "server": "152.67.8.205",
-      "server_port": 80,
-      "uuid": "9db4c708-aef8-4359-821b-38e47990be0d",
-      "security": "auto",
+      "type": "vless",
+      "tag": "🇮🇳 印度 (India) 07 - xiaohe",
+      "server": "hydra.yokkastars.com",
+      "server_port": 2443,
+      "uuid": "5e679ccd-1586-4d5f-b87b-48251046cad8",
+      "tls": {
+        "enabled": true,
+        "server_name": "deepl.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "qq"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "h85e28MxBgNyT9d9cNeOLVtWfHq6cT_1_oxZOTajtTg",
+          "short_id": "92c32de179e5d908"
+        }
+      },
       "transport": {
-        "type": "ws",
-        "path": "/"
+        "type": "grpc",
+        "service_name": "rex-eb0bf76b710ce763"
       }
     },
     {
@@ -85,7 +125,10 @@
         "🇮🇳 印度 (India) 01 - xiaohe",
         "🇮🇳 印度 (India) 02 - xiaohe",
         "🇮🇳 印度 (India) 03 - xiaohe",
-        "🇮🇳 印度 (India) 04 - xiaohe"
+        "🇮🇳 印度 (India) 04 - xiaohe",
+        "🇮🇳 印度 (India) 05 - xiaohe",
+        "🇮🇳 印度 (India) 06 - xiaohe",
+        "🇮🇳 印度 (India) 07 - xiaohe"
       ]
     },
     {
@@ -95,7 +138,10 @@
         "🇮🇳 印度 (India) 01 - xiaohe",
         "🇮🇳 印度 (India) 02 - xiaohe",
         "🇮🇳 印度 (India) 03 - xiaohe",
-        "🇮🇳 印度 (India) 04 - xiaohe"
+        "🇮🇳 印度 (India) 04 - xiaohe",
+        "🇮🇳 印度 (India) 05 - xiaohe",
+        "🇮🇳 印度 (India) 06 - xiaohe",
+        "🇮🇳 印度 (India) 07 - xiaohe"
       ],
       "url": "https://www.gstatic.com/generate_204"
     },

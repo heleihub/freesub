@@ -5,66 +5,86 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇭🇰 中国香港 (Hong Kong) 01 - xiaohe
-  server: 212.192.13.143
-  port: 20999
+  server: 162.159.48.32
+  port: 8880
+  udp: true
+  type: vless
+  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  network: ws
+  ws-opts:
+    path: /?ed=2560security=tls
+    headers:
+      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
+- name: 🇭🇰 中国香港 (Hong Kong) 02 - xiaohe
+  server: 181.215.18.196
+  port: 1080
   udp: true
   type: ss
-  cipher: aes-256-gcm
-  password: 72553320ae6bcc8f
-- name: 🇭🇰 中国香港 (Hong Kong) 02 - xiaohe
-  server: 36.133.78.37
-  port: 50011
-  udp: true
-  type: vmess
-  uuid: e1be6941-0667-469c-9224-6f34adb549ba
-  alterId: 0
-  cipher: auto
+  cipher: chacha20-ietf-poly1305
+  password: manm1wouaeic9db3
 - name: 🇭🇰 中国香港 (Hong Kong) 03 - xiaohe
-  server: 36.133.79.17
-  port: 50011
+  server: 47.240.80.220
+  port: 2052
   udp: true
-  type: vmess
-  uuid: 1b30f413-2865-4d40-9146-4207778718cd
-  alterId: 0
-  cipher: auto
+  type: trojan
+  password: tFjD2X1F6i9FfWp2GDU5Vbi1conuaChDKIYbw9zMFrqvMoSz
+  sni: vpn.12169.top
+  skip-cert-verify: false
 - name: 🇭🇰 中国香港 (Hong Kong) 04 - xiaohe
-  server: 36.133.74.15
-  port: 50011
+  server: 202.146.222.29
+  port: 443
   udp: true
-  type: vmess
-  uuid: e1be6941-0667-469c-9224-6f34adb549ba
-  alterId: 0
-  cipher: auto
+  type: hysteria2
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  sni: https3a2f2ft.me2fwangcai2efa3bfc3bcc3a1
+  skip-cert-verify: true
 - name: 🇭🇰 中国香港 (Hong Kong) 05 - xiaohe
-  server: 157.148.7.55
-  port: 50011
+  server: 202.146.222.174
+  port: 443
   udp: true
-  type: vmess
-  uuid: 1b30f413-2865-4d40-9146-4207778718cd
-  alterId: 0
-  cipher: auto
+  type: hysteria2
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  sni: https%3a%2f%2ft.me%2fwangcai2
+  skip-cert-verify: true
 - name: 🇭🇰 中国香港 (Hong Kong) 06 - xiaohe
-  server: china.letsconnectpoint.com
+  server: 202.146.222.89
+  port: 443
+  udp: true
+  type: hysteria2
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  sni: vk.com
+  skip-cert-verify: true
+- name: 🇭🇰 中国香港 (Hong Kong) 07 - xiaohe
+  server: 139.28.168.201
   port: 443
   udp: true
   type: vless
-  uuid: a368752a-32fc-42f3-980a-6b049218b23f
+  uuid: 914f3806-07a1-4158-9624-e183de065a38
   flow: xtls-rprx-vision
   tls: true
   reality-opts:
     public-key: 4ubYp4HaBJgn1qXwfo0hiejncurXCckII-O_FMDXTgI
     short-id: 3b74d85e
   servername: china.letsconnectpoint.com
-  client-fingerprint: ios
-- name: 🇭🇰 中国香港 (Hong Kong) 07 - xiaohe
-  server: 36.134.35.36
-  port: 50011
-  udp: true
-  type: vmess
-  uuid: 1b30f413-2865-4d40-9146-4207778718cd
-  alterId: 0
-  cipher: auto
+  client-fingerprint: firefox
 - name: 🇭🇰 中国香港 (Hong Kong) 08 - xiaohe
+  server: 195.58.144.56
+  port: 11907
+  udp: true
+  type: vless
+  uuid: 07cb07b9-0c4d-46c1-a15a-b147511b6b07
+  tls: true
+  servername: 195.58.144.56
+  skip-cert-verify: false
+  client-fingerprint: chrome
+- name: 🇭🇰 中国香港 (Hong Kong) 09 - xiaohe
+  server: telegramx.khp25.com
+  port: 1080
+  udp: true
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: m5nsedvdczx6x06e
+- name: 🇭🇰 中国香港 (Hong Kong) 10 - xiaohe
   server: xg1.mangshe.xyz
   port: 2060
   udp: true
@@ -72,67 +92,15 @@ proxies:
   password: 5d0a6445-a30d-4522-bb1f-94f1d3ad63be
   sni: xg1.mangshe.xyz
   skip-cert-verify: true
-- name: 🇭🇰 中国香港 (Hong Kong) 09 - xiaohe
-  server: bgroup.hk1.ilovegairport.com
-  port: 443
-  udp: true
-  type: vless
-  uuid: 8079ccd4-4b4b-44e2-92f0-8f0367ad9c24
-  flow: xtls-rprx-vision
-  tls: true
-  reality-opts:
-    public-key: Z0sxSuzxnWYa5FNTZ-W4ImxQd674VG4KfmOBqlcudjU
-    short-id: 7c7ad24684
-  servername: ap-east-1.console.aws.amazon.com
-  client-fingerprint: firefox
-- name: 🇭🇰 中国香港 (Hong Kong) 10 - xiaohe
-  server: 31.57.248.176
-  port: 50160
-  udp: true
-  type: hysteria2
-  password: b0917015b656b3dd2286b5633af0c5c1
-  sni: 31.57.248.176
-  skip-cert-verify: true
 - name: 🇭🇰 中国香港 (Hong Kong) 11 - xiaohe
-  server: 202.146.222.89
-  port: 443
+  server: mz.hkychina.com
+  port: 8443
   udp: true
   type: hysteria2
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  sni: https%3a%2f%2ft.me%2fclashv8
+  password: HysTeria2026!Proxy
+  sni: mz.hkychina.com
   skip-cert-verify: true
 - name: 🇭🇰 中国香港 (Hong Kong) 12 - xiaohe
-  server: 202.146.222.174
-  port: 443
-  udp: true
-  type: hysteria2
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  sni: https://t.me/wangcai2🇨🇳
-  skip-cert-verify: true
-- name: 🇭🇰 中国香港 (Hong Kong) 13 - xiaohe
-  server: 45.82.244.40
-  port: 443
-  udp: true
-  type: vless
-  uuid: 0250424c-ae75-4b6b-890f-3fe26fae36c3
-  tls: true
-  servername: hk.152568.xyz
-  skip-cert-verify: false
-  client-fingerprint: edge
-  network: ws
-  ws-opts:
-    path: /cdn/packages/runtime-core.tar.gz
-    headers:
-      Host: hk.152568.xyz
-- name: 🇭🇰 中国香港 (Hong Kong) 14 - xiaohe
-  server: test01.y1static-content-distribution.shop
-  port: 56726
-  udp: true
-  type: anytls
-  password: 3fc0f254-54c3-4cf3-896b-5999a2b4c757
-  sni: hk11.pulsarcore.site
-  skip-cert-verify: true
-- name: 🇭🇰 中国香港 (Hong Kong) 15 - xiaohe
   server: 194.99.79.26
   port: 443
   udp: true
@@ -146,50 +114,7 @@ proxies:
   network: ws
   ws-opts:
     path: /linkvws
-    headers:
-      Host: aksai.org
-- name: 🇭🇰 中国香港 (Hong Kong) 16 - xiaohe
-  server: hk2.xiaoliyu.cyou
-  port: 4433
-  udp: true
-  type: hysteria2
-  password: 19f72087-4591-4d72-930b-2697078ec2be
-  sni: hk2.xiaoliyu.cyou
-  skip-cert-verify: true
-- name: 🇭🇰 中国香港 (Hong Kong) 17 - xiaohe
-  server: mz.hkychina.com
-  port: 8443
-  udp: true
-  type: hysteria2
-  password: HysTeria2026!Proxy
-  sni: mz.hkychina.com
-  skip-cert-verify: false
-- name: 🇭🇰 中国香港 (Hong Kong) 18 - xiaohe
-  server: 85.149.211.28
-  port: 8443
-  udp: true
-  type: vless
-  uuid: 0250424c-ae75-4b6b-890f-3fe26fae36c3
-  tls: true
-  servername: hk.152568.xyz
-  skip-cert-verify: false
-  client-fingerprint: edge
-  network: ws
-  ws-opts:
-    path: /cdn/packages/runtime-core.tar.gz
-    headers:
-      Host: hk.152568.xyz
-- name: 🇭🇰 中国香港 (Hong Kong) 19 - xiaohe
-  server: 195.58.144.56
-  port: 11907
-  udp: true
-  type: vless
-  uuid: 07cb07b9-0c4d-46c1-a15a-b147511b6b07
-  tls: true
-  servername: 195.58.144.56
-  skip-cert-verify: false
-  client-fingerprint: chrome
-- name: 🇭🇰 中国香港 (Hong Kong) 20 - xiaohe
+- name: 🇭🇰 中国香港 (Hong Kong) 13 - xiaohe
   server: nas.aizhzo.com
   port: 5010
   udp: true
@@ -199,14 +124,22 @@ proxies:
   skip-cert-verify: true
   obfs: salamander
   obfs-password: 7M4RXPFcQyQEGbkxBPfXo4bilMhCW2U9
-- name: 🇭🇰 中国香港 (Hong Kong) 21 - xiaohe
-  server: test01.y1static-content-distribution.shop
-  port: 28680
+- name: 🇭🇰 中国香港 (Hong Kong) 14 - xiaohe
+  server: 2.27.109.179
+  port: 45464
   udp: true
-  type: anytls
-  password: 3fc0f254-54c3-4cf3-896b-5999a2b4c757
-  sni: hk15.swiftrelay.cc
-  skip-cert-verify: true
+  type: trojan
+  password: XuMweB2PWs
+  sni: 2.27.109.179.sslip.io
+  skip-cert-verify: false
+- name: 🇭🇰 中国香港 (Hong Kong) 15 - xiaohe
+  server: goldcnmltyljgfwgov.vip52.wogcnmnnagfwgov.com
+  port: 11252
+  udp: true
+  type: vmess
+  uuid: 605956ee-544d-308e-8b90-51e67c6ea8da
+  alterId: 2
+  cipher: auto
 proxy-groups:
 - name: PROXIES
   type: select
@@ -227,12 +160,6 @@ proxy-groups:
   - 🇭🇰 中国香港 (Hong Kong) 13 - xiaohe
   - 🇭🇰 中国香港 (Hong Kong) 14 - xiaohe
   - 🇭🇰 中国香港 (Hong Kong) 15 - xiaohe
-  - 🇭🇰 中国香港 (Hong Kong) 16 - xiaohe
-  - 🇭🇰 中国香港 (Hong Kong) 17 - xiaohe
-  - 🇭🇰 中国香港 (Hong Kong) 18 - xiaohe
-  - 🇭🇰 中国香港 (Hong Kong) 19 - xiaohe
-  - 🇭🇰 中国香港 (Hong Kong) 20 - xiaohe
-  - 🇭🇰 中国香港 (Hong Kong) 21 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -253,11 +180,5 @@ proxy-groups:
   - 🇭🇰 中国香港 (Hong Kong) 13 - xiaohe
   - 🇭🇰 中国香港 (Hong Kong) 14 - xiaohe
   - 🇭🇰 中国香港 (Hong Kong) 15 - xiaohe
-  - 🇭🇰 中国香港 (Hong Kong) 16 - xiaohe
-  - 🇭🇰 中国香港 (Hong Kong) 17 - xiaohe
-  - 🇭🇰 中国香港 (Hong Kong) 18 - xiaohe
-  - 🇭🇰 中国香港 (Hong Kong) 19 - xiaohe
-  - 🇭🇰 中国香港 (Hong Kong) 20 - xiaohe
-  - 🇭🇰 中国香港 (Hong Kong) 21 - xiaohe
 rules:
 - MATCH,PROXIES

@@ -1,0 +1,58 @@
+port: 7890
+socks-port: 7891
+allow-lan: true
+mode: rule
+log-level: info
+proxies:
+- name: 🇨🇿 捷克 (Czech) 01 - xiaohe
+  server: 85.117.235.50
+  port: 443
+  udp: true
+  type: vless
+  uuid: f4d71fd6-1c25-4748-836b-1dbda9268039
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: PmdZ2ETkHc0zjYcs22xT_wyZk5fEpX7mg7RP396HBBc
+    short-id: 232b1b09e45325a4
+  servername: cz1.animeteka.info
+  client-fingerprint: chrome
+- name: 🇨🇿 捷克 (Czech) 02 - xiaohe
+  server: 153.76.190.41
+  port: 8443
+  udp: true
+  type: hysteria2
+  password: 3a92b39a-5f02-415e-a908-783ec320e83f
+  sni: speedtestmark.com
+  skip-cert-verify: false
+- name: 🇨🇿 捷克 (Czech) 03 - xiaohe
+  server: 45.146.90.85
+  port: 443
+  udp: true
+  type: vless
+  uuid: eec2f6a7-c10f-43b0-b133-61f9bf9bbc27
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: bPbAdn6ogLbiv5cRe5d12EL7FhooAIVrC3-fg90P-Bw
+    short-id: 72104d27a0f5f62e
+  servername: www.amazon.com
+  client-fingerprint: safari
+proxy-groups:
+- name: PROXIES
+  type: select
+  proxies:
+  - AUTO
+  - 🇨🇿 捷克 (Czech) 01 - xiaohe
+  - 🇨🇿 捷克 (Czech) 02 - xiaohe
+  - 🇨🇿 捷克 (Czech) 03 - xiaohe
+- name: AUTO
+  type: url-test
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  proxies:
+  - 🇨🇿 捷克 (Czech) 01 - xiaohe
+  - 🇨🇿 捷克 (Czech) 02 - xiaohe
+  - 🇨🇿 捷克 (Czech) 03 - xiaohe
+rules:
+- MATCH,PROXIES
